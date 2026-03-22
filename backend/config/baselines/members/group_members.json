@@ -1,24 +1,61 @@
 {
   "finance": {
     "users": [
+      "admin_user1",
+      "admin_user2",
+      "admin_user3",
+      "admin_user4",
       "anhthu",
+      "finance_user1",
+      "finance_user2",
+      "finance_user3",
+      "finance_user4",
+      "huydev",
+      "huyle",
+      "khanhng",
       "linhfin",
+      "minhtq",
       "ngocmai",
+      "quangdev",
+      "sys_admin",
       "thuongf",
+      "tnghia",
       "trinhk"
     ],
     "source_ips": [
       "10.103.117.155",
       "10.103.170.222",
+      "10.116.28.19",
       "10.127.63.250",
+      "10.132.199.126",
+      "10.141.10.67",
+      "10.149.15.24",
+      "10.168.102.183",
+      "10.175.175.89",
+      "10.175.45.166",
       "10.189.173.182",
+      "10.200.100.50",
+      "10.200.100.51",
+      "10.200.100.52",
       "10.230.65.53",
-      "10.30.185.148"
+      "10.233.64.205",
+      "10.243.246.222",
+      "10.29.141.140",
+      "10.30.185.148",
+      "10.60.88.220",
+      "10.71.227.1",
+      "10.97.208.176"
     ],
     "hosts": [
+      "accounting-srv01",
+      "admin-srv01",
+      "backup-srv01",
       "db-fin01",
       "erpsrv01",
-      "filesrv-fin01"
+      "filesrv-fin01",
+      "finance-srv01",
+      "monitor-srv01",
+      "report-srv01"
     ]
   },
   "itadmin": {
@@ -81,12 +118,16 @@
   },
   "engineering": {
     "users": [
+      "hung_dev",
       "huydev",
       "huyle",
       "khanhng",
+      "long_dev",
+      "minh_dev",
       "minhtq",
       "quangdev",
-      "tnghia"
+      "tnghia",
+      "viet_dev"
     ],
     "source_ips": [
       "10.116.28.19",
@@ -96,6 +137,9 @@
       "10.168.102.183",
       "10.175.175.89",
       "10.175.45.166",
+      "10.200.100.50",
+      "10.200.100.51",
+      "10.200.100.52",
       "10.233.64.205",
       "10.243.246.222",
       "10.29.141.140",

@@ -642,28 +642,28 @@ def analyze():
                 
                 prompt = f"""Phân tích hoạt động bất thường của '{subject}':
 
-Các loại cảnh báo được phát hiện ({len(alerts_group)} tổng cộng):
-{alert_summary}
+                Các loại cảnh báo được phát hiện ({len(alerts_group)} tổng cộng):
+                {alert_summary}
 
-Yêu cầu:
-1. Phân tích bằng TIẾNG VIỆT HOÀN TOÀN (không sử dụng tiếng Anh).
-2. Tìm mối liên hệ giữa các hành vi này.
-3. Đánh giá mức độ rủi ro tổng thể.
-4. Đề xuất hành động cụ thể.
+                Yêu cầu:
+                1. Phân tích bằng TIẾNG VIỆT HOÀN TOÀN (không sử dụng tiếng Anh).
+                2. Tìm mối liên hệ giữa các hành vi này.
+                3. Đánh giá mức độ rủi ro tổng thể.
+                4. Đề xuất hành động cụ thể.
 
-Mức độ rủi ro phải là MỘT trong những giá trị sau (chọn đúng):
-- "Thấp" (nếu rủi ro nhỏ)
-- "Trung bình" (nếu rủi ro vừa phải)
-- "Cao" (nếu rủi ro lớn)
-- "Cực kỳ nguy cấp" (nếu rủi ro rất lớn)
+                Mức độ rủi ro phải là MỘT trong những giá trị sau (chọn đúng):
+                - "Thấp" (nếu rủi ro nhỏ)
+                - "Trung bình" (nếu rủi ro vừa phải)
+                - "Cao" (nếu rủi ro lớn)
+                - "Cực kỳ nguy cấp" (nếu rủi ro rất lớn)
 
-Trả lời CHÍNH XÁC theo format JSON này (không thêm bất cứ thứ gì khác):
-{{
-  "summary": "Tóm tắt phân tích bằng tiếng Việt",
-  "risks": ["Rủi ro 1 bằng tiếng Việt", "Rủi ro 2 bằng tiếng Việt"],
-  "risk_level": "Chọn từ: Thấp, Trung bình, Cao, hoặc Cực kỳ nguy cấp",
-  "actions": ["Hành động 1 bằng tiếng Việt", "Hành động 2 bằng tiếng Việt"]
-}}"""
+                Trả lời CHÍNH XÁC theo format JSON này (không thêm bất cứ thứ gì khác):
+                {{
+                "summary": "Tóm tắt phân tích bằng tiếng Việt",
+                "risks": ["Rủi ro 1 bằng tiếng Việt", "Rủi ro 2 bằng tiếng Việt"],
+                "risk_level": "Chọn từ: Thấp, Trung bình, Cao, hoặc Cực kỳ nguy cấp",
+                "actions": ["Hành động 1 bằng tiếng Việt", "Hành động 2 bằng tiếng Việt"]
+                }}"""
                 
                 if logs_text:
                     logs_context = "\n".join(logs_text[:50])  # Max 50 logs để không quá dài
@@ -888,15 +888,40 @@ Trả lời CHÍNH XÁC theo format JSON này (không thêm bất cứ thứ gì
             n8n_payload.append(n8n_item)
         
         # Gửi tới N8N webhook (nếu cấu hình)
+        # === [SỬA] Thêm xác thực HMAC SHA-256 để ngăn cảnh báo giả mạo ===
+        # Vị trí sửa: app.py – BƯỚC 5 (Gửi kết quả tới N8N Webhook)
+        # Thêm biến WEBHOOK_SECRET vào file .env để bật xác thực
         n8n_webhook_url = os.getenv("N8N_WEBHOOK_URL")
         if n8n_webhook_url:
             try:
+                import hmac as _hmac
+                import hashlib as _hashlib
+
                 print(f"[N8N] Gửi {len(n8n_payload)} kết quả phân tích tới N8N webhook...")
+
+                # Chuẩn bị payload dạng bytes (để ký HMAC)
+                body_str  = json.dumps({"results": n8n_payload}, ensure_ascii=False)
+                body_bytes = body_str.encode("utf-8")
+
+                # Tính chữ ký HMAC SHA-256 nếu có WEBHOOK_SECRET
+                webhook_secret = os.getenv("WEBHOOK_SECRET", "")
+                request_headers = {"Content-Type": "application/json"}
+                if webhook_secret:
+                    signature = _hmac.new(
+                        webhook_secret.encode("utf-8"),
+                        body_bytes,
+                        _hashlib.sha256
+                    ).hexdigest()
+                    request_headers["X-Signature"] = f"sha256={signature}"
+                    print(f"[N8N] ✅ HMAC signature đã được thêm vào header X-Signature")
+                else:
+                    print(f"[N8N] ⚠️  WEBHOOK_SECRET chưa cấu hình – gửi không có chữ ký")
+
                 response = requests.post(
                     n8n_webhook_url,
-                    json={"results": n8n_payload},
+                    data=body_bytes,          # dùng data thay json= để giữ nguyên bytes đã ký
                     timeout=30,
-                    headers={"Content-Type": "application/json"}
+                    headers=request_headers
                 )
                 if response.status_code == 200:
                     print(f"[N8N] ✅ Webhook executed successfully")
@@ -906,6 +931,7 @@ Trả lời CHÍNH XÁC theo format JSON này (không thêm bất cứ thứ gì
                 print(f"[N8N] ❌ Error sending to webhook: {ex}")
         else:
             print(f"[N8N] ⚠️ N8N_WEBHOOK_URL not configured, skipping webhook")
+
 
         # === Response ===
         payload = {

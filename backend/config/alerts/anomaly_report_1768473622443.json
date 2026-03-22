@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-01-15T10:40:22.443020+00:00",
+  "summary": {
+    "total_alerts": 4,
+    "severity_breakdown": {
+      "WARNING": 4
+    },
+    "type_breakdown": {
+      "dns_suspicious_domains": 4
+    },
+    "top_subjects": [
+      "dns-eng01",
+      "dns-fin01",
+      "dns-sales01",
+      "dns-mgmt01"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-sales01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-sales01: 170 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 170,
+        "examples": [
+          "chunk94.uqygq._dns.data.exfil.attacker.tld",
+          "chunk33.qevpz._dns.data.exfil.attacker.tld",
+          "chunk105.zwnrh._dns.data.exfil.attacker.tld",
+          "chunk8.vnzsa._dns.data.exfil.attacker.tld",
+          "hlvbcm.aws.amazon.com"
+        ],
+        "details": [
+          {
+            "domain": "chunk1.gssge._dns.data.exfil.attacker.tld",
+            "timestamp": "2026-10-27 12:00:05+00:00"
+          },
+          {
+            "domain": "chunk1.gssge._dns.data.exfil.attacker.tld",
+            "timestamp": "2026-10-27 12:00:05+00:00"
+          },
+          {
+            "domain": "chunk1.gssge._dns.data.exfil.attacker.tld",
+            "timestamp": "2026-10-27 12:00:05+00:00"
+          },
+          {
+            "domain": "chunk2.misuw._dns.data.exfil.attacker.tld",
+            "timestamp": "2026-10-27 12:00:10+00:00"
+          },
+          {
+            "domain": "chunk2.misuw._dns.data.exfil.attacker.tld",
+            "timestamp": "2026-10-27 12:00:10+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-sales01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-fin01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-fin01: 62 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 62,
+        "examples": [
+          "gurjj.erp.company.local",
+          "tqt.intranet.company.local",
+          "bjrgse.accounts.google.com",
+          "rnd.crm.company.local",
+          "rkaxy.security.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "pcy.erp.company.local",
+            "timestamp": "2026-10-27 20:00:06+00:00"
+          },
+          {
+            "domain": "pcy.erp.company.local",
+            "timestamp": "2026-10-27 20:00:06+00:00"
+          },
+          {
+            "domain": "pcy.erp.company.local",
+            "timestamp": "2026-10-27 20:00:06+00:00"
+          },
+          {
+            "domain": "vkb.fonts.googleapis.com",
+            "timestamp": "2026-10-27 20:00:10+00:00"
+          },
+          {
+            "domain": "vkb.fonts.googleapis.com",
+            "timestamp": "2026-10-27 20:00:10+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-fin01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-eng01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-eng01: 52 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 52,
+        "examples": [
+          "nid.crm.company.local",
+          "svsrje.erp.company.local",
+          "owcha.cdn.jsdelivr.net",
+          "fpqbw.security.ubuntu.com",
+          "wbvl.security.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "fpqbw.security.ubuntu.com",
+            "timestamp": "2026-10-27 20:02:39+00:00"
+          },
+          {
+            "domain": "fpqbw.security.ubuntu.com",
+            "timestamp": "2026-10-27 20:02:39+00:00"
+          },
+          {
+            "domain": "fpqbw.security.ubuntu.com",
+            "timestamp": "2026-10-27 20:02:39+00:00"
+          },
+          {
+            "domain": "gprme.dlcdn.apache.org",
+            "timestamp": "2026-10-27 20:02:42+00:00"
+          },
+          {
+            "domain": "gprme.dlcdn.apache.org",
+            "timestamp": "2026-10-27 20:02:42+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-eng01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-mgmt01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-mgmt01: 54 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 54,
+        "examples": [
+          "qvkvx.cdn.jsdelivr.net",
+          "znimcf.erp.company.local",
+          "zaicjf.fonts.googleapis.com",
+          "evni.security.ubuntu.com",
+          "lfnwk.fonts.googleapis.com"
+        ],
+        "details": [
+          {
+            "domain": "lfnwk.fonts.googleapis.com",
+            "timestamp": "2026-10-27 20:00:59+00:00"
+          },
+          {
+            "domain": "lfnwk.fonts.googleapis.com",
+            "timestamp": "2026-10-27 20:00:59+00:00"
+          },
+          {
+            "domain": "lfnwk.fonts.googleapis.com",
+            "timestamp": "2026-10-27 20:00:59+00:00"
+          },
+          {
+            "domain": "egnx.cdn.jsdelivr.net",
+            "timestamp": "2026-10-27 20:01:56+00:00"
+          },
+          {
+            "domain": "egnx.cdn.jsdelivr.net",
+            "timestamp": "2026-10-27 20:01:56+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-mgmt01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    }
+  ]
+}

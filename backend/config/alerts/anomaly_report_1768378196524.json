@@ -1,0 +1,2457 @@
+{
+  "generated_at": "2026-01-14T08:09:56.524042+00:00",
+  "summary": {
+    "total_alerts": 72,
+    "severity_breakdown": {
+      "WARNING": 15,
+      "CRITICAL": 57
+    },
+    "type_breakdown": {
+      "firewall_deny_burst": 6,
+      "firewall_port_scan": 6,
+      "firewall_policy_evasion": 50,
+      "anomalous_data_access": 6,
+      "new_user": 1,
+      "blocked_actions_spike": 3
+    },
+    "top_subjects": [
+      "netops",
+      "backup",
+      "admin2",
+      "minhtq",
+      "unknown",
+      "khanhng",
+      "anhthu",
+      "admin1",
+      "svc_monitor",
+      "itops"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 21 blocked connections from unknown (IP: 10.250.4.99) to 8 destination(s).",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "blocked_count": 21,
+        "destinations": [
+          "10.20.20.30",
+          "10.10.10.40",
+          "10.10.10.20",
+          "10.30.30.10",
+          "10.10.10.30",
+          "10.20.20.20",
+          "10.30.30.30",
+          "10.20.20.10"
+        ],
+        "dest_count": 8,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from unknown (IP: 172.16.9.22) to 7 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.9.22",
+        "username": "unknown",
+        "blocked_count": 20,
+        "destinations": [
+          "10.20.20.20",
+          "10.30.30.20",
+          "10.20.20.30",
+          "10.10.10.30",
+          "10.20.20.10",
+          "10.10.10.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 7,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from unknown (IP: 192.168.77.77) to 8 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.77.77",
+        "username": "unknown",
+        "blocked_count": 20,
+        "destinations": [
+          "10.10.10.40",
+          "10.20.20.30",
+          "10.30.30.10",
+          "10.30.30.20",
+          "10.20.20.20",
+          "10.30.30.30",
+          "10.10.10.30",
+          "10.10.10.20"
+        ],
+        "dest_count": 8,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 10.250.4.99) attempted connections to 5 different ports.",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "port_count": 5,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          8081
+        ],
+        "attempt_count": 21
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 5
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 172.16.9.22) attempted connections to 5 different ports.",
+      "evidence": {
+        "source_ip": "172.16.9.22",
+        "username": "unknown",
+        "port_count": 5,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          5432
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 5
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 192.168.77.77) attempted connections to 6 different ports.",
+      "evidence": {
+        "source_ip": "192.168.77.77",
+        "username": "unknown",
+        "port_count": 6,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          5432,
+          8081
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 6
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.102.112.36) accessed 1 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.102.112.36",
+        "username": "admin1",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.102.252.24) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.102.252.24",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.103.117.155) accessed 2 sensitive service(s) (16 connections).",
+      "evidence": {
+        "source_ip": "10.103.117.155",
+        "username": "trinhk",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 16
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.103.170.222) accessed 2 sensitive service(s) (16 connections).",
+      "evidence": {
+        "source_ip": "10.103.170.222",
+        "username": "thuongf",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 16
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.116.28.19) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.127.63.250) accessed 2 sensitive service(s) (15 connections).",
+      "evidence": {
+        "source_ip": "10.127.63.250",
+        "username": "trinhk",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 15
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.132.199.126) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.141.10.67) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.149.15.24) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.152.112.176) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.152.112.176",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.152.16.207) accessed 1 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.152.16.207",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.168.102.183) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.175.45.166) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.189.173.182) accessed 2 sensitive service(s) (21 connections).",
+      "evidence": {
+        "source_ip": "10.189.173.182",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 21
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.230.65.53) accessed 2 sensitive service(s) (28 connections).",
+      "evidence": {
+        "source_ip": "10.230.65.53",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 28
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.243.246.222) accessed 1 sensitive service(s) (8 connections).",
+      "evidence": {
+        "source_ip": "10.243.246.222",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 8
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "unknown",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: unknown (IP: 10.250.4.99) accessed 2 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "sensitive_ports": [
+          445,
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.28.125.42) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.28.125.42",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.29.141.140) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: linhfin (IP: 10.30.185.148) accessed 2 sensitive service(s) (13 connections).",
+      "evidence": {
+        "source_ip": "10.30.185.148",
+        "username": "linhfin",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 13
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.51.107.172) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.51.107.172",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.51.136.180) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.51.136.180",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.60.88.220) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.71.227.1) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.97.208.176) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'backup': Database queries tăng đột ngột: 20 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "backup",
+        "db_queries": 20,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 20.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 20,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 20 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "svc_monitor",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'svc_monitor': Database queries tăng đột ngột: 5 (baseline: 0.0±0.1, Z=5.00)",
+      "evidence": {
+        "user": "svc_monitor",
+        "db_queries": 5,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 5.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 4.0,
+        "final_score": 4.0
+      },
+      "prompt_ctx": {
+        "user": "svc_monitor",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 5,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 5 (baseline: 0.0±0.1, Z=5.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'itops': Database queries tăng đột ngột: 12 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "itops",
+        "db_queries": 12,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 12.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 12,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 12 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'netops': Database queries tăng đột ngột: 15 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "netops",
+        "db_queries": 15,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 15.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 15,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 15 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin1': Database queries tăng đột ngột: 13 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "admin1",
+        "db_queries": 13,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 13.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 13,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 13 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 4.800000000000001,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin2': Database queries tăng đột ngột: 6 (baseline: 0.0±0.1, Z=6.00)",
+      "evidence": {
+        "user": "admin2",
+        "db_queries": 6,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 6.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 4.800000000000001,
+        "final_score": 4.800000000000001
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 6,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 6 (baseline: 0.0±0.1, Z=6.00)"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới unknown xuất hiện với 73 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 73
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 73
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "unknown",
+      "severity": "CRITICAL",
+      "score": 8.076923076923077,
+      "text": "Phát hiện 21/26 hành động bị chặn (80.8%) từ unknown (source_ip=10.250.4.99). Chi tiết: User: unknown | Host: fw-dmz01 | Target: 10.20.20.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 21,
+        "total_count": 26,
+        "ratio": 0.8076923076923077,
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "context": "User: unknown | Host: fw-dmz01 | Target: 10.20.20.30"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.8076923076923077,
+          "count": 21,
+          "source": "10.250.4.99"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.250.4.99"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "unknown",
+      "severity": "CRITICAL",
+      "score": 8.333333333333334,
+      "text": "Phát hiện 20/24 hành động bị chặn (83.3%) từ unknown (source_ip=172.16.9.22). Chi tiết: User: unknown | Host: fw-edge01 | Target: 10.20.20.20 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 20,
+        "total_count": 24,
+        "ratio": 0.8333333333333334,
+        "source_ip": "172.16.9.22",
+        "username": "unknown",
+        "context": "User: unknown | Host: fw-edge01 | Target: 10.20.20.20"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.8333333333333334,
+          "count": 20,
+          "source": "172.16.9.22"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 172.16.9.22"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "unknown",
+      "severity": "CRITICAL",
+      "score": 8.695652173913043,
+      "text": "Phát hiện 20/23 hành động bị chặn (87.0%) từ unknown (source_ip=192.168.77.77). Chi tiết: User: unknown | Host: fw-edge01 | Target: 10.10.10.40 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 20,
+        "total_count": 23,
+        "ratio": 0.8695652173913043,
+        "source_ip": "192.168.77.77",
+        "username": "unknown",
+        "context": "User: unknown | Host: fw-edge01 | Target: 10.10.10.40"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.8695652173913043,
+          "count": 20,
+          "source": "192.168.77.77"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.77.77"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 21 blocked connections from unknown (IP: 10.250.4.99) to 8 destination(s).",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "blocked_count": 21,
+        "destinations": [
+          "10.20.20.30",
+          "10.10.10.40",
+          "10.10.10.20",
+          "10.30.30.10",
+          "10.10.10.30",
+          "10.20.20.20",
+          "10.30.30.30",
+          "10.20.20.10"
+        ],
+        "dest_count": 8,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from unknown (IP: 172.16.9.22) to 7 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.9.22",
+        "username": "unknown",
+        "blocked_count": 20,
+        "destinations": [
+          "10.20.20.20",
+          "10.30.30.20",
+          "10.20.20.30",
+          "10.10.10.30",
+          "10.20.20.10",
+          "10.10.10.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 7,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from unknown (IP: 192.168.77.77) to 8 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.77.77",
+        "username": "unknown",
+        "blocked_count": 20,
+        "destinations": [
+          "10.10.10.40",
+          "10.20.20.30",
+          "10.30.30.10",
+          "10.30.30.20",
+          "10.20.20.20",
+          "10.30.30.30",
+          "10.10.10.30",
+          "10.10.10.20"
+        ],
+        "dest_count": 8,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 10.250.4.99) attempted connections to 5 different ports.",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "port_count": 5,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          8081
+        ],
+        "attempt_count": 21
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 5
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 172.16.9.22) attempted connections to 5 different ports.",
+      "evidence": {
+        "source_ip": "172.16.9.22",
+        "username": "unknown",
+        "port_count": 5,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          5432
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 5
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "unknown",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: unknown (IP: 192.168.77.77) attempted connections to 6 different ports.",
+      "evidence": {
+        "source_ip": "192.168.77.77",
+        "username": "unknown",
+        "port_count": 6,
+        "ports": [
+          22,
+          80,
+          443,
+          445,
+          5432,
+          8081
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 6
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.102.112.36) accessed 1 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.102.112.36",
+        "username": "admin1",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.102.252.24) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.102.252.24",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.103.117.155) accessed 2 sensitive service(s) (16 connections).",
+      "evidence": {
+        "source_ip": "10.103.117.155",
+        "username": "trinhk",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 16
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.103.170.222) accessed 2 sensitive service(s) (16 connections).",
+      "evidence": {
+        "source_ip": "10.103.170.222",
+        "username": "thuongf",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 16
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.116.28.19) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.127.63.250) accessed 2 sensitive service(s) (15 connections).",
+      "evidence": {
+        "source_ip": "10.127.63.250",
+        "username": "trinhk",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 15
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.132.199.126) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.141.10.67) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.149.15.24) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.152.112.176) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.152.112.176",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.152.16.207) accessed 1 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.152.16.207",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.168.102.183) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.175.45.166) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.189.173.182) accessed 2 sensitive service(s) (21 connections).",
+      "evidence": {
+        "source_ip": "10.189.173.182",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 21
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.230.65.53) accessed 2 sensitive service(s) (28 connections).",
+      "evidence": {
+        "source_ip": "10.230.65.53",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 28
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.243.246.222) accessed 1 sensitive service(s) (8 connections).",
+      "evidence": {
+        "source_ip": "10.243.246.222",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 8
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "unknown",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: unknown (IP: 10.250.4.99) accessed 2 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.250.4.99",
+        "username": "unknown",
+        "sensitive_ports": [
+          445,
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "unknown",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.28.125.42) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.28.125.42",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.29.141.140) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: linhfin (IP: 10.30.185.148) accessed 2 sensitive service(s) (13 connections).",
+      "evidence": {
+        "source_ip": "10.30.185.148",
+        "username": "linhfin",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 13
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.51.107.172) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.51.107.172",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.51.136.180) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.51.136.180",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.60.88.220) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.71.227.1) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.97.208.176) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    }
+  ]
+}

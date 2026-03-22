@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-01-15T10:32:44.418390+00:00",
+  "summary": {
+    "total_alerts": 6,
+    "severity_breakdown": {
+      "WARNING": 5,
+      "CRITICAL": 1
+    },
+    "type_breakdown": {
+      "dns_nxdomain_flood": 1,
+      "dns_nxdomain_storm": 1,
+      "dns_suspicious_domains": 4
+    },
+    "top_subjects": [
+      "dns-eng01",
+      "dns-fin01",
+      "dns-sales01",
+      "dns-mgmt01"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "dns_nxdomain_flood",
+      "subject": "dns-fin01",
+      "severity": "WARNING",
+      "score": 6.5,
+      "text": "User/IP dns-fin01: 180 NXDOMAIN queries (potential scanning)",
+      "evidence": {
+        "nxdomain_count": 180,
+        "examples": [
+          {
+            "domain": "htucmh.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:03+00:00"
+          },
+          {
+            "domain": "burjzj.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:06+00:00"
+          },
+          {
+            "domain": "rxabdu.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:09+00:00"
+          },
+          {
+            "domain": "cxbytf.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:12+00:00"
+          },
+          {
+            "domain": "mtpuob.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:15+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-fin01",
+        "behavior": {
+          "type": "dns_nxdomain_flood"
+        }
+      }
+    },
+    {
+      "type": "dns_nxdomain_storm",
+      "subject": "dns-fin01",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "User/IP dns-fin01: 180 NXDOMAIN queries in 8.9 minutes - NXDOMAIN Storm DoS attack",
+      "evidence": {
+        "nxdomain_count": 180,
+        "duration_minutes": 8.9,
+        "examples": [
+          {
+            "domain": "htucmh.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:03+00:00"
+          },
+          {
+            "domain": "burjzj.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:06+00:00"
+          },
+          {
+            "domain": "rxabdu.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:09+00:00"
+          },
+          {
+            "domain": "cxbytf.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:12+00:00"
+          },
+          {
+            "domain": "mtpuob.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:15+00:00"
+          }
+        ],
+        "pattern": "nxdomain_storm"
+      },
+      "prompt_ctx": {
+        "user": "dns-fin01",
+        "behavior": {
+          "type": "dns_nxdomain_storm"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-fin01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-fin01: 238 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 238,
+        "examples": [
+          "obshaf.nonexist.intranet.company.local",
+          "mgacpq.nonexist.intranet.company.local",
+          "zziwri.nonexist.intranet.company.local",
+          "kzxzhj.nonexist.intranet.company.local",
+          "udjxqx.nonexist.intranet.company.local"
+        ],
+        "details": [
+          {
+            "domain": "htucmh.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:03+00:00"
+          },
+          {
+            "domain": "htucmh.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:03+00:00"
+          },
+          {
+            "domain": "burjzj.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:06+00:00"
+          },
+          {
+            "domain": "burjzj.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:06+00:00"
+          },
+          {
+            "domain": "rxabdu.nonexist.intranet.company.local",
+            "timestamp": "2026-10-27 14:00:09+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-fin01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-mgmt01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-mgmt01: 61 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 61,
+        "examples": [
+          "yjdb.accounts.google.com",
+          "zplnp.crm.company.local",
+          "cvb.accounts.google.com",
+          "apsy.accounts.google.com",
+          "desn.accounts.google.com"
+        ],
+        "details": [
+          {
+            "domain": "exvop.fonts.googleapis.com",
+            "timestamp": "2026-10-27 17:00:07+00:00"
+          },
+          {
+            "domain": "exvop.fonts.googleapis.com",
+            "timestamp": "2026-10-27 17:00:07+00:00"
+          },
+          {
+            "domain": "exvop.fonts.googleapis.com",
+            "timestamp": "2026-10-27 17:00:07+00:00"
+          },
+          {
+            "domain": "tkklx.erp.company.local",
+            "timestamp": "2026-10-27 17:00:37+00:00"
+          },
+          {
+            "domain": "zaqh.dlcdn.apache.org",
+            "timestamp": "2026-10-27 17:01:37+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-mgmt01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-eng01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-eng01: 47 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 47,
+        "examples": [
+          "xzu.fonts.googleapis.com",
+          "hsyces.aws.amazon.com",
+          "fft.archive.ubuntu.com",
+          "noogc.cdn.jsdelivr.net",
+          "tqezj.crm.company.local"
+        ],
+        "details": [
+          {
+            "domain": "fegj.accounts.google.com",
+            "timestamp": "2026-10-27 17:01:57+00:00"
+          },
+          {
+            "domain": "fegj.accounts.google.com",
+            "timestamp": "2026-10-27 17:01:57+00:00"
+          },
+          {
+            "domain": "fegj.accounts.google.com",
+            "timestamp": "2026-10-27 17:01:57+00:00"
+          },
+          {
+            "domain": "noogc.cdn.jsdelivr.net",
+            "timestamp": "2026-10-27 17:02:38+00:00"
+          },
+          {
+            "domain": "noogc.cdn.jsdelivr.net",
+            "timestamp": "2026-10-27 17:02:38+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-eng01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-sales01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-sales01: 57 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 57,
+        "examples": [
+          "ggyzl.crm.company.local",
+          "qojqfq.ntp.ubuntu.com",
+          "agyhg.cdn.jsdelivr.net",
+          "ydr.security.ubuntu.com",
+          "bhg.archive.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "bmiep.crm.company.local",
+            "timestamp": "2026-10-27 17:00:14+00:00"
+          },
+          {
+            "domain": "bmiep.crm.company.local",
+            "timestamp": "2026-10-27 17:00:14+00:00"
+          },
+          {
+            "domain": "bmiep.crm.company.local",
+            "timestamp": "2026-10-27 17:00:14+00:00"
+          },
+          {
+            "domain": "ithdxh.crm.company.local",
+            "timestamp": "2026-10-27 17:02:21+00:00"
+          },
+          {
+            "domain": "intranet.company.local",
+            "timestamp": "2026-10-27 17:02:31+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-sales01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    }
+  ]
+}

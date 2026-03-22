@@ -1,0 +1,1735 @@
+{
+  "generated_at": "2026-03-16T12:25:10.560808+00:00",
+  "summary": {
+    "total_alerts": 50,
+    "severity_breakdown": {
+      "CRITICAL": 26,
+      "WARNING": 24
+    },
+    "type_breakdown": {
+      "suspicious_process_external_connection": 14,
+      "edr_lateral_movement_detected": 1,
+      "edr_lolbins_outbound_detected": 9,
+      "new_user": 4,
+      "user_events_spike": 6,
+      "user_unique_src_ips_spike": 6,
+      "off_hours_access": 10
+    },
+    "top_subjects": [
+      "attacker",
+      "huydev",
+      "duytuan",
+      "minhtq",
+      "tnghia",
+      "thuananh",
+      "khanhng",
+      "quangdev",
+      "huyle",
+      "minhlong"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 3886, dtype: object connecting to external IP 99.251.147.21",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 3886, dtype: object",
+        "dest_ip": "99.251.147.21",
+        "reason": "unknown users should not run powershell.exe\nname: 3886, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 3886, dtype: object",
+          "dest_ip": "99.251.147.21"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 3886, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 3946, dtype: object connecting to external IP 33.222.60.156",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 3946, dtype: object",
+        "dest_ip": "33.222.60.156",
+        "reason": "unknown users should not run powershell.exe\nname: 3946, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 3946, dtype: object",
+          "dest_ip": "33.222.60.156"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 3946, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 4274, dtype: object connecting to external IP 191.184.182.144",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4274, dtype: object",
+        "dest_ip": "191.184.182.144",
+        "reason": "unknown users should not run powershell.exe\nname: 4274, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4274, dtype: object",
+          "dest_ip": "191.184.182.144"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4274, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 4333, dtype: object connecting to external IP 100.232.66.119",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4333, dtype: object",
+        "dest_ip": "100.232.66.119",
+        "reason": "unknown users should not run powershell.exe\nname: 4333, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4333, dtype: object",
+          "dest_ip": "100.232.66.119"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4333, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "duytuan",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'duytuan' running powershell.exe\nname: 4385, dtype: object connecting to external IP 188.83.97.190",
+      "evidence": {
+        "username": "duytuan",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4385, dtype: object",
+        "dest_ip": "188.83.97.190",
+        "reason": "unknown users should not run powershell.exe\nname: 4385, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4385, dtype: object",
+          "dest_ip": "188.83.97.190"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4385, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "thuananh",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'thuananh' running powershell.exe\nname: 4527, dtype: object connecting to external IP 133.196.42.157",
+      "evidence": {
+        "username": "thuananh",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4527, dtype: object",
+        "dest_ip": "133.196.42.157",
+        "reason": "unknown users should not run powershell.exe\nname: 4527, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4527, dtype: object",
+          "dest_ip": "133.196.42.157"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4527, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "duytuan",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'duytuan' running powershell.exe\nname: 4656, dtype: object connecting to external IP 107.79.77.207",
+      "evidence": {
+        "username": "duytuan",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4656, dtype: object",
+        "dest_ip": "107.79.77.207",
+        "reason": "unknown users should not run powershell.exe\nname: 4656, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4656, dtype: object",
+          "dest_ip": "107.79.77.207"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4656, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 4750, dtype: object connecting to external IP 185.88.47.101",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4750, dtype: object",
+        "dest_ip": "185.88.47.101",
+        "reason": "unknown users should not run powershell.exe\nname: 4750, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4750, dtype: object",
+          "dest_ip": "185.88.47.101"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4750, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 4801, dtype: object connecting to external IP 138.56.234.171",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4801, dtype: object",
+        "dest_ip": "138.56.234.171",
+        "reason": "unknown users should not run powershell.exe\nname: 4801, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4801, dtype: object",
+          "dest_ip": "138.56.234.171"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4801, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "thuananh",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'thuananh' running powershell.exe\nname: 4835, dtype: object connecting to external IP 188.83.97.190",
+      "evidence": {
+        "username": "thuananh",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4835, dtype: object",
+        "dest_ip": "188.83.97.190",
+        "reason": "unknown users should not run powershell.exe\nname: 4835, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4835, dtype: object",
+          "dest_ip": "188.83.97.190"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4835, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "duytuan",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'duytuan' running powershell.exe\nname: 4882, dtype: object connecting to external IP 86.114.31.41",
+      "evidence": {
+        "username": "duytuan",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4882, dtype: object",
+        "dest_ip": "86.114.31.41",
+        "reason": "unknown users should not run powershell.exe\nname: 4882, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4882, dtype: object",
+          "dest_ip": "86.114.31.41"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4882, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'minhlong' running powershell.exe\nname: 4958, dtype: object connecting to external IP 30.17.217.191",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4958, dtype: object",
+        "dest_ip": "30.17.217.191",
+        "reason": "unknown users should not run powershell.exe\nname: 4958, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4958, dtype: object",
+          "dest_ip": "30.17.217.191"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4958, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "thuananh",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'thuananh' running powershell.exe\nname: 4975, dtype: object connecting to external IP 86.105.205.71",
+      "evidence": {
+        "username": "thuananh",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4975, dtype: object",
+        "dest_ip": "86.105.205.71",
+        "reason": "unknown users should not run powershell.exe\nname: 4975, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4975, dtype: object",
+          "dest_ip": "86.105.205.71"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4975, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "suspicious_process_external_connection",
+      "subject": "thuananh",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "🚨 SUSPICIOUS PROCESS: unknown user 'thuananh' running powershell.exe\nname: 4993, dtype: object connecting to external IP 146.149.220.31",
+      "evidence": {
+        "username": "thuananh",
+        "user_role": "unknown",
+        "process": "powershell.exe\nname: 4993, dtype: object",
+        "dest_ip": "146.149.220.31",
+        "reason": "unknown users should not run powershell.exe\nname: 4993, dtype: object"
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": null,
+        "behavior": {
+          "type": "suspicious_process",
+          "process": "powershell.exe\nname: 4993, dtype: object",
+          "dest_ip": "146.149.220.31"
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "Non-technical user (unknown) executing technical tool (powershell.exe\nname: 4993, dtype: object) to external network"
+        }
+      }
+    },
+    {
+      "type": "edr_lateral_movement_detected",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User attacker (unknown): 32 unique source IPs (baseline: 10) - UNKNOWN users BLOCKED from Port 3389 (RDP); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+      "evidence": {
+        "username": "attacker",
+        "user_role": "unknown",
+        "attack_pattern": "lateral_movement",
+        "unique_src_ips": 32,
+        "baseline_ips": 10.0,
+        "destinations_count": 11,
+        "unique_ports": 1,
+        "external_ips_count": 0,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 32,
+          "baseline_ips": 10.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 10.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "duytuan",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User duytuan (unknown): 43 unique source IPs (baseline: 10) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20; External admin access: 188.83.97.190:3389; High external IP count: 22 connections",
+      "evidence": {
+        "username": "duytuan",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 10.0,
+        "destinations_count": 31,
+        "unique_ports": 19,
+        "external_ips_count": 22,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+          "External admin access: 188.83.97.190:3389",
+          "High external IP count: 22 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 10.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 10.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+            "External admin access: 188.83.97.190:3389",
+            "High external IP count: 22 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User huydev (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40; External admin access: 30.17.217.191:22; High external IP count: 21 connections",
+      "evidence": {
+        "username": "huydev",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 32,
+        "unique_ports": 20,
+        "external_ips_count": 21,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+          "External admin access: 30.17.217.191:22",
+          "High external IP count: 21 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+            "External admin access: 30.17.217.191:22",
+            "High external IP count: 21 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User huyle (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20; External admin access: 97.75.22.175:3389; High external IP count: 23 connections",
+      "evidence": {
+        "username": "huyle",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 33,
+        "unique_ports": 21,
+        "external_ips_count": 23,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+          "External admin access: 97.75.22.175:3389",
+          "High external IP count: 23 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+            "External admin access: 97.75.22.175:3389",
+            "High external IP count: 23 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User khanhng (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40; External admin access: 154.140.12.136:22; High external IP count: 22 connections",
+      "evidence": {
+        "username": "khanhng",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 32,
+        "unique_ports": 19,
+        "external_ips_count": 22,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+          "External admin access: 154.140.12.136:22",
+          "High external IP count: 22 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+            "External admin access: 154.140.12.136:22",
+            "High external IP count: 22 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "minhlong",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User minhlong (unknown): 43 unique source IPs (baseline: 10) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20; External admin access: 83.140.175.22:445; High external IP count: 28 connections",
+      "evidence": {
+        "username": "minhlong",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 10.0,
+        "destinations_count": 39,
+        "unique_ports": 19,
+        "external_ips_count": 28,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+          "External admin access: 83.140.175.22:445",
+          "High external IP count: 28 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 10.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 10.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+            "External admin access: 83.140.175.22:445",
+            "High external IP count: 28 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User minhtq (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40; External admin access: 85.88.201.154:5432; High external IP count: 23 connections",
+      "evidence": {
+        "username": "minhtq",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 32,
+        "unique_ports": 17,
+        "external_ips_count": 23,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+          "External admin access: 85.88.201.154:5432",
+          "High external IP count: 23 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+            "External admin access: 85.88.201.154:5432",
+            "High external IP count: 23 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User quangdev (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20; External admin access: 107.79.77.207:22; High external IP count: 25 connections",
+      "evidence": {
+        "username": "quangdev",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 35,
+        "unique_ports": 17,
+        "external_ips_count": 25,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+          "External admin access: 107.79.77.207:22",
+          "High external IP count: 25 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+            "External admin access: 107.79.77.207:22",
+            "High external IP count: 25 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "thuananh",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User thuananh (unknown): 43 unique source IPs (baseline: 10) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30; External admin access: 146.149.220.31:22; High external IP count: 22 connections",
+      "evidence": {
+        "username": "thuananh",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 10.0,
+        "destinations_count": 33,
+        "unique_ports": 19,
+        "external_ips_count": 22,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+          "External admin access: 146.149.220.31:22",
+          "High external IP count: 22 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 10.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 10.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+            "External admin access: 146.149.220.31:22",
+            "High external IP count: 22 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User tnghia (unknown): 43 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40; External admin access: 50.10.145.11:22; High external IP count: 22 connections",
+      "evidence": {
+        "username": "tnghia",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 43,
+        "baseline_ips": 9.0,
+        "destinations_count": 33,
+        "unique_ports": 19,
+        "external_ips_count": 22,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+          "External admin access: 50.10.145.11:22",
+          "High external IP count: 22 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 43,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+            "External admin access: 50.10.145.11:22",
+            "High external IP count: 22 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới attacker xuất hiện với 138 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 138
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": "Engineering",
+        "behavior": {
+          "type": "new_user",
+          "events": 138
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "thuananh",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới thuananh xuất hiện với 539 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 539
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": "Engineering",
+        "behavior": {
+          "type": "new_user",
+          "events": 539
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "duytuan",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới duytuan xuất hiện với 531 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 531
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": "Engineering",
+        "behavior": {
+          "type": "new_user",
+          "events": 531
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "minhlong",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới minhlong xuất hiện với 594 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 594
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": "Engineering",
+        "behavior": {
+          "type": "new_user",
+          "events": 594
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.121212121212121,
+      "text": "Số sự kiện của user huydev tăng đột biến: 536 so với trung bình 132±0.",
+      "evidence": {
+        "current": 536,
+        "mean": 132.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 536
+        },
+        "time": null,
+        "baseline": {
+          "mean": 132.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 7.727891156462585,
+      "text": "Số sự kiện của user huyle tăng đột biến: 568 so với trung bình 147±0.",
+      "evidence": {
+        "current": 568,
+        "mean": 147.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 568
+        },
+        "time": null,
+        "baseline": {
+          "mean": 147.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 6.0602409638554215,
+      "text": "Số sự kiện của user khanhng tăng đột biến: 503 so với trung bình 166±0.",
+      "evidence": {
+        "current": 503,
+        "mean": 166.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 503
+        },
+        "time": null,
+        "baseline": {
+          "mean": 166.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 6.4625,
+      "text": "Số sự kiện của user minhtq tăng đột biến: 517 so với trung bình 160±0.",
+      "evidence": {
+        "current": 517,
+        "mean": 160.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 517
+        },
+        "time": null,
+        "baseline": {
+          "mean": 160.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.609375,
+      "text": "Số sự kiện của user quangdev tăng đột biến: 551 so với trung bình 128±0.",
+      "evidence": {
+        "current": 551,
+        "mean": 128.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 551
+        },
+        "time": null,
+        "baseline": {
+          "mean": 128.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "tnghia",
+      "severity": "WARNING",
+      "score": 7.115646258503402,
+      "text": "Số sự kiện của user tnghia tăng đột biến: 523 so với trung bình 147±0.",
+      "evidence": {
+        "current": 523,
+        "mean": 147.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": "Engineering",
+        "behavior": {
+          "type": "events",
+          "value": 523
+        },
+        "time": null,
+        "baseline": {
+          "mean": 147.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 6.615384615384615,
+      "text": "Số IP nguồn khác nhau của user huydev tăng đột biến: 43 so với trung bình 13±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 7.166666666666667,
+      "text": "Số IP nguồn khác nhau của user huyle tăng đột biến: 43 so với trung bình 12±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 12.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 12.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 6.615384615384615,
+      "text": "Số IP nguồn khác nhau của user khanhng tăng đột biến: 43 so với trung bình 13±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 6.615384615384615,
+      "text": "Số IP nguồn khác nhau của user minhtq tăng đột biến: 43 so với trung bình 13±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "quangdev",
+      "severity": "WARNING",
+      "score": 7.166666666666667,
+      "text": "Số IP nguồn khác nhau của user quangdev tăng đột biến: 43 so với trung bình 12±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 12.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 12.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "tnghia",
+      "severity": "WARNING",
+      "score": 6.615384615384615,
+      "text": "Số IP nguồn khác nhau của user tnghia tăng đột biến: 43 so với trung bình 13±0.",
+      "evidence": {
+        "current": 43,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 43
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "thuananh",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User thuananh truy cập ngoài giờ làm việc (124 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 124
+      },
+      "prompt_ctx": {
+        "user": "thuananh",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 124
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "minhlong",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User minhlong truy cập ngoài giờ làm việc (145 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 145
+      },
+      "prompt_ctx": {
+        "user": "minhlong",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 145
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User khanhng truy cập ngoài giờ làm việc (136 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 136
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 136
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User minhtq truy cập ngoài giờ làm việc (155 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 155
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 155
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User attacker truy cập ngoài giờ làm việc (36 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 36
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 36
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "tnghia",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User tnghia truy cập ngoài giờ làm việc (131 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 131
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 131
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "duytuan",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User duytuan truy cập ngoài giờ làm việc (142 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 142
+      },
+      "prompt_ctx": {
+        "user": "duytuan",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 142
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User huyle truy cập ngoài giờ làm việc (133 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 133
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 133
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "quangdev",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User quangdev truy cập ngoài giờ làm việc (139 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 139
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 139
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User huydev truy cập ngoài giờ làm việc (143 sự kiện vào lúc [0, 1, 2, 3, 4, 5, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          22,
+          23
+        ],
+        "events": 143
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23
+          ],
+          "events": 143
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    }
+  ]
+}

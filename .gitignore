@@ -16,5 +16,5 @@ node_modules/
 # Ignore generated baseline files
 backend/config/baselines/*.joblib
 backend/config/baselines/*.json
-backend/config/alerts/
+#backend/config/alerts/
 

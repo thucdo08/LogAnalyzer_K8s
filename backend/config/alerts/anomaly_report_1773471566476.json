@@ -1,0 +1,4611 @@
+{
+  "generated_at": "2026-03-14T06:59:26.476526+00:00",
+  "summary": {
+    "total_alerts": 132,
+    "severity_breakdown": {
+      "WARNING": 92,
+      "CRITICAL": 40
+    },
+    "type_breakdown": {
+      "firewall_deny_burst": 52,
+      "firewall_port_scan": 24,
+      "firewall_policy_evasion": 24,
+      "anomalous_data_access": 2,
+      "new_user": 6,
+      "user_events_spike": 2,
+      "user_unique_src_ips_spike": 2,
+      "blocked_actions_spike": 12,
+      "off_hours_access": 8
+    },
+    "top_subjects": [
+      "rogue_user",
+      "Target: fw-mgmt.company.local",
+      "attacker",
+      "admin2",
+      "admin1",
+      "scanner",
+      "admin3",
+      "Target: auth.company.local",
+      "admin5",
+      "admin4"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 21 blocked connections from scanner (IP: 10.0.0.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.0.0.1",
+        "username": "scanner",
+        "blocked_count": 21,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 28 blocked connections from scanner (IP: 10.0.0.2) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "username": "scanner",
+        "blocked_count": 28,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 28
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from admin2 (IP: 10.116.28.19) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "admin2",
+        "blocked_count": 31,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 25 blocked connections from admin4 (IP: 10.132.199.126) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "admin4",
+        "blocked_count": 25,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.30",
+          "10.10.30.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 25
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 16 blocked connections from admin4 (IP: 10.141.10.67) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "admin4",
+        "blocked_count": 16,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.20",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 16
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 39 blocked connections from admin1 (IP: 10.149.15.24) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "admin1",
+        "blocked_count": 39,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 39
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from admin4 (IP: 10.168.102.183) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "admin4",
+        "blocked_count": 22,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 37 blocked connections from admin4 (IP: 10.175.175.89) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "admin4",
+        "blocked_count": 37,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 37
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin5",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 27 blocked connections from admin5 (IP: 10.175.45.166) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "admin5",
+        "blocked_count": 27,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 27
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from admin2 (IP: 10.233.64.205) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "admin2",
+        "blocked_count": 20,
+        "destinations": [
+          "10.10.30.30",
+          "10.10.30.20",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from admin4 (IP: 10.29.141.140) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "admin4",
+        "blocked_count": 31,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.20",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 24 blocked connections from admin4 (IP: 10.60.88.220) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "admin4",
+        "blocked_count": 24,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.30",
+          "10.10.30.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 24
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 24 blocked connections from admin1 (IP: 10.71.227.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "admin1",
+        "blocked_count": 24,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 24
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 38 blocked connections from admin4 (IP: 10.97.208.176) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "admin4",
+        "blocked_count": 38,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 38
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 18 blocked connections from scanner (IP: 172.16.0.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "username": "scanner",
+        "blocked_count": 18,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.20.20",
+          "10.30.10.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 18
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from scanner (IP: 172.16.0.2) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.0.2",
+        "username": "scanner",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.20.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from scanner (IP: 192.168.1.100) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "username": "scanner",
+        "blocked_count": 31,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 19 blocked connections from scanner (IP: 192.168.1.101) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "username": "scanner",
+        "blocked_count": 19,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 19
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from attacker (IP: 192.168.1.102) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.102",
+        "username": "attacker",
+        "blocked_count": 20,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 19 blocked connections from attacker (IP: 198.51.100.0) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "198.51.100.0",
+        "username": "attacker",
+        "blocked_count": 19,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.30.30",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 19
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from attacker (IP: 198.51.100.50) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "198.51.100.50",
+        "username": "attacker",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.20.20",
+          "10.30.10.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from scanner (IP: 203.0.113.100) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.100",
+        "username": "scanner",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.20.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 15 blocked connections from attacker (IP: 203.0.113.150) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.150",
+        "username": "attacker",
+        "blocked_count": 15,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.30.30",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 15
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 28 blocked connections from attacker (IP: 203.0.113.50) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "username": "attacker",
+        "blocked_count": 28,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 28
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "Target: fw-mgmt.company.local",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Distributed DENY attack: 57 blocked connections from 57 different source(s) targeting fw-mgmt.company.local:445.",
+      "evidence": {
+        "target_ip": "10.40.40.10",
+        "target_host": "fw-mgmt.company.local",
+        "target_ports": [
+          445,
+          3389,
+          22
+        ],
+        "total_attempts": 57,
+        "source_count": 57,
+        "source_ips": [
+          "10.185.53.55",
+          "10.66.223.55",
+          "10.197.107.92",
+          "10.99.34.51",
+          "10.91.162.85",
+          "10.59.93.186",
+          "10.34.127.52",
+          "10.47.25.108",
+          "10.153.18.177",
+          "10.206.207.190"
+        ],
+        "detection_method": "pattern_distributed"
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "distributed_deny_attack",
+          "sources": 57,
+          "attempts": 57
+        },
+        "time": null,
+        "baseline": {
+          "expected_sources_per_target": 2
+        },
+        "extras": {
+          "reason": "Multiple sources attacking same target indicates coordinated attack"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "Target: auth.company.local",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Distributed DENY attack: 60 blocked connections from 60 different source(s) targeting auth.company.local:22.",
+      "evidence": {
+        "target_ip": "10.40.40.20",
+        "target_host": "auth.company.local",
+        "target_ports": [
+          22,
+          3389,
+          445
+        ],
+        "total_attempts": 60,
+        "source_count": 60,
+        "source_ips": [
+          "10.75.99.172",
+          "10.98.239.92",
+          "10.53.1.50",
+          "10.255.87.61",
+          "10.101.138.115",
+          "10.26.76.141",
+          "10.124.232.152",
+          "10.116.191.61",
+          "10.203.95.62",
+          "10.196.180.91"
+        ],
+        "detection_method": "pattern_distributed"
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "distributed_deny_attack",
+          "sources": 60,
+          "attempts": 60
+        },
+        "time": null,
+        "baseline": {
+          "expected_sources_per_target": 2
+        },
+        "extras": {
+          "reason": "Multiple sources attacking same target indicates coordinated attack"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 10.0.0.1) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "10.0.0.1",
+        "username": "scanner",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          135,
+          139,
+          143,
+          443,
+          445,
+          3306,
+          3389,
+          8080
+        ],
+        "attempt_count": 21
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 10.0.0.2) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "username": "scanner",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          80,
+          135,
+          139,
+          443,
+          445,
+          3389,
+          8080,
+          8443
+        ],
+        "attempt_count": 28
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 172.16.0.1) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "username": "scanner",
+        "port_count": 9,
+        "ports": [
+          22,
+          23,
+          80,
+          139,
+          3306,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 18
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 172.16.0.2) attempted connections to 11 different ports.",
+      "evidence": {
+        "source_ip": "172.16.0.2",
+        "username": "scanner",
+        "port_count": 11,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          445,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 11
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 192.168.1.100) attempted connections to 15 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "username": "scanner",
+        "port_count": 15,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          135,
+          139,
+          143,
+          443,
+          445,
+          3306,
+          3389,
+          5432,
+          8080
+        ],
+        "attempt_count": 31
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 15
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 192.168.1.101) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "username": "scanner",
+        "port_count": 10,
+        "ports": [
+          22,
+          23,
+          25,
+          53,
+          80,
+          139,
+          143,
+          443,
+          3306,
+          3389
+        ],
+        "attempt_count": 19
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 192.168.1.102) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.102",
+        "username": "attacker",
+        "port_count": 10,
+        "ports": [
+          21,
+          22,
+          23,
+          80,
+          139,
+          443,
+          445,
+          3389,
+          5432,
+          8443
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 198.51.100.0) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "198.51.100.0",
+        "username": "attacker",
+        "port_count": 9,
+        "ports": [
+          22,
+          23,
+          80,
+          143,
+          443,
+          3306,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 19
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 198.51.100.50) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "198.51.100.50",
+        "username": "attacker",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          139,
+          143,
+          443,
+          445,
+          3389,
+          8080
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 203.0.113.100) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.100",
+        "username": "scanner",
+        "port_count": 9,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          443,
+          3306,
+          3389,
+          5432,
+          8080
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 203.0.113.150) attempted connections to 7 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.150",
+        "username": "attacker",
+        "port_count": 7,
+        "ports": [
+          22,
+          23,
+          53,
+          80,
+          3389,
+          8080,
+          8443
+        ],
+        "attempt_count": 15
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 7
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 203.0.113.50) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "username": "attacker",
+        "port_count": 10,
+        "ports": [
+          22,
+          23,
+          25,
+          80,
+          143,
+          3306,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 28
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.116.28.19) accessed 2 sensitive service(s) (217 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "admin2",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 217
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.132.199.126) accessed 2 sensitive service(s) (216 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 216
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.141.10.67) accessed 2 sensitive service(s) (199 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 199
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.149.15.24) accessed 2 sensitive service(s) (222 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "admin1",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 222
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.168.102.183) accessed 2 sensitive service(s) (203 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 203
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.175.175.89) accessed 2 sensitive service(s) (211 connections).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 211
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin5",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin5 (IP: 10.175.45.166) accessed 2 sensitive service(s) (205 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "admin5",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 205
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.233.64.205) accessed 2 sensitive service(s) (271 connections).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "admin2",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 271
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.29.141.140) accessed 2 sensitive service(s) (210 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 210
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.60.88.220) accessed 2 sensitive service(s) (195 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 195
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.71.227.1) accessed 2 sensitive service(s) (207 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "admin1",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 207
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.97.208.176) accessed 2 sensitive service(s) (203 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 203
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin1': Database queries tăng đột ngột: 207 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "admin1",
+        "db_queries": 207,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 207.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 207,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 207 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin2': Database queries tăng đột ngột: 178 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "admin2",
+        "db_queries": 178,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 178.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 178,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 178 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "rogue_user",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới rogue_user xuất hiện với 163 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 163
+      },
+      "prompt_ctx": {
+        "user": "rogue_user",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 163
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới attacker xuất hiện với 131 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 131
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 131
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới scanner xuất hiện với 134 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 134
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 134
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin3",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin3 xuất hiện với 584 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 584
+      },
+      "prompt_ctx": {
+        "user": "admin3",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 584
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin5",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin5 xuất hiện với 576 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 576
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 576
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin4 xuất hiện với 693 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 693
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 693
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 7.581920903954802,
+      "text": "Số sự kiện của user admin1 tăng đột biến: 671 so với trung bình 177±0.",
+      "evidence": {
+        "current": 671,
+        "mean": 177.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 671
+        },
+        "time": null,
+        "baseline": {
+          "mean": 177.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 7.491124260355029,
+      "text": "Số sự kiện của user admin2 tăng đột biến: 633 so với trung bình 169±0.",
+      "evidence": {
+        "current": 633,
+        "mean": 169.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 633
+        },
+        "time": null,
+        "baseline": {
+          "mean": 169.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user admin1 tăng đột biến: 64 so với trung bình 7±0.",
+      "evidence": {
+        "current": 64,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 64
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user admin2 tăng đột biến: 70 so với trung bình 7±0.",
+      "evidence": {
+        "current": 70,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 70
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 21/21 hành động bị chặn (100.0%) từ attacker (source_ip=10.0.0.1). Chi tiết: User: attacker | Host: fw-edge01 | Target: 10.30.20.20 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 21,
+        "total_count": 21,
+        "ratio": 1.0,
+        "source_ip": "10.0.0.1",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-edge01 | Target: 10.30.20.20"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 21,
+          "source": "10.0.0.1"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.0.0.1"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 28/28 hành động bị chặn (100.0%) từ attacker (source_ip=10.0.0.2). Chi tiết: User: attacker | Host: fw-core01 | Target: 10.30.20.20 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 28,
+        "total_count": 28,
+        "ratio": 1.0,
+        "source_ip": "10.0.0.2",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-core01 | Target: 10.30.20.20"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 28,
+          "source": "10.0.0.2"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.0.0.2"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 18/18 hành động bị chặn (100.0%) từ attacker (source_ip=172.16.0.1). Chi tiết: User: attacker | Host: fw-dmz01 | Target: 10.30.30.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 18,
+        "total_count": 18,
+        "ratio": 1.0,
+        "source_ip": "172.16.0.1",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-dmz01 | Target: 10.30.30.30"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 18,
+          "source": "172.16.0.1"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 172.16.0.1"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 22/22 hành động bị chặn (100.0%) từ attacker (source_ip=172.16.0.2). Chi tiết: User: attacker | Host: fw-core01 | Target: 10.30.10.10 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 22,
+        "total_count": 22,
+        "ratio": 1.0,
+        "source_ip": "172.16.0.2",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-core01 | Target: 10.30.10.10"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 22,
+          "source": "172.16.0.2"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 172.16.0.2"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "scanner",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 31/31 hành động bị chặn (100.0%) từ scanner (source_ip=192.168.1.100). Chi tiết: User: scanner | Host: fw-core01 | Target: 10.30.30.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 31,
+        "total_count": 31,
+        "ratio": 1.0,
+        "source_ip": "192.168.1.100",
+        "username": "scanner",
+        "context": "User: scanner | Host: fw-core01 | Target: 10.30.30.30"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 31,
+          "source": "192.168.1.100"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.1.100"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 19/19 hành động bị chặn (100.0%) từ attacker (source_ip=192.168.1.101). Chi tiết: User: attacker | Host: fw-core01 | Target: 10.30.30.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 19,
+        "total_count": 19,
+        "ratio": 1.0,
+        "source_ip": "192.168.1.101",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-core01 | Target: 10.30.30.30"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 19,
+          "source": "192.168.1.101"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.1.101"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "scanner",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 20/20 hành động bị chặn (100.0%) từ scanner (source_ip=192.168.1.102). Chi tiết: User: scanner | Host: fw-edge01 | Target: 10.30.30.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 20,
+        "total_count": 20,
+        "ratio": 1.0,
+        "source_ip": "192.168.1.102",
+        "username": "scanner",
+        "context": "User: scanner | Host: fw-edge01 | Target: 10.30.30.30"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 20,
+          "source": "192.168.1.102"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.1.102"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 19/19 hành động bị chặn (100.0%) từ attacker (source_ip=198.51.100.0). Chi tiết: User: attacker | Host: fw-dmz01 | Target: 10.30.10.10 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 19,
+        "total_count": 19,
+        "ratio": 1.0,
+        "source_ip": "198.51.100.0",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-dmz01 | Target: 10.30.10.10"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 19,
+          "source": "198.51.100.0"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 198.51.100.0"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 22/22 hành động bị chặn (100.0%) từ attacker (source_ip=198.51.100.50). Chi tiết: User: attacker | Host: fw-dmz01 | Target: 10.30.30.30 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 22,
+        "total_count": 22,
+        "ratio": 1.0,
+        "source_ip": "198.51.100.50",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-dmz01 | Target: 10.30.30.30"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 22,
+          "source": "198.51.100.50"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 198.51.100.50"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "attacker",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 22/22 hành động bị chặn (100.0%) từ attacker (source_ip=203.0.113.100). Chi tiết: User: attacker | Host: fw-dmz01 | Target: 10.30.10.10 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 22,
+        "total_count": 22,
+        "ratio": 1.0,
+        "source_ip": "203.0.113.100",
+        "username": "attacker",
+        "context": "User: attacker | Host: fw-dmz01 | Target: 10.30.10.10"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 22,
+          "source": "203.0.113.100"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 203.0.113.100"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "scanner",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 15/15 hành động bị chặn (100.0%) từ scanner (source_ip=203.0.113.150). Chi tiết: User: scanner | Host: fw-core01 | Target: 10.30.10.10 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 15,
+        "total_count": 15,
+        "ratio": 1.0,
+        "source_ip": "203.0.113.150",
+        "username": "scanner",
+        "context": "User: scanner | Host: fw-core01 | Target: 10.30.10.10"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 15,
+          "source": "203.0.113.150"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 203.0.113.150"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "scanner",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Phát hiện 28/28 hành động bị chặn (100.0%) từ scanner (source_ip=203.0.113.50). Chi tiết: User: scanner | Host: fw-edge01 | Target: 10.30.20.20 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 28,
+        "total_count": 28,
+        "ratio": 1.0,
+        "source_ip": "203.0.113.50",
+        "username": "scanner",
+        "context": "User: scanner | Host: fw-edge01 | Target: 10.30.20.20"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 1.0,
+          "count": 28,
+          "source": "203.0.113.50"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 203.0.113.50"
+        }
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User admin4 truy cập ngoài giờ làm việc (204 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 204
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 204
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User admin1 truy cập ngoài giờ làm việc (208 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 208
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 208
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "admin3",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User admin3 truy cập ngoài giờ làm việc (164 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 164
+      },
+      "prompt_ctx": {
+        "user": "admin3",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 164
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "admin5",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User admin5 truy cập ngoài giờ làm việc (185 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 185
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 185
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User scanner truy cập ngoài giờ làm việc (42 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 42
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 42
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User admin2 truy cập ngoài giờ làm việc (198 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 198
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 198
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User attacker truy cập ngoài giờ làm việc (39 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 39
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 39
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "rogue_user",
+      "severity": "WARNING",
+      "score": 6.0,
+      "text": "User rogue_user truy cập ngoài giờ làm việc (55 sự kiện vào lúc [0, 22, 23]h).",
+      "evidence": {
+        "hours": [
+          0,
+          22,
+          23
+        ],
+        "events": 55
+      },
+      "prompt_ctx": {
+        "user": "rogue_user",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            0,
+            22,
+            23
+          ],
+          "events": 55
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 21 blocked connections from scanner (IP: 10.0.0.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.0.0.1",
+        "username": "scanner",
+        "blocked_count": 21,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 28 blocked connections from scanner (IP: 10.0.0.2) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "username": "scanner",
+        "blocked_count": 28,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 28
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from admin2 (IP: 10.116.28.19) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "admin2",
+        "blocked_count": 31,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 25 blocked connections from admin4 (IP: 10.132.199.126) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "admin4",
+        "blocked_count": 25,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.30",
+          "10.10.30.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 25
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 16 blocked connections from admin4 (IP: 10.141.10.67) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "admin4",
+        "blocked_count": 16,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.20",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 16
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 39 blocked connections from admin1 (IP: 10.149.15.24) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "admin1",
+        "blocked_count": 39,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 39
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from admin4 (IP: 10.168.102.183) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "admin4",
+        "blocked_count": 22,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 37 blocked connections from admin4 (IP: 10.175.175.89) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "admin4",
+        "blocked_count": 37,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 37
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin5",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 27 blocked connections from admin5 (IP: 10.175.45.166) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "admin5",
+        "blocked_count": 27,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.10",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 27
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin2",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from admin2 (IP: 10.233.64.205) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "admin2",
+        "blocked_count": 20,
+        "destinations": [
+          "10.10.30.30",
+          "10.10.30.20",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from admin4 (IP: 10.29.141.140) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "admin4",
+        "blocked_count": 31,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.20",
+          "10.10.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 24 blocked connections from admin4 (IP: 10.60.88.220) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "admin4",
+        "blocked_count": 24,
+        "destinations": [
+          "10.10.30.10",
+          "10.10.30.30",
+          "10.10.30.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 24
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 24 blocked connections from admin1 (IP: 10.71.227.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "admin1",
+        "blocked_count": 24,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 24
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "admin4",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 38 blocked connections from admin4 (IP: 10.97.208.176) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "admin4",
+        "blocked_count": 38,
+        "destinations": [
+          "10.10.30.20",
+          "10.10.30.30",
+          "10.10.30.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 38
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 18 blocked connections from scanner (IP: 172.16.0.1) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "username": "scanner",
+        "blocked_count": 18,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.20.20",
+          "10.30.10.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 18
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from scanner (IP: 172.16.0.2) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "172.16.0.2",
+        "username": "scanner",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.20.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 31 blocked connections from scanner (IP: 192.168.1.100) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "username": "scanner",
+        "blocked_count": 31,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 31
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 19 blocked connections from scanner (IP: 192.168.1.101) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "username": "scanner",
+        "blocked_count": 19,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 19
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 20 blocked connections from attacker (IP: 192.168.1.102) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "192.168.1.102",
+        "username": "attacker",
+        "blocked_count": 20,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.10.10",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 19 blocked connections from attacker (IP: 198.51.100.0) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "198.51.100.0",
+        "username": "attacker",
+        "blocked_count": 19,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.30.30",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 19
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from attacker (IP: 198.51.100.50) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "198.51.100.50",
+        "username": "attacker",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.30.30",
+          "10.30.20.20",
+          "10.30.10.10"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 22 blocked connections from scanner (IP: 203.0.113.100) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.100",
+        "username": "scanner",
+        "blocked_count": 22,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.20.20",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 22
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 15 blocked connections from attacker (IP: 203.0.113.150) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.150",
+        "username": "attacker",
+        "blocked_count": 15,
+        "destinations": [
+          "10.30.10.10",
+          "10.30.30.30",
+          "10.30.20.20"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 15
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Firewall DENY/BLOCK burst detected: 28 blocked connections from attacker (IP: 203.0.113.50) to 3 destination(s).",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "username": "attacker",
+        "blocked_count": 28,
+        "destinations": [
+          "10.30.20.20",
+          "10.30.10.10",
+          "10.30.30.30"
+        ],
+        "dest_count": 3,
+        "detection_method": "per_ip"
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "deny_burst",
+          "count": 28
+        },
+        "time": null,
+        "baseline": {
+          "expected_denies": 2
+        },
+        "extras": {
+          "reason": "High volume of blocked connections may indicate DoS or scanning"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "Target: fw-mgmt.company.local",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Distributed DENY attack: 57 blocked connections from 57 different source(s) targeting fw-mgmt.company.local:445.",
+      "evidence": {
+        "target_ip": "10.40.40.10",
+        "target_host": "fw-mgmt.company.local",
+        "target_ports": [
+          445,
+          3389,
+          22
+        ],
+        "total_attempts": 57,
+        "source_count": 57,
+        "source_ips": [
+          "10.185.53.55",
+          "10.66.223.55",
+          "10.197.107.92",
+          "10.99.34.51",
+          "10.91.162.85",
+          "10.59.93.186",
+          "10.34.127.52",
+          "10.47.25.108",
+          "10.153.18.177",
+          "10.206.207.190"
+        ],
+        "detection_method": "pattern_distributed"
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "distributed_deny_attack",
+          "sources": 57,
+          "attempts": 57
+        },
+        "time": null,
+        "baseline": {
+          "expected_sources_per_target": 2
+        },
+        "extras": {
+          "reason": "Multiple sources attacking same target indicates coordinated attack"
+        }
+      }
+    },
+    {
+      "type": "firewall_deny_burst",
+      "subject": "Target: auth.company.local",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Distributed DENY attack: 60 blocked connections from 60 different source(s) targeting auth.company.local:22.",
+      "evidence": {
+        "target_ip": "10.40.40.20",
+        "target_host": "auth.company.local",
+        "target_ports": [
+          22,
+          3389,
+          445
+        ],
+        "total_attempts": 60,
+        "source_count": 60,
+        "source_ips": [
+          "10.75.99.172",
+          "10.98.239.92",
+          "10.53.1.50",
+          "10.255.87.61",
+          "10.101.138.115",
+          "10.26.76.141",
+          "10.124.232.152",
+          "10.116.191.61",
+          "10.203.95.62",
+          "10.196.180.91"
+        ],
+        "detection_method": "pattern_distributed"
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "distributed_deny_attack",
+          "sources": 60,
+          "attempts": 60
+        },
+        "time": null,
+        "baseline": {
+          "expected_sources_per_target": 2
+        },
+        "extras": {
+          "reason": "Multiple sources attacking same target indicates coordinated attack"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 10.0.0.1) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "10.0.0.1",
+        "username": "scanner",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          135,
+          139,
+          143,
+          443,
+          445,
+          3306,
+          3389,
+          8080
+        ],
+        "attempt_count": 21
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 10.0.0.2) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "username": "scanner",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          80,
+          135,
+          139,
+          443,
+          445,
+          3389,
+          8080,
+          8443
+        ],
+        "attempt_count": 28
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 172.16.0.1) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "username": "scanner",
+        "port_count": 9,
+        "ports": [
+          22,
+          23,
+          80,
+          139,
+          3306,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 18
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 172.16.0.2) attempted connections to 11 different ports.",
+      "evidence": {
+        "source_ip": "172.16.0.2",
+        "username": "scanner",
+        "port_count": 11,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          445,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 11
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 192.168.1.100) attempted connections to 15 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "username": "scanner",
+        "port_count": 15,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          135,
+          139,
+          143,
+          443,
+          445,
+          3306,
+          3389,
+          5432,
+          8080
+        ],
+        "attempt_count": 31
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 15
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 192.168.1.101) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "username": "scanner",
+        "port_count": 10,
+        "ports": [
+          22,
+          23,
+          25,
+          53,
+          80,
+          139,
+          143,
+          443,
+          3306,
+          3389
+        ],
+        "attempt_count": 19
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 192.168.1.102) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "192.168.1.102",
+        "username": "attacker",
+        "port_count": 10,
+        "ports": [
+          21,
+          22,
+          23,
+          80,
+          139,
+          443,
+          445,
+          3389,
+          5432,
+          8443
+        ],
+        "attempt_count": 20
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 198.51.100.0) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "198.51.100.0",
+        "username": "attacker",
+        "port_count": 9,
+        "ports": [
+          22,
+          23,
+          80,
+          143,
+          443,
+          3306,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 19
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 198.51.100.50) attempted connections to 12 different ports.",
+      "evidence": {
+        "source_ip": "198.51.100.50",
+        "username": "attacker",
+        "port_count": 12,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          53,
+          80,
+          139,
+          143,
+          443,
+          445,
+          3389,
+          8080
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 12
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "scanner",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: scanner (IP: 203.0.113.100) attempted connections to 9 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.100",
+        "username": "scanner",
+        "port_count": 9,
+        "ports": [
+          21,
+          22,
+          23,
+          25,
+          443,
+          3306,
+          3389,
+          5432,
+          8080
+        ],
+        "attempt_count": 22
+      },
+      "prompt_ctx": {
+        "user": "scanner",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 9
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 203.0.113.150) attempted connections to 7 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.150",
+        "username": "attacker",
+        "port_count": 7,
+        "ports": [
+          22,
+          23,
+          53,
+          80,
+          3389,
+          8080,
+          8443
+        ],
+        "attempt_count": 15
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 7
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_port_scan",
+      "subject": "attacker",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "Port scanning detected: attacker (IP: 203.0.113.50) attempted connections to 10 different ports.",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "username": "attacker",
+        "port_count": 10,
+        "ports": [
+          22,
+          23,
+          25,
+          80,
+          143,
+          3306,
+          3389,
+          5432,
+          8080,
+          8443
+        ],
+        "attempt_count": 28
+      },
+      "prompt_ctx": {
+        "user": "attacker",
+        "group": null,
+        "behavior": {
+          "type": "port_scan",
+          "ports": 10
+        },
+        "time": null,
+        "baseline": {
+          "max_normal_ports": 2
+        },
+        "extras": {
+          "reason": "Multiple port access attempts indicate scanning activity"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.116.28.19) accessed 2 sensitive service(s) (217 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "admin2",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 217
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.132.199.126) accessed 2 sensitive service(s) (216 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 216
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.141.10.67) accessed 2 sensitive service(s) (199 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 199
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.149.15.24) accessed 2 sensitive service(s) (222 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "admin1",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 222
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.168.102.183) accessed 2 sensitive service(s) (203 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 203
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.175.175.89) accessed 2 sensitive service(s) (211 connections).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "admin4",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 211
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin5",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin5 (IP: 10.175.45.166) accessed 2 sensitive service(s) (205 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "admin5",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 205
+      },
+      "prompt_ctx": {
+        "user": "admin5",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.233.64.205) accessed 2 sensitive service(s) (271 connections).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "admin2",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 271
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.29.141.140) accessed 2 sensitive service(s) (210 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 210
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.60.88.220) accessed 2 sensitive service(s) (195 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 195
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin1 (IP: 10.71.227.1) accessed 2 sensitive service(s) (207 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "admin1",
+        "sensitive_ports": [
+          3389,
+          22
+        ],
+        "connection_count": 207
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            3389,
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin4",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin4 (IP: 10.97.208.176) accessed 2 sensitive service(s) (203 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "admin4",
+        "sensitive_ports": [
+          22,
+          3389
+        ],
+        "connection_count": 203
+      },
+      "prompt_ctx": {
+        "user": "admin4",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22,
+            3389
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    }
+  ]
+}

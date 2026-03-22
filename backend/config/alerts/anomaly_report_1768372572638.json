@@ -1,0 +1,967 @@
+{
+  "generated_at": "2026-01-14T06:36:12.638372+00:00",
+  "summary": {
+    "total_alerts": 29,
+    "severity_breakdown": {
+      "CRITICAL": 22,
+      "WARNING": 7
+    },
+    "type_breakdown": {
+      "credential_bruteforce_detected": 2,
+      "blocked_actions_spike": 1,
+      "off_hours_access": 5,
+      "cron_job_overlap": 1,
+      "ssh_lateral_movement": 6,
+      "privilege_escalation": 14
+    },
+    "top_subjects": [
+      "10.88.232.158",
+      "quangdev",
+      "khanhng",
+      "fw-mgmt01",
+      "thuongf",
+      "huyle",
+      "sales1",
+      "sales2",
+      "tnghia",
+      "tranbinh"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "10.48.132.131",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Credential brute force detected from internal IP 10.48.132.131: 5/5 failed attempts (100.0% failure rate).",
+      "evidence": {
+        "source_ip": "10.48.132.131",
+        "total_attempts": 5,
+        "failed_attempts": 5,
+        "failure_rate": 1.0,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "10.48.132.131",
+          "attempts": 5,
+          "failures": 5,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from internal IP 10.48.132.131 (brute force attack)"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "10.88.232.158",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Credential brute force detected from internal IP 10.88.232.158: 6/6 failed attempts (100.0% failure rate).",
+      "evidence": {
+        "source_ip": "10.88.232.158",
+        "total_attempts": 6,
+        "failed_attempts": 6,
+        "failure_rate": 1.0,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "10.88.232.158",
+          "attempts": 6,
+          "failures": 6,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from internal IP 10.88.232.158 (brute force attack)"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "tranbinh",
+      "severity": "WARNING",
+      "score": 5.454545454545454,
+      "text": "Phát hiện 6/11 hành động bị chặn (54.5%) từ tranbinh (source_ip=10.88.232.158). Chi tiết: User: tranbinh | Host: crm-sf01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 6,
+        "total_count": 11,
+        "ratio": 0.5454545454545454,
+        "source_ip": "10.88.232.158",
+        "username": "tranbinh",
+        "context": "User: tranbinh | Host: crm-sf01"
+      },
+      "prompt_ctx": {
+        "user": "tranbinh",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5454545454545454,
+          "count": 6,
+          "source": "10.88.232.158"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.88.232.158"
+        }
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "sales1",
+      "severity": "WARNING",
+      "score": 4.7,
+      "text": "User sales1 truy cập ngoài giờ làm việc (7 sự kiện vào lúc [23]h).",
+      "evidence": {
+        "hours": [
+          23
+        ],
+        "events": 7
+      },
+      "prompt_ctx": {
+        "user": "sales1",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            23
+          ],
+          "events": 7
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "phamtt",
+      "severity": "WARNING",
+      "score": 5.0,
+      "text": "User phamtt truy cập ngoài giờ làm việc (10 sự kiện vào lúc [23]h).",
+      "evidence": {
+        "hours": [
+          23
+        ],
+        "events": 10
+      },
+      "prompt_ctx": {
+        "user": "phamtt",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            23
+          ],
+          "events": 10
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "tranbinh",
+      "severity": "WARNING",
+      "score": 5.2,
+      "text": "User tranbinh truy cập ngoài giờ làm việc (12 sự kiện vào lúc [23]h).",
+      "evidence": {
+        "hours": [
+          23
+        ],
+        "events": 12
+      },
+      "prompt_ctx": {
+        "user": "tranbinh",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            23
+          ],
+          "events": 12
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "sales2",
+      "severity": "WARNING",
+      "score": 5.1,
+      "text": "User sales2 truy cập ngoài giờ làm việc (11 sự kiện vào lúc [23]h).",
+      "evidence": {
+        "hours": [
+          23
+        ],
+        "events": 11
+      },
+      "prompt_ctx": {
+        "user": "sales2",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            23
+          ],
+          "events": 11
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "lehong",
+      "severity": "WARNING",
+      "score": 4.9,
+      "text": "User lehong truy cập ngoài giờ làm việc (9 sự kiện vào lúc [23]h).",
+      "evidence": {
+        "hours": [
+          23
+        ],
+        "events": 9
+      },
+      "prompt_ctx": {
+        "user": "lehong",
+        "group": null,
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            23
+          ],
+          "events": 9
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "cron_job_overlap",
+      "subject": "fw-mgmt01",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Cron job overlap: script '/usr/local/sbin/backup.sh' executed 38 times by 6 users. ⚠️ Có thể là kỹ thuật Defense Evasion - lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi đáng ngờ.",
+      "evidence": {
+        "script": "/usr/local/sbin/backup.sh",
+        "execution_count": 38,
+        "unique_users": 6,
+        "users": [
+          "netops",
+          "svc_monitor",
+          "backup",
+          "admin1",
+          "itops",
+          "admin2"
+        ]
+      },
+      "prompt_ctx": {
+        "behavior": {
+          "type": "cron_job_overlap",
+          "defense_evasion_warning": "Đây có thể là kỹ thuật ẩn mình (Defense Evasion), lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi gửi dữ liệu trái phép ra ngoài hoặc thực thi mã độc."
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "SSH lateral movement detected: User 'huydev' logged in 8 times from 7 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "huydev",
+        "login_count": 8,
+        "unique_source_ips": 7,
+        "source_ips": [
+          "10.243.246.222",
+          "10.149.15.24",
+          "10.141.10.67",
+          "10.71.227.1",
+          "10.60.88.220",
+          "10.175.175.89",
+          "10.29.141.140"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "gitsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 8,
+          "source_ips": 7
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'huyle' logged in 13 times from 10 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "huyle",
+        "login_count": 13,
+        "unique_source_ips": 10,
+        "source_ips": [
+          "10.71.227.1",
+          "10.175.45.166",
+          "10.141.10.67",
+          "10.132.199.126",
+          "10.116.28.19",
+          "10.60.88.220",
+          "10.149.15.24",
+          "10.168.102.183",
+          "10.175.175.89",
+          "10.233.64.205"
+        ],
+        "target_hosts": [
+          "ci-runner01",
+          "gitsrv01",
+          "buildsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 13,
+          "source_ips": 10
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "SSH lateral movement detected: User 'khanhng' logged in 6 times from 6 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "khanhng",
+        "login_count": 6,
+        "unique_source_ips": 6,
+        "source_ips": [
+          "10.132.199.126",
+          "10.60.88.220",
+          "10.168.102.183",
+          "10.149.15.24",
+          "10.175.175.89",
+          "10.243.246.222"
+        ],
+        "target_hosts": [
+          "ci-runner01",
+          "gitsrv01",
+          "buildsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 6,
+          "source_ips": 6
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 5.0,
+      "text": "SSH lateral movement detected: User 'minhtq' logged in 2 times from 2 different source IPs to 2 servers.",
+      "evidence": {
+        "username": "minhtq",
+        "login_count": 2,
+        "unique_source_ips": 2,
+        "source_ips": [
+          "10.243.246.222",
+          "10.60.88.220"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 2,
+          "source_ips": 2
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "SSH lateral movement detected: User 'quangdev' logged in 8 times from 6 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "quangdev",
+        "login_count": 8,
+        "unique_source_ips": 6,
+        "source_ips": [
+          "10.149.15.24",
+          "10.233.64.205",
+          "10.168.102.183",
+          "10.175.175.89",
+          "10.71.227.1",
+          "10.60.88.220"
+        ],
+        "target_hosts": [
+          "gitsrv01",
+          "buildsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 8,
+          "source_ips": 6
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'tnghia' logged in 14 times from 8 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "tnghia",
+        "login_count": 14,
+        "unique_source_ips": 8,
+        "source_ips": [
+          "10.116.28.19",
+          "10.60.88.220",
+          "10.243.246.222",
+          "10.29.141.140",
+          "10.141.10.67",
+          "10.175.45.166",
+          "10.71.227.1",
+          "10.168.102.183"
+        ],
+        "target_hosts": [
+          "gitsrv01",
+          "ci-runner01",
+          "buildsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 14,
+          "source_ips": 8
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'trinhk' reloaded NGINX server on db-fin01.",
+      "evidence": {
+        "username": "trinhk",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "db-fin01",
+        "message": "Reloading NGINX server (requested by trinhk)."
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'thuongf' reloaded NGINX server on erpsrv01.",
+      "evidence": {
+        "username": "thuongf",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "erpsrv01",
+        "message": "Reloading NGINX server (requested by thuongf)."
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'linhfin' reloaded NGINX server on db-fin01.",
+      "evidence": {
+        "username": "linhfin",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "db-fin01",
+        "message": "Reloading NGINX server (requested by linhfin)."
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'linhfin' reloaded NGINX server on erpsrv01.",
+      "evidence": {
+        "username": "linhfin",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "erpsrv01",
+        "message": "Reloading NGINX server (requested by linhfin)."
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'anhthu' reloaded NGINX server on erpsrv01.",
+      "evidence": {
+        "username": "anhthu",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "erpsrv01",
+        "message": "Reloading NGINX server (requested by anhthu)."
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'ngocmai' reloaded NGINX server on filesrv-fin01.",
+      "evidence": {
+        "username": "ngocmai",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "filesrv-fin01",
+        "message": "Reloading NGINX server (requested by ngocmai)."
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'anhthu' reloaded NGINX server on filesrv-fin01.",
+      "evidence": {
+        "username": "anhthu",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "filesrv-fin01",
+        "message": "Reloading NGINX server (requested by anhthu)."
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'thuongf' reloaded NGINX server on db-fin01.",
+      "evidence": {
+        "username": "thuongf",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "db-fin01",
+        "message": "Reloading NGINX server (requested by thuongf)."
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'linhfin' reloaded NGINX server on filesrv-fin01.",
+      "evidence": {
+        "username": "linhfin",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "filesrv-fin01",
+        "message": "Reloading NGINX server (requested by linhfin)."
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'trinhk' reloaded NGINX server on filesrv-fin01.",
+      "evidence": {
+        "username": "trinhk",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "filesrv-fin01",
+        "message": "Reloading NGINX server (requested by trinhk)."
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'trinhk' reloaded NGINX server on erpsrv01.",
+      "evidence": {
+        "username": "trinhk",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "erpsrv01",
+        "message": "Reloading NGINX server (requested by trinhk)."
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'ngocmai' reloaded NGINX server on db-fin01.",
+      "evidence": {
+        "username": "ngocmai",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "db-fin01",
+        "message": "Reloading NGINX server (requested by ngocmai)."
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'thuongf' reloaded NGINX server on filesrv-fin01.",
+      "evidence": {
+        "username": "thuongf",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "filesrv-fin01",
+        "message": "Reloading NGINX server (requested by thuongf)."
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    },
+    {
+      "type": "privilege_escalation",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Privilege escalation detected: Non-admin user 'anhthu' reloaded NGINX server on db-fin01.",
+      "evidence": {
+        "username": "anhthu",
+        "service": "NGINX",
+        "action": "reload",
+        "host": "db-fin01",
+        "message": "Reloading NGINX server (requested by anhthu)."
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "privilege_escalation",
+          "service": "NGINX",
+          "action": "reload"
+        },
+        "time": null,
+        "baseline": {
+          "expected_role": "admin"
+        },
+        "extras": {
+          "reason": "Non-admin users should not have access to reload system services"
+        }
+      }
+    }
+  ]
+}

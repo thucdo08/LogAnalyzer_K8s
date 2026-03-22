@@ -1,0 +1,1209 @@
+{
+  "generated_at": "2026-02-23T08:34:23.858585+00:00",
+  "summary": {
+    "total_alerts": 35,
+    "severity_breakdown": {
+      "CRITICAL": 10,
+      "WARNING": 25
+    },
+    "type_breakdown": {
+      "anomalous_data_access": 6,
+      "new_user": 7,
+      "sensitive_db_access_detected": 1,
+      "user_unique_src_ips_spike": 2,
+      "blocked_actions_spike": 6,
+      "brute_force_target": 6,
+      "suspicious_operations": 6,
+      "data_exfiltration": 1
+    },
+    "top_subjects": [
+      "huyle",
+      "huydev",
+      "khanhng",
+      "root",
+      "shell",
+      "quangdev",
+      "datauser",
+      "test",
+      "admin",
+      "user"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "anomalous_data_access",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'quangdev': Database queries tăng đột ngột: 71 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "quangdev",
+        "db_queries": 71,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 71.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 71,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 71 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'khanhng': Database queries tăng đột ngột: 73 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "khanhng",
+        "db_queries": 73,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 73.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 73,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 73 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'minhtq': Database queries tăng đột ngột: 77 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "minhtq",
+        "db_queries": 77,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 77.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 77,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 77 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'tnghia': Database queries tăng đột ngột: 79 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "tnghia",
+        "db_queries": 79,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 79.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 79,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 79 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'huydev': Database queries tăng đột ngột: 89 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "huydev",
+        "db_queries": 89,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 89.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 89,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 89 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'huyle': Database queries tăng đột ngột: 83 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "huyle",
+        "db_queries": 83,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 83.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 83,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 83 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "root",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới root xuất hiện với 95 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 95
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 95
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "shell",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới shell xuất hiện với 151 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 151
+      },
+      "prompt_ctx": {
+        "user": "shell",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 151
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "datauser",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới datauser xuất hiện với 144 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 144
+      },
+      "prompt_ctx": {
+        "user": "datauser",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 144
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "test",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới test xuất hiện với 93 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 93
+      },
+      "prompt_ctx": {
+        "user": "test",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 93
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin xuất hiện với 102 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 102
+      },
+      "prompt_ctx": {
+        "user": "admin",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 102
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "user",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới user xuất hiện với 96 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 96
+      },
+      "prompt_ctx": {
+        "user": "user",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 96
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "-",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới - xuất hiện với 309 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 309
+      },
+      "prompt_ctx": {
+        "user": "-",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 309
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "-",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "Sensitive database operation by -: 10.205.122.48 - - [27/oct/2025:08:01:44 +0000] \"get /api/v1/search?q='; drop table users; -- http/1.1\" 400 776 \"-\" \"mozilla/5.0 (x11; linux x86_64) sqlmap/1.0\" vhost=gitsrv01.company.local host=gitsrv",
+      "evidence": {
+        "operation": "destructive_operation",
+        "message": "10.205.122.48 - - [27/oct/2025:08:01:44 +0000] \"get /api/v1/search?q='; drop table users; -- http/1.1\" 400 776 \"-\" \"mozilla/5.0 (x11; linux x86_64) sqlmap/1.0\" vhost=gitsrv01.company.local host=gitsrv01"
+      },
+      "prompt_ctx": {
+        "user": "-",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "destructive_operation"
+        },
+        "time": "03:01 PM, Thứ Hai, 27/10/2025",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user huydev tăng đột biến: 95 so với trung bình 9±0.",
+      "evidence": {
+        "current": 95,
+        "mean": 9.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 95
+        },
+        "time": null,
+        "baseline": {
+          "mean": 9.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user khanhng tăng đột biến: 103 so với trung bình 9±0.",
+      "evidence": {
+        "current": 103,
+        "mean": 9.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 103
+        },
+        "time": null,
+        "baseline": {
+          "mean": 9.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "quangdev",
+      "severity": "WARNING",
+      "score": 5.171102661596958,
+      "text": "Phát hiện 136/263 hành động bị chặn (51.7%) từ quangdev (source_ip=10.116.28.19). Chi tiết: User: quangdev | Host: gitsrv01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 136,
+        "total_count": 263,
+        "ratio": 0.5171102661596958,
+        "source_ip": "10.116.28.19",
+        "username": "quangdev",
+        "context": "User: quangdev | Host: gitsrv01"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5171102661596958,
+          "count": 136,
+          "source": "10.116.28.19"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.116.28.19"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 5.136186770428015,
+      "text": "Phát hiện 132/257 hành động bị chặn (51.4%) từ minhtq (source_ip=10.141.10.67). Chi tiết: User: minhtq | Host: ci-runner01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 132,
+        "total_count": 257,
+        "ratio": 0.5136186770428015,
+        "source_ip": "10.141.10.67",
+        "username": "minhtq",
+        "context": "User: minhtq | Host: ci-runner01"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5136186770428015,
+          "count": 132,
+          "source": "10.141.10.67"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.141.10.67"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 5.436507936507936,
+      "text": "Phát hiện 137/252 hành động bị chặn (54.4%) từ huydev (source_ip=10.149.15.24). Chi tiết: User: huydev | Host: ci-runner01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 137,
+        "total_count": 252,
+        "ratio": 0.5436507936507936,
+        "source_ip": "10.149.15.24",
+        "username": "huydev",
+        "context": "User: huydev | Host: ci-runner01"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5436507936507936,
+          "count": 137,
+          "source": "10.149.15.24"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.149.15.24"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 5.062240663900415,
+      "text": "Phát hiện 122/241 hành động bị chặn (50.6%) từ khanhng (source_ip=10.168.102.183). Chi tiết: User: khanhng | Host: gitsrv01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 122,
+        "total_count": 241,
+        "ratio": 0.5062240663900415,
+        "source_ip": "10.168.102.183",
+        "username": "khanhng",
+        "context": "User: khanhng | Host: gitsrv01"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5062240663900415,
+          "count": 122,
+          "source": "10.168.102.183"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.168.102.183"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 5.109170305676855,
+      "text": "Phát hiện 117/229 hành động bị chặn (51.1%) từ khanhng (source_ip=10.175.175.89). Chi tiết: User: khanhng | Host: ci-runner01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 117,
+        "total_count": 229,
+        "ratio": 0.5109170305676856,
+        "source_ip": "10.175.175.89",
+        "username": "khanhng",
+        "context": "User: khanhng | Host: ci-runner01"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5109170305676856,
+          "count": 117,
+          "source": "10.175.175.89"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.175.175.89"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 5.113122171945701,
+      "text": "Phát hiện 113/221 hành động bị chặn (51.1%) từ huyle (source_ip=10.233.64.205). Chi tiết: User: huyle | Host: buildsrv01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 113,
+        "total_count": 221,
+        "ratio": 0.5113122171945701,
+        "source_ip": "10.233.64.205",
+        "username": "huyle",
+        "context": "User: huyle | Host: buildsrv01"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5113122171945701,
+          "count": 113,
+          "source": "10.233.64.205"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.233.64.205"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "root",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User root: Brute force target - 51 failed login attempts",
+      "evidence": {
+        "total_401_failures": 51,
+        "all_source_ips": [
+          "10.246.104.211",
+          "10.224.102.221",
+          "10.250.142.162",
+          "10.230.235.65",
+          "10.227.20.145",
+          "10.225.83.87",
+          "10.217.140.212",
+          "10.225.89.224",
+          "10.201.80.253",
+          "10.237.222.10"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User khanhng: 73 DELETE requests + 79 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 152,
+        "delete_count": 73,
+        "error_count": 79,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/ci/builds/123",
+            "status": 404,
+            "timestamp": "2025-10-27 08:00:08+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 404,
+            "timestamp": "2025-10-27 08:02:04+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/logout",
+            "status": 404,
+            "timestamp": "2025-10-27 08:03:13+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/jobs",
+            "status": 404,
+            "timestamp": "2025-10-27 08:03:52+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/health",
+            "status": 200,
+            "timestamp": "2025-10-27 08:04:45+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User khanhng: Brute force target - 37 failed login attempts",
+      "evidence": {
+        "total_401_failures": 37,
+        "all_source_ips": [
+          "10.246.104.211",
+          "10.245.105.131",
+          "10.210.110.234",
+          "10.221.105.1",
+          "10.237.217.197",
+          "10.225.89.224",
+          "10.240.123.87",
+          "10.228.130.63",
+          "10.218.234.30",
+          "10.208.38.231"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "test",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User test: Brute force target - 41 failed login attempts",
+      "evidence": {
+        "total_401_failures": 41,
+        "all_source_ips": [
+          "10.213.10.152",
+          "10.216.236.72",
+          "10.217.140.212",
+          "10.221.105.1",
+          "10.237.217.197",
+          "10.218.75.45",
+          "10.242.219.36",
+          "10.239.10.104",
+          "10.221.114.202",
+          "10.234.19.8"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "test",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "user",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User user: Brute force target - 52 failed login attempts",
+      "evidence": {
+        "total_401_failures": 52,
+        "all_source_ips": [
+          "10.246.104.211",
+          "10.230.235.65",
+          "10.216.236.72",
+          "10.217.140.212",
+          "10.250.183.57",
+          "10.251.38.216",
+          "10.209.203.243",
+          "10.225.133.127",
+          "10.247.9.10",
+          "10.237.217.197"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "user",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "admin",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User admin: Brute force target - 39 failed login attempts",
+      "evidence": {
+        "total_401_failures": 39,
+        "all_source_ips": [
+          "10.246.104.211",
+          "10.219.164.244",
+          "10.236.190.238",
+          "10.250.183.57",
+          "10.227.20.145",
+          "10.209.203.243",
+          "10.225.35.171",
+          "10.221.168.102",
+          "10.222.145.43",
+          "10.250.50.56"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "admin",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User huydev: 89 DELETE requests + 79 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 168,
+        "delete_count": 89,
+        "error_count": 79,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/git/repo1/info",
+            "status": 404,
+            "timestamp": "2025-10-27 08:01:43+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/jobs",
+            "status": 200,
+            "timestamp": "2025-10-27 08:02:11+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/version",
+            "status": 404,
+            "timestamp": "2025-10-27 08:03:14+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/ci/builds/123",
+            "status": 200,
+            "timestamp": "2025-10-27 08:03:24+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/health",
+            "status": 200,
+            "timestamp": "2025-10-27 08:05:15+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    },
+    {
+      "type": "brute_force_target",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "User huydev: Brute force target - 43 failed login attempts",
+      "evidence": {
+        "total_401_failures": 43,
+        "all_source_ips": [
+          "10.216.236.72",
+          "10.219.164.244",
+          "10.225.35.171",
+          "10.216.196.63",
+          "10.204.178.250",
+          "10.242.219.36",
+          "10.232.160.198",
+          "10.244.3.48",
+          "10.210.136.124",
+          "10.236.36.228"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "behavior": {
+          "type": "brute_force_target"
+        }
+      }
+    },
+    {
+      "type": "data_exfiltration",
+      "subject": "datauser",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "User datauser: Downloaded 71 large files (184.1MB) - /admin/backup.zip, /api/v1/download/database.sql, /api/v1/download/database.sql",
+      "evidence": {
+        "exfiltration_files_count": 71,
+        "exfiltration_total_mb": 184.13,
+        "exfiltration_files": [
+          {
+            "path": "/admin/backup.zip",
+            "size_mb": 0.91,
+            "timestamp": "2025-10-27 08:00:21+00:00"
+          },
+          {
+            "path": "/api/v1/download/database.sql",
+            "size_mb": 3.4,
+            "timestamp": "2025-10-27 08:06:02+00:00"
+          },
+          {
+            "path": "/api/v1/download/database.sql",
+            "size_mb": 1.38,
+            "timestamp": "2025-10-27 08:06:13+00:00"
+          },
+          {
+            "path": "/api/v1/download/database.sql",
+            "size_mb": 0.57,
+            "timestamp": "2025-10-27 08:07:57+00:00"
+          },
+          {
+            "path": "/admin/backup.zip",
+            "size_mb": 4.02,
+            "timestamp": "2025-10-27 08:08:15+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "datauser",
+        "behavior": {
+          "type": "data_exfiltration"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "quangdev",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User quangdev: 71 DELETE requests + 81 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 152,
+        "delete_count": 71,
+        "error_count": 81,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/version",
+            "status": 200,
+            "timestamp": "2025-10-27 08:00:05+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/version",
+            "status": 302,
+            "timestamp": "2025-10-27 08:01:11+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/git/repo1/info",
+            "status": 404,
+            "timestamp": "2025-10-27 08:01:57+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/artifacts/pkg-1.2.3.tgz",
+            "status": 404,
+            "timestamp": "2025-10-27 08:06:39+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/logout",
+            "status": 500,
+            "timestamp": "2025-10-27 08:07:21+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "tnghia",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User tnghia: 79 DELETE requests + 93 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 172,
+        "delete_count": 79,
+        "error_count": 93,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/version",
+            "status": 404,
+            "timestamp": "2025-10-27 08:00:39+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 302,
+            "timestamp": "2025-10-27 08:01:15+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 302,
+            "timestamp": "2025-10-27 08:01:27+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/artifacts/pkg-1.2.3.tgz",
+            "status": 404,
+            "timestamp": "2025-10-27 08:01:39+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/metrics",
+            "status": 302,
+            "timestamp": "2025-10-27 08:01:59+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User huyle: 83 DELETE requests + 88 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 171,
+        "delete_count": 83,
+        "error_count": 88,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/logout",
+            "status": 500,
+            "timestamp": "2025-10-27 08:00:42+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/git/repo1/info",
+            "status": 404,
+            "timestamp": "2025-10-27 08:03:18+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 200,
+            "timestamp": "2025-10-27 08:04:53+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/login",
+            "status": 404,
+            "timestamp": "2025-10-27 08:05:59+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/metrics",
+            "status": 302,
+            "timestamp": "2025-10-27 08:06:14+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    },
+    {
+      "type": "suspicious_operations",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User minhtq: 77 DELETE requests + 79 500 errors",
+      "evidence": {
+        "suspicious_operations_count": 156,
+        "delete_count": 77,
+        "error_count": 79,
+        "suspicious_operations": [
+          {
+            "type": "DELETE",
+            "path": "/ci/builds/123",
+            "status": 302,
+            "timestamp": "2025-10-27 08:01:37+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/health",
+            "status": 200,
+            "timestamp": "2025-10-27 08:02:27+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/metrics",
+            "status": 302,
+            "timestamp": "2025-10-27 08:04:32+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 302,
+            "timestamp": "2025-10-27 08:05:02+00:00"
+          },
+          {
+            "type": "DELETE",
+            "path": "/api/v1/status",
+            "status": 200,
+            "timestamp": "2025-10-27 08:06:08+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "behavior": {
+          "type": "suspicious_operations"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1562 @@
+{
+  "generated_at": "2026-01-14T16:03:40.341450+00:00",
+  "summary": {
+    "total_alerts": 42,
+    "severity_breakdown": {
+      "CRITICAL": 34,
+      "WARNING": 6,
+      "INFO": 2
+    },
+    "type_breakdown": {
+      "edr_network_spike": 21,
+      "edr_lolbins_outbound_detected": 1,
+      "anomalous_data_access": 1,
+      "user_unique_src_ips_spike": 18,
+      "off_hours_access": 1
+    },
+    "top_subjects": [
+      "phamtt",
+      "minhtq",
+      "quangdev",
+      "sales1",
+      "admin2",
+      "huydev",
+      "sales2",
+      "backup",
+      "ngocmai",
+      "tranbinh"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "edr_network_spike",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User admin1 (unknown): 29 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+      "evidence": {
+        "username": "admin1",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 29,
+        "baseline_ips": 7.0,
+        "destinations_count": 7,
+        "unique_ports": 4,
+        "external_ips_count": 4,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 29,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User admin2 (unknown): 33 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20; High external IP count: 11 connections",
+      "evidence": {
+        "username": "admin2",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 33,
+        "baseline_ips": 7.0,
+        "destinations_count": 14,
+        "unique_ports": 6,
+        "external_ips_count": 11,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+          "High external IP count: 11 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 33,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+            "High external IP count: 11 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User anhthu (unknown): 33 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30; High external IP count: 11 connections",
+      "evidence": {
+        "username": "anhthu",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 33,
+        "baseline_ips": 6.0,
+        "destinations_count": 14,
+        "unique_ports": 6,
+        "external_ips_count": 11,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+          "High external IP count: 11 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 33,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+            "High external IP count: 11 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User backup (unknown): 34 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30; High external IP count: 12 connections",
+      "evidence": {
+        "username": "backup",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 34,
+        "baseline_ips": 7.0,
+        "destinations_count": 15,
+        "unique_ports": 6,
+        "external_ips_count": 12,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+          "High external IP count: 12 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 34,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+            "High external IP count: 12 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User huydev (unknown): 30 unique source IPs (baseline: 3) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+      "evidence": {
+        "username": "huydev",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 30,
+        "baseline_ips": 3.0,
+        "destinations_count": 10,
+        "unique_ports": 6,
+        "external_ips_count": 7,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 30,
+          "baseline_ips": 3.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 3.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User huyle (unknown): 28 unique source IPs (baseline: 5) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+      "evidence": {
+        "username": "huyle",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 28,
+        "baseline_ips": 5.0,
+        "destinations_count": 7,
+        "unique_ports": 5,
+        "external_ips_count": 4,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 28,
+          "baseline_ips": 5.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 5.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User itops (unknown): 31 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40; External admin access: 184.177.45.129:22; High external IP count: 14 connections",
+      "evidence": {
+        "username": "itops",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 31,
+        "baseline_ips": 7.0,
+        "destinations_count": 17,
+        "unique_ports": 6,
+        "external_ips_count": 14,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+          "External admin access: 184.177.45.129:22",
+          "High external IP count: 14 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 31,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+            "External admin access: 184.177.45.129:22",
+            "High external IP count: 14 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_lolbins_outbound_detected",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User khanhng (unknown): 35 unique source IPs (baseline: 5) - UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40; External admin access: 181.215.143.105:23; High external IP count: 12 connections",
+      "evidence": {
+        "username": "khanhng",
+        "user_role": "unknown",
+        "attack_pattern": "lolbins_outbound",
+        "unique_src_ips": 35,
+        "baseline_ips": 5.0,
+        "destinations_count": 16,
+        "unique_ports": 21,
+        "external_ips_count": 12,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+          "External admin access: 181.215.143.105:23",
+          "High external IP count: 12 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 35,
+          "baseline_ips": 5.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 5.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 3389 (RDP), Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+            "External admin access: 181.215.143.105:23",
+            "High external IP count: 12 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "lehong",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User lehong (unknown): 22 unique source IPs (baseline: 15) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+      "evidence": {
+        "username": "lehong",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 22,
+        "baseline_ips": 15.0,
+        "destinations_count": 8,
+        "unique_ports": 6,
+        "external_ips_count": 5,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "lehong",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 22,
+          "baseline_ips": 15.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 15.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User linhfin (unknown): 32 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+      "evidence": {
+        "username": "linhfin",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 32,
+        "baseline_ips": 6.0,
+        "destinations_count": 9,
+        "unique_ports": 6,
+        "external_ips_count": 6,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 32,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User minhtq (unknown): 28 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+      "evidence": {
+        "username": "minhtq",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 28,
+        "baseline_ips": 6.0,
+        "destinations_count": 11,
+        "unique_ports": 6,
+        "external_ips_count": 8,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 28,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User netops (unknown): 29 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30; High external IP count: 12 connections",
+      "evidence": {
+        "username": "netops",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 29,
+        "baseline_ips": 7.0,
+        "destinations_count": 15,
+        "unique_ports": 6,
+        "external_ips_count": 12,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+          "High external IP count: 12 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 29,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+            "High external IP count: 12 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User ngocmai (unknown): 24 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20; External admin access: 113.126.45.166:22",
+      "evidence": {
+        "username": "ngocmai",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 24,
+        "baseline_ips": 6.0,
+        "destinations_count": 12,
+        "unique_ports": 5,
+        "external_ips_count": 9,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+          "External admin access: 113.126.45.166:22"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 24,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+            "External admin access: 113.126.45.166:22"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "phamtt",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User phamtt (unknown): 31 unique source IPs (baseline: 13) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+      "evidence": {
+        "username": "phamtt",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 31,
+        "baseline_ips": 13.0,
+        "destinations_count": 10,
+        "unique_ports": 6,
+        "external_ips_count": 7,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "phamtt",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 31,
+          "baseline_ips": 13.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 13.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User quangdev (unknown): 25 unique source IPs (baseline: 3) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20",
+      "evidence": {
+        "username": "quangdev",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 25,
+        "baseline_ips": 3.0,
+        "destinations_count": 10,
+        "unique_ports": 6,
+        "external_ips_count": 7,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 25,
+          "baseline_ips": 3.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 3.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.30, 10.10.10.20"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "sales1",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User sales1 (unknown): 22 unique source IPs (baseline: 9) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+      "evidence": {
+        "username": "sales1",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 22,
+        "baseline_ips": 9.0,
+        "destinations_count": 11,
+        "unique_ports": 6,
+        "external_ips_count": 8,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "sales1",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 22,
+          "baseline_ips": 9.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 9.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "sales2",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User sales2 (unknown): 23 unique source IPs (baseline: 13) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30",
+      "evidence": {
+        "username": "sales2",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 23,
+        "baseline_ips": 13.0,
+        "destinations_count": 9,
+        "unique_ports": 5,
+        "external_ips_count": 6,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "sales2",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 23,
+          "baseline_ips": 13.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 13.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.40, 10.10.10.30"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "svc_monitor",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User svc_monitor (unknown): 28 unique source IPs (baseline: 7) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40; High external IP count: 11 connections",
+      "evidence": {
+        "username": "svc_monitor",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 28,
+        "baseline_ips": 7.0,
+        "destinations_count": 14,
+        "unique_ports": 6,
+        "external_ips_count": 11,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+          "High external IP count: 11 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "svc_monitor",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 28,
+          "baseline_ips": 7.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 7.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.20, 10.10.10.40",
+            "High external IP count: 11 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User thuongf (unknown): 34 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30; High external IP count: 11 connections",
+      "evidence": {
+        "username": "thuongf",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 34,
+        "baseline_ips": 6.0,
+        "destinations_count": 14,
+        "unique_ports": 6,
+        "external_ips_count": 11,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+          "High external IP count: 11 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 34,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+            "High external IP count: 11 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User tnghia (unknown): 25 unique source IPs (baseline: 3) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40",
+      "evidence": {
+        "username": "tnghia",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 25,
+        "baseline_ips": 3.0,
+        "destinations_count": 12,
+        "unique_ports": 6,
+        "external_ips_count": 9,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 25,
+          "baseline_ips": 3.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 3.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.20, 10.10.10.30, 10.10.10.40"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "tranbinh",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User tranbinh (unknown): 28 unique source IPs (baseline: 15) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20; High external IP count: 12 connections",
+      "evidence": {
+        "username": "tranbinh",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 28,
+        "baseline_ips": 15.0,
+        "destinations_count": 15,
+        "unique_ports": 6,
+        "external_ips_count": 12,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+          "High external IP count: 12 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "tranbinh",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 28,
+          "baseline_ips": 15.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 15.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.30, 10.10.10.40, 10.10.10.20",
+            "High external IP count: 12 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "edr_network_spike",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "User trinhk (unknown): 27 unique source IPs (baseline: 6) - UNKNOWN users BLOCKED from Port 22 (SSH); UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30; High external IP count: 12 connections",
+      "evidence": {
+        "username": "trinhk",
+        "user_role": "unknown",
+        "attack_pattern": "network_spike",
+        "unique_src_ips": 27,
+        "baseline_ips": 6.0,
+        "destinations_count": 15,
+        "unique_ports": 6,
+        "external_ips_count": 12,
+        "penalty_reasons": [
+          "UNKNOWN users BLOCKED from Port 22 (SSH)",
+          "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+          "High external IP count: 12 connections"
+        ],
+        "risk_multiplier": 1.5
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "network_anomaly",
+          "role": "unknown",
+          "unique_src_ips": 27,
+          "baseline_ips": 6.0
+        },
+        "time": null,
+        "baseline": {
+          "expected_ips": 6.0,
+          "user_role": "unknown"
+        },
+        "extras": {
+          "penalty_reasons": [
+            "UNKNOWN users BLOCKED from Port 22 (SSH)",
+            "UNKNOWN users BLOCKED from internal infrastructure: 10.10.10.40, 10.10.10.20, 10.10.10.30",
+            "High external IP count: 12 connections"
+          ],
+          "risk_calculation": "context-aware v2 (absolute + % + role + external admin only)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'backup': Database queries tăng đột ngột: 53 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "backup",
+        "db_queries": 53,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 53.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 53,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 53 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "admin1",
+      "severity": "CRITICAL",
+      "score": 8.285714285714286,
+      "text": "Số IP nguồn khác nhau của user admin1 tăng đột biến: 29 so với trung bình 7±0.",
+      "evidence": {
+        "current": 29,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 29
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 9.428571428571429,
+      "text": "Số IP nguồn khác nhau của user admin2 tăng đột biến: 33 so với trung bình 7±0.",
+      "evidence": {
+        "current": 33,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 33
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user anhthu tăng đột biến: 33 so với trung bình 6±0.",
+      "evidence": {
+        "current": 33,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 33
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 9.714285714285714,
+      "text": "Số IP nguồn khác nhau của user backup tăng đột biến: 34 so với trung bình 7±0.",
+      "evidence": {
+        "current": 34,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 34
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "huydev",
+      "severity": "WARNING",
+      "score": 4.615384615384615,
+      "text": "Số IP nguồn khác nhau của user huydev tăng đột biến: 30 so với trung bình 13±0.",
+      "evidence": {
+        "current": 30,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 30
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "huyle",
+      "severity": "WARNING",
+      "score": 4.666666666666667,
+      "text": "Số IP nguồn khác nhau của user huyle tăng đột biến: 28 so với trung bình 12±0.",
+      "evidence": {
+        "current": 28,
+        "mean": 12.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 28
+        },
+        "time": null,
+        "baseline": {
+          "mean": 12.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.857142857142858,
+      "text": "Số IP nguồn khác nhau của user itops tăng đột biến: 31 so với trung bình 7±0.",
+      "evidence": {
+        "current": 31,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 31
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 5.384615384615385,
+      "text": "Số IP nguồn khác nhau của user khanhng tăng đột biến: 35 so với trung bình 13±0.",
+      "evidence": {
+        "current": 35,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 35
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user linhfin tăng đột biến: 32 so với trung bình 6±0.",
+      "evidence": {
+        "current": 32,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 32
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "minhtq",
+      "severity": "WARNING",
+      "score": 4.3076923076923075,
+      "text": "Số IP nguồn khác nhau của user minhtq tăng đột biến: 28 so với trung bình 13±0.",
+      "evidence": {
+        "current": 28,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 28
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.285714285714286,
+      "text": "Số IP nguồn khác nhau của user netops tăng đột biến: 29 so với trung bình 7±0.",
+      "evidence": {
+        "current": 29,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 29
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Số IP nguồn khác nhau của user ngocmai tăng đột biến: 24 so với trung bình 6±0.",
+      "evidence": {
+        "current": 24,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 24
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "phamtt",
+      "severity": "INFO",
+      "score": 3.6470588235294117,
+      "text": "Số IP nguồn khác nhau của user phamtt tăng đột biến: 31 so với trung bình 17±0.",
+      "evidence": {
+        "current": 31,
+        "mean": 17.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "phamtt",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 31
+        },
+        "time": null,
+        "baseline": {
+          "mean": 17.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "quangdev",
+      "severity": "WARNING",
+      "score": 4.166666666666667,
+      "text": "Số IP nguồn khác nhau của user quangdev tăng đột biến: 25 so với trung bình 12±0.",
+      "evidence": {
+        "current": 25,
+        "mean": 12.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 25
+        },
+        "time": null,
+        "baseline": {
+          "mean": 12.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "svc_monitor",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Số IP nguồn khác nhau của user svc_monitor tăng đột biến: 28 so với trung bình 7±0.",
+      "evidence": {
+        "current": 28,
+        "mean": 7.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "svc_monitor",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 28
+        },
+        "time": null,
+        "baseline": {
+          "mean": 7.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "text": "Số IP nguồn khác nhau của user thuongf tăng đột biến: 34 so với trung bình 6±0.",
+      "evidence": {
+        "current": 34,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 34
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "tnghia",
+      "severity": "INFO",
+      "score": 3.8461538461538463,
+      "text": "Số IP nguồn khác nhau của user tnghia tăng đột biến: 25 so với trung bình 13±0.",
+      "evidence": {
+        "current": 25,
+        "mean": 13.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 25
+        },
+        "time": null,
+        "baseline": {
+          "mean": 13.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "Số IP nguồn khác nhau của user trinhk tăng đột biến: 27 so với trung bình 6±0.",
+      "evidence": {
+        "current": 27,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": "Engineering",
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 27
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "off_hours_access",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 5.9,
+      "text": "User khanhng truy cập ngoài giờ làm việc (19 sự kiện vào lúc [22]h).",
+      "evidence": {
+        "hours": [
+          22
+        ],
+        "events": 19
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": "Engineering",
+        "behavior": {
+          "type": "off_hours_access",
+          "hours": [
+            22
+          ],
+          "events": 19
+        },
+        "time": null,
+        "baseline": {
+          "working_hours": "6h-22h"
+        },
+        "extras": {}
+      }
+    }
+  ]
+}

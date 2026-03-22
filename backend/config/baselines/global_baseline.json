@@ -98,5 +98,85 @@
     "upload_bytes_per_hour_p95": 0.0,
     "max_events_per_hour": 382,
     "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-01-20T11:12:39.499477+00:00",
+    "events_per_hour_mean": 1211.0,
+    "events_per_hour_std": 739.6336931211287,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 1734,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-01-21T04:23:22.377007+00:00",
+    "events_per_hour_mean": 161.29032258064515,
+    "events_per_hour_std": 20.497469028129785,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 193,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-01-21T04:23:58.066307+00:00",
+    "events_per_hour_mean": 161.29032258064515,
+    "events_per_hour_std": 17.135136510276375,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 190,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-01-21T04:24:31.791343+00:00",
+    "events_per_hour_mean": 161.29032258064515,
+    "events_per_hour_std": 21.596594713653502,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 193,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-01-21T04:27:40.000213+00:00",
+    "events_per_hour_mean": 20.225,
+    "events_per_hour_std": 3.772284215846972,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 29,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-02-23T15:26:11.261206+00:00",
+    "events_per_hour_mean": 1211.0,
+    "events_per_hour_std": 739.6336931211287,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 1734,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-03-03T04:05:46.232065+00:00",
+    "events_per_hour_mean": 1211.0,
+    "events_per_hour_std": 739.6336931211287,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 1734,
+    "max_bytes_per_hour": 0.0
+  },
+  {
+    "trained_at": "2026-03-03T04:11:26.078633+00:00",
+    "events_per_hour_mean": 1211.0,
+    "events_per_hour_std": 739.6336931211287,
+    "bytes_per_hour_mean": 0.0,
+    "bytes_per_hour_std": 0.0,
+    "upload_bytes_per_hour_p95": 0.0,
+    "max_events_per_hour": 1734,
+    "max_bytes_per_hour": 0.0
   }
 ]

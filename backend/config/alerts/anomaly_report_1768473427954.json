@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-01-15T10:37:07.954322+00:00",
+  "summary": {
+    "total_alerts": 6,
+    "severity_breakdown": {
+      "WARNING": 5,
+      "CRITICAL": 1
+    },
+    "type_breakdown": {
+      "dns_nxdomain_flood": 1,
+      "dns_nxdomain_storm": 1,
+      "dns_suspicious_domains": 4
+    },
+    "top_subjects": [
+      "dns-eng01",
+      "dns-fin01",
+      "dns-sales01",
+      "dns-mgmt01"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "dns_nxdomain_flood",
+      "subject": "dns-eng01",
+      "severity": "WARNING",
+      "score": 6.5,
+      "text": "User/IP dns-eng01: 57 NXDOMAIN queries (potential scanning)",
+      "evidence": {
+        "nxdomain_count": 57,
+        "examples": [
+          {
+            "domain": "admin2.company.local",
+            "timestamp": "2026-10-27 16:00:09+00:00"
+          },
+          {
+            "domain": "admin3.company.local",
+            "timestamp": "2026-10-27 16:00:12+00:00"
+          },
+          {
+            "domain": "admin4.company.local",
+            "timestamp": "2026-10-27 16:00:15+00:00"
+          },
+          {
+            "domain": "admin5.company.local",
+            "timestamp": "2026-10-27 16:00:18+00:00"
+          },
+          {
+            "domain": "dev1.company.local",
+            "timestamp": "2026-10-27 16:00:24+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-eng01",
+        "behavior": {
+          "type": "dns_nxdomain_flood"
+        }
+      }
+    },
+    {
+      "type": "dns_nxdomain_storm",
+      "subject": "dns-eng01",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "User/IP dns-eng01: 57 NXDOMAIN queries in 5.2 minutes - NXDOMAIN Storm DoS attack",
+      "evidence": {
+        "nxdomain_count": 57,
+        "duration_minutes": 5.2,
+        "examples": [
+          {
+            "domain": "admin2.company.local",
+            "timestamp": "2026-10-27 16:00:09+00:00"
+          },
+          {
+            "domain": "admin3.company.local",
+            "timestamp": "2026-10-27 16:00:12+00:00"
+          },
+          {
+            "domain": "admin4.company.local",
+            "timestamp": "2026-10-27 16:00:15+00:00"
+          },
+          {
+            "domain": "admin5.company.local",
+            "timestamp": "2026-10-27 16:00:18+00:00"
+          },
+          {
+            "domain": "dev1.company.local",
+            "timestamp": "2026-10-27 16:00:24+00:00"
+          }
+        ],
+        "pattern": "nxdomain_storm"
+      },
+      "prompt_ctx": {
+        "user": "dns-eng01",
+        "behavior": {
+          "type": "dns_nxdomain_storm"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-eng01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-eng01: 95 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 95,
+        "examples": [
+          "pgtnl.archive.ubuntu.com",
+          "ndtsok.intranet.company.local",
+          "yktv.intranet.company.local",
+          "cxjj.cdn.jsdelivr.net",
+          "xuqic.security.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "staging0.company.local",
+            "timestamp": "2026-10-27 16:00:57+00:00"
+          },
+          {
+            "domain": "staging0.company.local",
+            "timestamp": "2026-10-27 16:00:57+00:00"
+          },
+          {
+            "domain": "staging1.company.local",
+            "timestamp": "2026-10-27 16:01:00+00:00"
+          },
+          {
+            "domain": "staging1.company.local",
+            "timestamp": "2026-10-27 16:01:00+00:00"
+          },
+          {
+            "domain": "staging2.company.local",
+            "timestamp": "2026-10-27 16:01:03+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-eng01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-fin01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-fin01: 46 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 46,
+        "examples": [
+          "thpfel.crm.company.local",
+          "rgukn.erp.company.local",
+          "ewm.fonts.googleapis.com",
+          "jpfew.security.ubuntu.com",
+          "jdklgm.ntp.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "jdklgm.ntp.ubuntu.com",
+            "timestamp": "2026-10-27 18:00:06+00:00"
+          },
+          {
+            "domain": "jdklgm.ntp.ubuntu.com",
+            "timestamp": "2026-10-27 18:00:06+00:00"
+          },
+          {
+            "domain": "jdklgm.ntp.ubuntu.com",
+            "timestamp": "2026-10-27 18:00:06+00:00"
+          },
+          {
+            "domain": "intranet.company.local",
+            "timestamp": "2026-10-27 18:00:44+00:00"
+          },
+          {
+            "domain": "intranet.company.local",
+            "timestamp": "2026-10-27 18:00:44+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-fin01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-sales01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-sales01: 50 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 50,
+        "examples": [
+          "zzwk.accounts.google.com",
+          "vvlbab.deb.debian.org",
+          "hgload.accounts.google.com",
+          "ymiqt.security.ubuntu.com",
+          "fxiweu.cdn.jsdelivr.net"
+        ],
+        "details": [
+          {
+            "domain": "egyud.accounts.google.com",
+            "timestamp": "2026-10-27 18:04:00+00:00"
+          },
+          {
+            "domain": "sliusz.ntp.ubuntu.com",
+            "timestamp": "2026-10-27 18:04:12+00:00"
+          },
+          {
+            "domain": "bjgjzx.crm.company.local",
+            "timestamp": "2026-10-27 18:05:44+00:00"
+          },
+          {
+            "domain": "bjgjzx.crm.company.local",
+            "timestamp": "2026-10-27 18:05:44+00:00"
+          },
+          {
+            "domain": "bjgjzx.crm.company.local",
+            "timestamp": "2026-10-27 18:05:44+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-sales01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    },
+    {
+      "type": "dns_suspicious_domains",
+      "subject": "dns-mgmt01",
+      "severity": "WARNING",
+      "score": 7.5,
+      "text": "User/IP dns-mgmt01: 60 suspicious domains (potential DGA/malware)",
+      "evidence": {
+        "suspicious_domain_count": 60,
+        "examples": [
+          "xrrp.intranet.company.local",
+          "wnezvs.crm.company.local",
+          "ezsb.crm.company.local",
+          "zow.intranet.company.local",
+          "fdmqvx.ntp.ubuntu.com"
+        ],
+        "details": [
+          {
+            "domain": "cxwd.crm.company.local",
+            "timestamp": "2026-10-27 18:01:59+00:00"
+          },
+          {
+            "domain": "cxwd.crm.company.local",
+            "timestamp": "2026-10-27 18:01:59+00:00"
+          },
+          {
+            "domain": "cxwd.crm.company.local",
+            "timestamp": "2026-10-27 18:01:59+00:00"
+          },
+          {
+            "domain": "xocks.dlcdn.apache.org",
+            "timestamp": "2026-10-27 18:02:15+00:00"
+          },
+          {
+            "domain": "xocks.dlcdn.apache.org",
+            "timestamp": "2026-10-27 18:02:15+00:00"
+          }
+        ]
+      },
+      "prompt_ctx": {
+        "user": "dns-mgmt01",
+        "behavior": {
+          "type": "dns_dga"
+        }
+      }
+    }
+  ]
+}

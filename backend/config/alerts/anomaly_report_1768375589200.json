@@ -1,0 +1,4857 @@
+{
+  "generated_at": "2026-01-14T07:26:29.200875+00:00",
+  "summary": {
+    "total_alerts": 146,
+    "severity_breakdown": {
+      "CRITICAL": 142,
+      "WARNING": 4
+    },
+    "type_breakdown": {
+      "firewall_policy_evasion": 50,
+      "firewall_exfiltration": 90,
+      "anomalous_data_access": 6
+    },
+    "top_subjects": [
+      "minhtq",
+      "trinhk",
+      "huydev",
+      "backup",
+      "itops",
+      "admin2",
+      "huyle",
+      "quangdev",
+      "netops",
+      "admin1"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: backup (IP: 10.102.112.36) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.102.112.36",
+        "username": "backup",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.102.252.24) accessed 1 sensitive service(s) (9 connections).",
+      "evidence": {
+        "source_ip": "10.102.252.24",
+        "username": "admin2",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 9
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.103.117.155) accessed 2 sensitive service(s) (19 connections).",
+      "evidence": {
+        "source_ip": "10.103.117.155",
+        "username": "trinhk",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 19
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.103.170.222) accessed 2 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.103.170.222",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.116.28.19) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: linhfin (IP: 10.127.63.250) accessed 2 sensitive service(s) (17 connections).",
+      "evidence": {
+        "source_ip": "10.127.63.250",
+        "username": "linhfin",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 17
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.132.199.126) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huydev (IP: 10.141.10.67) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "huydev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huydev (IP: 10.149.15.24) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "huydev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.152.112.176) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.152.112.176",
+        "username": "admin2",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: backup (IP: 10.152.16.207) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.152.16.207",
+        "username": "backup",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.168.102.183) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.175.175.89) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.175.45.166) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.189.173.182) accessed 2 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.189.173.182",
+        "username": "thuongf",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.230.65.53) accessed 2 sensitive service(s) (21 connections).",
+      "evidence": {
+        "source_ip": "10.230.65.53",
+        "username": "thuongf",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 21
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.233.64.205) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.243.246.222) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.243.246.222",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.28.125.42) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.28.125.42",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.29.141.140) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.30.185.148) accessed 2 sensitive service(s) (17 connections).",
+      "evidence": {
+        "source_ip": "10.30.185.148",
+        "username": "trinhk",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 17
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.51.136.180) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.51.136.180",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.60.88.220) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.71.227.1) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.97.208.176) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 44.7 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 46822623,
+        "bytes_mb": 44.65,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 46822623,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 38.7 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 40548781,
+        "bytes_mb": 38.67,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 40548781,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 45.5 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.230.65.53",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 47752117,
+        "bytes_mb": 45.54,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 47752117,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 27.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 28890843,
+        "bytes_mb": 27.55,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 28890843,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 24.8 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 26001585,
+        "bytes_mb": 24.8,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 26001585,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 62.7 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 65767324,
+        "bytes_mb": 62.72,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 65767324,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 33.3 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 34913035,
+        "bytes_mb": 33.3,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 34913035,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 51.3 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 53751983,
+        "bytes_mb": 51.26,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 53751983,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 63.5 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 66603374,
+        "bytes_mb": 63.52,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 66603374,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 38.2 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 40021939,
+        "bytes_mb": 38.17,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 40021939,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 46.3 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.97.208.176",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 48580603,
+        "bytes_mb": 46.33,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 48580603,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 69.9 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 73346979,
+        "bytes_mb": 69.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 73346979,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 71.1 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.233.64.205",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 74544498,
+        "bytes_mb": 71.09,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 74544498,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 80.3 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 84202172,
+        "bytes_mb": 80.3,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 84202172,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 36.8 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.103.117.155",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 38562016,
+        "bytes_mb": 36.78,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 38562016,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: linhfin transferred 64.2 MB to external IP external.",
+      "evidence": {
+        "username": "linhfin",
+        "source_ip": "10.127.63.250",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 67271003,
+        "bytes_mb": 64.15,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 67271003,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 66.9 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 70152262,
+        "bytes_mb": 66.9,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 70152262,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 40.5 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 42504678,
+        "bytes_mb": 40.54,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 42504678,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 16.3 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 17075257,
+        "bytes_mb": 16.28,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 17075257,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 34.9 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 36646195,
+        "bytes_mb": 34.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 36646195,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 52.9 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.168.102.183",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 55520969,
+        "bytes_mb": 52.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 55520969,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 64.5 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.233.64.205",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 67582185,
+        "bytes_mb": 64.45,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 67582185,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 14.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.116.28.19",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 15269821,
+        "bytes_mb": 14.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 15269821,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 65.4 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 68579447,
+        "bytes_mb": 65.4,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 68579447,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 24.2 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 25417388,
+        "bytes_mb": 24.24,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 25417388,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 11.1 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.230.65.53",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 11659884,
+        "bytes_mb": 11.12,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 11659884,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 79.4 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.141.10.67",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 83231251,
+        "bytes_mb": 79.38,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 83231251,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 39.9 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 41831824,
+        "bytes_mb": 39.89,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 41831824,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 50.4 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 52894400,
+        "bytes_mb": 50.44,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 52894400,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 47.6 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 49871942,
+        "bytes_mb": 47.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 49871942,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 41.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 43575797,
+        "bytes_mb": 41.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 43575797,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 54.5 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 57159247,
+        "bytes_mb": 54.51,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 57159247,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 34.5 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.116.28.19",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 36191071,
+        "bytes_mb": 34.51,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 36191071,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 51.6 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.168.102.183",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 54135270,
+        "bytes_mb": 51.63,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 54135270,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 51.5 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.30.185.148",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 54017542,
+        "bytes_mb": 51.52,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 54017542,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 48.1 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 50470468,
+        "bytes_mb": 48.13,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 50470468,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 39.9 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 41805718,
+        "bytes_mb": 39.87,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 41805718,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 29.6 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 31076768,
+        "bytes_mb": 29.64,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 31076768,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 12.1 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 12724203,
+        "bytes_mb": 12.13,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 12724203,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 68.3 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 71639786,
+        "bytes_mb": 68.32,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 71639786,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 50.4 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 52835428,
+        "bytes_mb": 50.39,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 52835428,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 72.9 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.175.175.89",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 76439736,
+        "bytes_mb": 72.9,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 76439736,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 54.3 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 56987716,
+        "bytes_mb": 54.35,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 56987716,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 30.9 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.103.117.155",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 32384585,
+        "bytes_mb": 30.88,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 32384585,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 11.5 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.175.175.89",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 12109540,
+        "bytes_mb": 11.55,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 12109540,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin1",
+      "severity": "WARNING",
+      "score": 5.6000000000000005,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin1': Database queries tăng đột ngột: 7 (baseline: 0.0±0.1, Z=7.00)",
+      "evidence": {
+        "user": "admin1",
+        "db_queries": 7,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 7.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 5.6000000000000005,
+        "final_score": 5.6000000000000005
+      },
+      "prompt_ctx": {
+        "user": "admin1",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 7,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 7 (baseline: 0.0±0.1, Z=7.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "netops",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'netops': Database queries tăng đột ngột: 4 (baseline: 0.0±0.1, Z=4.00)",
+      "evidence": {
+        "user": "netops",
+        "db_queries": 4,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 4.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 3.2,
+        "final_score": 4.0
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 4,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 4 (baseline: 0.0±0.1, Z=4.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'backup': Database queries tăng đột ngột: 19 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "backup",
+        "db_queries": 19,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 19.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 19,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 19 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "itops",
+      "severity": "WARNING",
+      "score": 4.800000000000001,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'itops': Database queries tăng đột ngột: 6 (baseline: 0.0±0.1, Z=6.00)",
+      "evidence": {
+        "user": "itops",
+        "db_queries": 6,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 6.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 4.800000000000001,
+        "final_score": 4.800000000000001
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 6,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 6 (baseline: 0.0±0.1, Z=6.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'admin2': Database queries tăng đột ngột: 13 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "admin2",
+        "db_queries": 13,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 13.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 13,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 13 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "svc_monitor",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'svc_monitor': Database queries tăng đột ngột: 5 (baseline: 0.0±0.1, Z=5.00)",
+      "evidence": {
+        "user": "svc_monitor",
+        "db_queries": 5,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 5.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 4.0,
+        "final_score": 4.0
+      },
+      "prompt_ctx": {
+        "user": "svc_monitor",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 5,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 5 (baseline: 0.0±0.1, Z=5.00)"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: backup (IP: 10.102.112.36) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.102.112.36",
+        "username": "backup",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.102.252.24) accessed 1 sensitive service(s) (9 connections).",
+      "evidence": {
+        "source_ip": "10.102.252.24",
+        "username": "admin2",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 9
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.103.117.155) accessed 2 sensitive service(s) (19 connections).",
+      "evidence": {
+        "source_ip": "10.103.117.155",
+        "username": "trinhk",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 19
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: anhthu (IP: 10.103.170.222) accessed 2 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.103.170.222",
+        "username": "anhthu",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.116.28.19) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.116.28.19",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: linhfin (IP: 10.127.63.250) accessed 2 sensitive service(s) (17 connections).",
+      "evidence": {
+        "source_ip": "10.127.63.250",
+        "username": "linhfin",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 17
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.132.199.126) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.132.199.126",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huydev (IP: 10.141.10.67) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.141.10.67",
+        "username": "huydev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huydev (IP: 10.149.15.24) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.149.15.24",
+        "username": "huydev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "admin2",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: admin2 (IP: 10.152.112.176) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.152.112.176",
+        "username": "admin2",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "admin2",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "backup",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: backup (IP: 10.152.16.207) accessed 1 sensitive service(s) (10 connections).",
+      "evidence": {
+        "source_ip": "10.152.16.207",
+        "username": "backup",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 10
+      },
+      "prompt_ctx": {
+        "user": "backup",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.168.102.183) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.168.102.183",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.175.175.89) accessed 1 sensitive service(s) (5 connections).",
+      "evidence": {
+        "source_ip": "10.175.175.89",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 5
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: huyle (IP: 10.175.45.166) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.175.45.166",
+        "username": "huyle",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.189.173.182) accessed 2 sensitive service(s) (14 connections).",
+      "evidence": {
+        "source_ip": "10.189.173.182",
+        "username": "thuongf",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 14
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: thuongf (IP: 10.230.65.53) accessed 2 sensitive service(s) (21 connections).",
+      "evidence": {
+        "source_ip": "10.230.65.53",
+        "username": "thuongf",
+        "sensitive_ports": [
+          445,
+          5432
+        ],
+        "connection_count": 21
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            445,
+            5432
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.233.64.205) accessed 1 sensitive service(s) (7 connections).",
+      "evidence": {
+        "source_ip": "10.233.64.205",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 7
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: tnghia (IP: 10.243.246.222) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.243.246.222",
+        "username": "tnghia",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "itops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: itops (IP: 10.28.125.42) accessed 1 sensitive service(s) (11 connections).",
+      "evidence": {
+        "source_ip": "10.28.125.42",
+        "username": "itops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 11
+      },
+      "prompt_ctx": {
+        "user": "itops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: quangdev (IP: 10.29.141.140) accessed 1 sensitive service(s) (6 connections).",
+      "evidence": {
+        "source_ip": "10.29.141.140",
+        "username": "quangdev",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 6
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: trinhk (IP: 10.30.185.148) accessed 2 sensitive service(s) (17 connections).",
+      "evidence": {
+        "source_ip": "10.30.185.148",
+        "username": "trinhk",
+        "sensitive_ports": [
+          5432,
+          445
+        ],
+        "connection_count": 17
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            5432,
+            445
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "netops",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: netops (IP: 10.51.136.180) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.51.136.180",
+        "username": "netops",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "netops",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: minhtq (IP: 10.60.88.220) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.60.88.220",
+        "username": "minhtq",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.71.227.1) accessed 1 sensitive service(s) (3 connections).",
+      "evidence": {
+        "source_ip": "10.71.227.1",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 3
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_policy_evasion",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Policy evasion suspected: khanhng (IP: 10.97.208.176) accessed 1 sensitive service(s) (4 connections).",
+      "evidence": {
+        "source_ip": "10.97.208.176",
+        "username": "khanhng",
+        "sensitive_ports": [
+          22
+        ],
+        "connection_count": 4
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "policy_evasion",
+          "ports": [
+            22
+          ]
+        },
+        "time": null,
+        "baseline": {
+          "allowed_sensitive_ports": []
+        },
+        "extras": {
+          "reason": "Access to sensitive services may bypass security policies"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 44.7 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 46822623,
+        "bytes_mb": 44.65,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 46822623,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 38.7 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 40548781,
+        "bytes_mb": 38.67,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 40548781,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 45.5 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.230.65.53",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 47752117,
+        "bytes_mb": 45.54,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 47752117,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 27.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 28890843,
+        "bytes_mb": 27.55,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 28890843,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 24.8 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 26001585,
+        "bytes_mb": 24.8,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 26001585,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 62.7 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 65767324,
+        "bytes_mb": 62.72,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 65767324,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 33.3 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 34913035,
+        "bytes_mb": 33.3,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 34913035,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 51.3 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 53751983,
+        "bytes_mb": 51.26,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 53751983,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 63.5 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 66603374,
+        "bytes_mb": 63.52,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 66603374,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 38.2 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 40021939,
+        "bytes_mb": 38.17,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 40021939,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 46.3 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.97.208.176",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 48580603,
+        "bytes_mb": 46.33,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 48580603,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 69.9 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 73346979,
+        "bytes_mb": 69.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 73346979,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 71.1 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.233.64.205",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 74544498,
+        "bytes_mb": 71.09,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 74544498,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 80.3 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 84202172,
+        "bytes_mb": 80.3,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 84202172,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 36.8 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.103.117.155",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 38562016,
+        "bytes_mb": 36.78,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 38562016,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: linhfin transferred 64.2 MB to external IP external.",
+      "evidence": {
+        "username": "linhfin",
+        "source_ip": "10.127.63.250",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 67271003,
+        "bytes_mb": 64.15,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 67271003,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 66.9 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 70152262,
+        "bytes_mb": 66.9,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 70152262,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 40.5 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 42504678,
+        "bytes_mb": 40.54,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 42504678,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 16.3 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.132.199.126",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 17075257,
+        "bytes_mb": 16.28,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 17075257,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 34.9 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 36646195,
+        "bytes_mb": 34.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 36646195,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 52.9 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.168.102.183",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 55520969,
+        "bytes_mb": 52.95,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 55520969,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 64.5 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.233.64.205",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 67582185,
+        "bytes_mb": 64.45,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 67582185,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 14.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.116.28.19",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 15269821,
+        "bytes_mb": 14.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 15269821,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 65.4 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 68579447,
+        "bytes_mb": 65.4,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 68579447,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 24.2 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 25417388,
+        "bytes_mb": 24.24,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 25417388,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 11.1 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.230.65.53",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 11659884,
+        "bytes_mb": 11.12,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 11659884,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 79.4 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.141.10.67",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 83231251,
+        "bytes_mb": 79.38,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 83231251,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 39.9 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 41831824,
+        "bytes_mb": 39.89,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 41831824,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: anhthu transferred 50.4 MB to external IP external.",
+      "evidence": {
+        "username": "anhthu",
+        "source_ip": "10.103.170.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 52894400,
+        "bytes_mb": 50.44,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 52894400,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 47.6 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 49871942,
+        "bytes_mb": 47.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 49871942,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 41.6 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.29.141.140",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 43575797,
+        "bytes_mb": 41.56,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 43575797,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 54.5 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 57159247,
+        "bytes_mb": 54.51,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 57159247,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "quangdev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: quangdev transferred 34.5 MB to external IP external.",
+      "evidence": {
+        "username": "quangdev",
+        "source_ip": "10.116.28.19",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 36191071,
+        "bytes_mb": 34.51,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "quangdev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 36191071,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 51.6 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.168.102.183",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 54135270,
+        "bytes_mb": 51.63,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 54135270,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 51.5 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.30.185.148",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 54017542,
+        "bytes_mb": 51.52,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 54017542,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huydev",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huydev transferred 48.1 MB to external IP external.",
+      "evidence": {
+        "username": "huydev",
+        "source_ip": "10.149.15.24",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 50470468,
+        "bytes_mb": 48.13,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huydev",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 50470468,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 39.9 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "203.0.113.55",
+        "dest_host": "external",
+        "bytes_transferred": 41805718,
+        "bytes_mb": 39.87,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 41805718,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "tnghia",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: tnghia transferred 29.6 MB to external IP external.",
+      "evidence": {
+        "username": "tnghia",
+        "source_ip": "10.243.246.222",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 31076768,
+        "bytes_mb": 29.64,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "tnghia",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 31076768,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 12.1 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 12724203,
+        "bytes_mb": 12.13,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 12724203,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: thuongf transferred 68.3 MB to external IP external.",
+      "evidence": {
+        "username": "thuongf",
+        "source_ip": "10.189.173.182",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 71639786,
+        "bytes_mb": 68.32,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 71639786,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "huyle",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: huyle transferred 50.4 MB to external IP external.",
+      "evidence": {
+        "username": "huyle",
+        "source_ip": "10.175.45.166",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 52835428,
+        "bytes_mb": 50.39,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "huyle",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 52835428,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 72.9 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.175.175.89",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 76439736,
+        "bytes_mb": 72.9,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 76439736,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "minhtq",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: minhtq transferred 54.3 MB to external IP external.",
+      "evidence": {
+        "username": "minhtq",
+        "source_ip": "10.60.88.220",
+        "dest_ip": "198.51.100.77",
+        "dest_host": "external",
+        "bytes_transferred": 56987716,
+        "bytes_mb": 54.35,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "minhtq",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 56987716,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: trinhk transferred 30.9 MB to external IP external.",
+      "evidence": {
+        "username": "trinhk",
+        "source_ip": "10.103.117.155",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 32384585,
+        "bytes_mb": 30.88,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 32384585,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    },
+    {
+      "type": "firewall_exfiltration",
+      "subject": "khanhng",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "Data exfiltration detected: khanhng transferred 11.5 MB to external IP external.",
+      "evidence": {
+        "username": "khanhng",
+        "source_ip": "10.175.175.89",
+        "dest_ip": "192.0.2.45",
+        "dest_host": "external",
+        "bytes_transferred": 12109540,
+        "bytes_mb": 11.55,
+        "threshold_mb": 10.0,
+        "detection_method": "bytes_threshold"
+      },
+      "prompt_ctx": {
+        "user": "khanhng",
+        "group": null,
+        "behavior": {
+          "type": "data_exfiltration",
+          "bytes": 12109540,
+          "destination": "external"
+        },
+        "time": null,
+        "baseline": {
+          "normal_bytes": 1200000
+        },
+        "extras": {
+          "reason": "Abnormally large data transfer to external IP may indicate exfiltration"
+        }
+      }
+    }
+  ]
+}

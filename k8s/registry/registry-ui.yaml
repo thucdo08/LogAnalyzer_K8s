@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-ui
+  namespace: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-ui
+  template:
+    metadata:
+      labels:
+        app: registry-ui
+    spec:
+      containers:
+      - name: registry-ui
+        image: joxit/docker-registry-ui:main
+        ports:
+        - containerPort: 80
+        env:
+        - name: NGINX_PROXY_PASS_URL
+          value: "http://docker-registry:5000"
+        - name: DELETE_IMAGES
+          value: "true"
+        - name: REGISTRY_TITLE
+          value: "LogAnalyzer Docker Registry"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-ui
+  namespace: registry
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: registry-ui

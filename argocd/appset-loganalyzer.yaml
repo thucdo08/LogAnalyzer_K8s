@@ -1,0 +1,58 @@
+# ArgoCD ApplicationSet cho LogAnalyzer
+# Trigger từ Helm chart trong Git repo
+# File này đặt trên K8s master: kubectl apply -f argocd/appset-loganalyzer.yaml
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: loganalyzer-appset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - env: production
+        namespace: loganalyzer
+        host: loganalyzer.dofuta.site
+  template:
+    metadata:
+      name: "loganalyzer-{{env}}"
+      labels:
+        app: loganalyzer
+        env: "{{env}}"
+      annotations:
+        # ArgoCD Image Updater: tự động cập nhật image khi có tag mới trên registry
+        argocd-image-updater.argoproj.io/write-back-method: git
+        argocd-image-updater.argoproj.io/git-branch: main
+        argocd-image-updater.argoproj.io/image-list: >-
+          backend=jfrog.dofuta.site/loganalyzer-backend,
+          frontend=jfrog.dofuta.site/loganalyzer-frontend
+        argocd-image-updater.argoproj.io/backend.update-strategy: latest
+        argocd-image-updater.argoproj.io/frontend.update-strategy: latest
+        # Tắt TLS verify cho docker registry nội bộ (HTTP)
+        argocd-image-updater.argoproj.io/backend.allow-tags: regexp:^[0-9a-f]{7}$
+        argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:^[0-9a-f]{7}$
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/thucdo08/LogAnalyzer_K8s.git
+        targetRevision: main
+        path: helm/loganalyzer
+        helm:
+          valueFiles:
+          - values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true        # Xóa resource không còn trong Git
+          selfHeal: true     # Tự khôi phục nếu ai đó sửa tay trên cluster
+        syncOptions:
+        - CreateNamespace=true
+        retry:
+          limit: 3
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m

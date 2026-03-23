@@ -1,0 +1,45 @@
+# Default values for loganalyzer
+
+replicaCount: 1
+
+# Registry: thay bằng domain docker registry của bạn
+registry: jfrog.dofuta.site
+
+backend:
+  image:
+    repository: jfrog.dofuta.site/loganalyzer-backend
+    tag: "latest"
+    pullPolicy: Always
+  service:
+    port: 5000
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+frontend:
+  image:
+    repository: jfrog.dofuta.site/loganalyzer-frontend
+    tag: "latest"
+    pullPolicy: Always
+  service:
+    port: 80
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "128Mi"
+      cpu: "200m"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: loganalyzer.dofuta.site
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+
+namespace: loganalyzer

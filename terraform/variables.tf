@@ -1,58 +1,58 @@
 variable "region" {
-  description = "AWS Region — ap-southeast-1 (Singapore, gần ShopBack HQ)"
+  description = "AWS region to deploy resources"
   type        = string
   default     = "ap-southeast-1"
 }
 
 variable "project_name" {
-  description = "Tên project, dùng làm prefix cho tất cả resources"
+  description = "Project name used as prefix for all resource names"
   type        = string
   default     = "loganalyzer"
 }
 
 variable "environment" {
-  description = "Môi trường: dev, staging, production"
+  description = "Deployment environment (dev, staging, production)"
   type        = string
   default     = "production"
 
   validation {
     condition     = contains(["dev", "staging", "production"], var.environment)
-    error_message = "Environment phải là: dev, staging, hoặc production."
+    error_message = "environment must be one of: dev, staging, production."
   }
 }
 
 variable "vpc_cidr" {
-  description = "CIDR block cho VPC"
+  description = "CIDR block for the VPC"
   type        = string
   default     = "10.0.0.0/16"
 }
 
 variable "my_ip_cidr" {
-  description = "IP của bạn để giới hạn SSH access vào Bastion (format: x.x.x.x/32)"
+  description = "Your public IP in CIDR notation to restrict SSH access (e.g. 1.2.3.4/32)"
   type        = string
-  default     = "0.0.0.0/0"  # THAY bằng IP thực: "YOUR_IP/32"
+  default     = "0.0.0.0/0"
 }
 
 variable "key_pair_name" {
-  description = "Tên AWS Key Pair để SSH vào EC2 (phải tạo trước trong AWS Console)"
+  description = "Name of the AWS EC2 Key Pair for SSH access (must exist before apply)"
   type        = string
   default     = "loganalyzer-key"
 }
 
 variable "master_instance_type" {
-  description = "EC2 instance type cho K8s Master (Control Plane)"
+  description = "EC2 instance type for the K8s control plane node"
   type        = string
-  default     = "t3.medium"  # 2 vCPU, 4GB RAM — đủ cho K8s master
+  default     = "t3.medium"
 }
 
 variable "worker_instance_type" {
-  description = "EC2 instance type cho K8s Workers (chạy LogAnalyzer pods)"
+  description = "EC2 instance type for K8s worker nodes"
   type        = string
-  default     = "t3.small"   # 2 vCPU, 2GB RAM — đủ cho intern demo
+  default     = "t3.small"
 }
 
 variable "worker_count" {
-  description = "Số lượng K8s Worker nodes"
+  description = "Number of K8s worker nodes"
   type        = number
   default     = 2
 }
@@ -60,16 +60,16 @@ variable "worker_count" {
 variable "db_instance_class" {
   description = "RDS instance class"
   type        = string
-  default     = "db.t3.micro"  # 2 vCPU, 1GB RAM — đủ cho demo
+  default     = "db.t3.micro"
 }
 
 variable "db_password" {
-  description = "Password cho RDS PostgreSQL admin user"
+  description = "Master password for the RDS PostgreSQL instance"
   type        = string
-  sensitive   = true  # Không hiển thị trong terraform plan output
+  sensitive   = true
 
   validation {
     condition     = length(var.db_password) >= 8
-    error_message = "DB password phải có ít nhất 8 ký tự."
+    error_message = "db_password must be at least 8 characters."
   }
 }

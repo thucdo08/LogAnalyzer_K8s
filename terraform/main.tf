@@ -1,18 +1,17 @@
-# =============================================================
 # Terraform — AWS Infrastructure as Code
-# Region: ap-southeast-1 (Singapore) — gần ShopBack HQ
+# Region: ap-southeast-1 (Singapore)
 #
-# Kiến trúc triển khai:
-#   VPC → Public Subnet (HAProxy/Jump) + Private Subnet (K8s Nodes)
-#   EC2: 1 Master (t3.medium) + 2 Workers (t3.small) + 1 Bastion
-#   RDS: PostgreSQL t3.micro (LogAnalyzer metadata)
-#   ECR: Repository cho backend + frontend images
+# Architecture:
+#   VPC -> Public Subnet (Bastion) + Private Subnets (K8s + RDS)
+#   EC2: 1 Master (t3.medium) + 2 Workers (t3.small) + 1 Bastion (t3.micro)
+#   RDS: PostgreSQL t3.micro
+#   ECR: backend + frontend image repositories
+#   S3:  cold storage for archived log files
 #
-# Để deploy:
+# Usage:
 #   terraform init
-#   terraform plan -var="db_password=YourSecurePass123"
-#   terraform apply -var="db_password=YourSecurePass123"
-# =============================================================
+#   terraform plan
+#   terraform apply
 
 terraform {
   required_version = ">= 1.5.0"
@@ -24,7 +23,7 @@ terraform {
     }
   }
 
-  # Uncomment để lưu state trên S3 (production best practice)
+  # Uncomment to store state in S3 (recommended for production)
   # backend "s3" {
   #   bucket  = "loganalyzer-terraform-state"
   #   key     = "k8s/terraform.tfstate"
@@ -46,14 +45,14 @@ provider "aws" {
   }
 }
 
-# =============================================================
+# -------------------------------------------------------------
 # Data Sources
-# =============================================================
+# -------------------------------------------------------------
 data "aws_availability_zones" "available" {
   state = "available"
 }
 
-# Lấy AWS Account ID (dùng cho S3 bucket name unique)
+# Used for globally unique S3 bucket naming
 data "aws_caller_identity" "current" {}
 
 data "aws_ami" "ubuntu" {
@@ -71,9 +70,9 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-# =============================================================
+# -------------------------------------------------------------
 # VPC & Networking
-# =============================================================
+# -------------------------------------------------------------
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -87,35 +86,34 @@ resource "aws_internet_gateway" "main" {
   tags   = { Name = "${var.project_name}-igw" }
 }
 
-# Public Subnet — cho Bastion/HAProxy (expose ra internet)
+# Public subnet — hosts Bastion (internet-facing)
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = cidrsubnet(var.vpc_cidr, 8, 1)   # 10.0.1.0/24
+  cidr_block              = cidrsubnet(var.vpc_cidr, 8, 1) # 10.0.1.0/24
   availability_zone       = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = true
 
   tags = { Name = "${var.project_name}-public-subnet" }
 }
 
-# Private Subnet — cho K8s nodes + RDS (không expose ra internet)
+# Private subnet — K8s nodes (no direct internet access)
 resource "aws_subnet" "private" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 10)  # 10.0.10.0/24
+  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 10) # 10.0.10.0/24
   availability_zone = data.aws_availability_zones.available.names[0]
 
   tags = { Name = "${var.project_name}-private-subnet" }
 }
 
-# Private Subnet 2 — RDS yêu cầu ít nhất 2 AZ
+# Second private subnet — required by RDS (multi-AZ subnet group)
 resource "aws_subnet" "private_2" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 11)  # 10.0.11.0/24
+  cidr_block        = cidrsubnet(var.vpc_cidr, 8, 11) # 10.0.11.0/24
   availability_zone = data.aws_availability_zones.available.names[1]
 
   tags = { Name = "${var.project_name}-private-subnet-2" }
 }
 
-# Route Table cho Public Subnet
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
@@ -132,11 +130,10 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-# =============================================================
+# -------------------------------------------------------------
 # Security Groups
-# =============================================================
+# -------------------------------------------------------------
 
-# SG cho Bastion/Jump Host
 resource "aws_security_group" "bastion" {
   name        = "${var.project_name}-bastion-sg"
   description = "Bastion host - SSH jump server"
@@ -158,13 +155,12 @@ resource "aws_security_group" "bastion" {
   }
 }
 
-# SG cho K8s Master + Workers
 resource "aws_security_group" "k8s" {
   name        = "${var.project_name}-k8s-sg"
   description = "Kubernetes cluster nodes"
   vpc_id      = aws_vpc.main.id
 
-  # SSH từ Bastion
+  # SSH via Bastion only
   ingress {
     from_port       = 22
     to_port         = 22
@@ -172,7 +168,7 @@ resource "aws_security_group" "k8s" {
     security_groups = [aws_security_group.bastion.id]
   }
 
-  # K8s API Server (kubectl access)
+  # K8s API server
   ingress {
     from_port       = 6443
     to_port         = 6443
@@ -180,20 +176,20 @@ resource "aws_security_group" "k8s" {
     security_groups = [aws_security_group.bastion.id]
   }
 
-  # NodePort range (Ingress Controller)
+  # NodePort range for Ingress Controller
   ingress {
     from_port   = 30000
     to_port     = 32767
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Public access cho Ingress
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Calico CNI + K8s internal communication
+  # Inter-node traffic (Calico CNI)
   ingress {
     from_port = 0
     to_port   = 0
     protocol  = "-1"
-    self      = true  # Cho phép nodes nói chuyện với nhau
+    self      = true
   }
 
   egress {
@@ -204,28 +200,24 @@ resource "aws_security_group" "k8s" {
   }
 }
 
-# SG cho RDS PostgreSQL
 resource "aws_security_group" "rds" {
   name        = "${var.project_name}-rds-sg"
-  description = "RDS PostgreSQL — chỉ K8s nodes được kết nối"
+  description = "RDS PostgreSQL - accessible from K8s nodes only"
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description     = "PostgreSQL chỉ từ K8s nodes"
+    description     = "PostgreSQL from K8s nodes"
     from_port       = 5432
     to_port         = 5432
     protocol        = "tcp"
     security_groups = [aws_security_group.k8s.id]
   }
-
-  # Không có egress rule → mặc định allow all (RDS chỉ cần receive)
 }
 
-# =============================================================
+# -------------------------------------------------------------
 # EC2 Instances — Kubernetes Cluster
-# =============================================================
+# -------------------------------------------------------------
 
-# Bastion Host (jump server để SSH vào K8s nodes)
 resource "aws_instance" "bastion" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3.micro"
@@ -236,7 +228,6 @@ resource "aws_instance" "bastion" {
   tags = { Name = "${var.project_name}-bastion", Role = "bastion" }
 }
 
-# K8s Master Node
 resource "aws_instance" "k8s_master" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.master_instance_type
@@ -249,7 +240,6 @@ resource "aws_instance" "k8s_master" {
     volume_type = "gp3"
   }
 
-  # User data: cài Docker + kubeadm khi EC2 khởi động
   user_data = base64encode(templatefile("${path.module}/scripts/k8s-init.sh", {
     role = "master"
   }))
@@ -257,7 +247,6 @@ resource "aws_instance" "k8s_master" {
   tags = { Name = "${var.project_name}-k8s-master", Role = "k8s-master" }
 }
 
-# K8s Worker Nodes
 resource "aws_instance" "k8s_workers" {
   count                  = var.worker_count
   ami                    = data.aws_ami.ubuntu.id
@@ -271,7 +260,6 @@ resource "aws_instance" "k8s_workers" {
     volume_type = "gp3"
   }
 
-  # User data: cài Docker + kubeadm (không init cluster, chỳ lệnh join từ master)
   user_data = base64encode(templatefile("${path.module}/scripts/k8s-init.sh", {
     role = "worker"
   }))
@@ -282,9 +270,9 @@ resource "aws_instance" "k8s_workers" {
   }
 }
 
-# =============================================================
-# RDS PostgreSQL — LogAnalyzer Metadata Storage
-# =============================================================
+# -------------------------------------------------------------
+# RDS PostgreSQL
+# -------------------------------------------------------------
 resource "aws_db_subnet_group" "main" {
   name       = "${var.project_name}-db-subnet-group"
   subnet_ids = [aws_subnet.private.id, aws_subnet.private_2.id]
@@ -300,38 +288,36 @@ resource "aws_db_instance" "postgres" {
   instance_class = var.db_instance_class
 
   allocated_storage     = 20
-  max_allocated_storage = 100  # Auto-scaling storage
+  max_allocated_storage = 100
   storage_type          = "gp3"
-  storage_encrypted     = true  # Encrypt data at rest
+  storage_encrypted     = true
 
   db_name  = "loganalyzer"
   username = "loganalyzer_admin"
-  password = var.db_password  # Từ variables (sensitive)
+  password = var.db_password
 
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [aws_security_group.rds.id]
 
-  # Security settings
-  publicly_accessible    = false  # Không expose ra internet
-  deletion_protection    = false  # Set true trong production
-  skip_final_snapshot    = true   # Set false trong production
+  publicly_accessible = false
+  deletion_protection = false # set true in production
+  skip_final_snapshot = true  # set false in production
 
-  # Backup (production: 7 ngày)
   backup_retention_period = 1
-  backup_window           = "03:00-04:00"  # 3AM Singapore time
+  backup_window           = "03:00-04:00" # SGT
 
   tags = { Name = "${var.project_name}-postgres" }
 }
 
-# =============================================================
-# AWS ECR — Container Registry cho Docker Images
-# =============================================================
+# -------------------------------------------------------------
+# AWS ECR — Container Registries
+# -------------------------------------------------------------
 resource "aws_ecr_repository" "backend" {
   name                 = "loganalyzer-backend"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
-    scan_on_push = true  # Tự động scan CVE khi push image
+    scan_on_push = true
   }
 
   encryption_configuration {
@@ -356,7 +342,7 @@ resource "aws_ecr_repository" "frontend" {
   tags = { Component = "frontend" }
 }
 
-# ECR Lifecycle Policy: Giữ tối đa 10 images, xóa cũ tự động
+# Retain only the 10 most recent images
 resource "aws_ecr_lifecycle_policy" "backend" {
   repository = aws_ecr_repository.backend.name
 
@@ -391,11 +377,11 @@ resource "aws_ecr_lifecycle_policy" "frontend" {
   })
 }
 
-# =============================================================
-# S3 Bucket — Cold Storage cho log files cũ (archive)
-# =============================================================
+# -------------------------------------------------------------
+# S3 — Cold Storage for Archived Log Files
+# -------------------------------------------------------------
 resource "aws_s3_bucket" "log_archive" {
-  # Bucket name phải globally unique — dùng account ID để đảm bảo không trùng
+  # Account ID ensures globally unique bucket name
   bucket = "${var.project_name}-log-archive-${data.aws_caller_identity.current.account_id}"
 
   tags = { Purpose = "Cold storage for archived security logs" }
@@ -410,19 +396,16 @@ resource "aws_s3_bucket_lifecycle_configuration" "log_archive" {
 
     filter { prefix = "logs/" }
 
-    # Sau 30 ngày → chuyển sang S3 Standard-IA (rẻ hơn)
     transition {
       days          = 30
       storage_class = "STANDARD_IA"
     }
 
-    # Sau 90 ngày → chuyển sang Glacier (rất rẻ, archive dài hạn)
     transition {
       days          = 90
       storage_class = "GLACIER"
     }
 
-    # Sau 365 ngày → xóa (compliance: 1 năm)
     expiration {
       days = 365
     }

@@ -18,7 +18,7 @@ imagePullSecrets:
 backend:
   image:
     repository: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-backend
-    tag: "d23401c"
+    tag: "v2"
     pullPolicy: Always
   service:
     port: 8000

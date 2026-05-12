@@ -1,0 +1,82 @@
+# =============================================================
+# Prometheus + Grafana Stack — custom values for LogAnalyzer
+# Deploy: helm upgrade --install prometheus prometheus-community/kube-prometheus-stack \
+#           -n monitoring --create-namespace \
+#           -f k8s/monitoring/prometheus-values.yaml
+# =============================================================
+nameOverride: ""
+fullnameOverride: ""
+
+# === Prometheus ===
+prometheus:
+  prometheusSpec:
+    # Tự động discover ServiceMonitor từ bất kỳ namespace nào
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorNamespaceSelector: {}
+    # Tự động discover PrometheusRule từ bất kỳ namespace nào
+    ruleSelectorNilUsesHelmValues: false
+    ruleSelector: {}
+    ruleNamespaceSelector: {}
+    # Retention
+    retention: 15d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+
+# === Grafana ===
+grafana:
+  enabled: true
+  adminPassword: "LogAnalyzer@SRE2025"   # Đổi password này!
+  # Tự động import dashboard từ ConfigMap có label grafana_dashboard=1
+  sidecar:
+    dashboards:
+      enabled: true
+      searchNamespace: ALL    # Tìm dashboard ConfigMap từ mọi namespace
+      label: grafana_dashboard
+      labelValue: "1"
+    datasources:
+      enabled: true
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: false    # Dùng Cloudflare Tunnel thay thế
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 256Mi
+
+# === AlertManager ===
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+# === Node Exporter (metrics từ EC2 nodes) ===
+nodeExporter:
+  enabled: true
+
+# === Kube State Metrics (metrics về K8s objects) ===
+kubeStateMetrics:
+  enabled: true

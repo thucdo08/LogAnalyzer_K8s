@@ -9,6 +9,8 @@ replicaCount: 1
 # Docker Registry (private self-hosted hoặc AWS ECR)
 # AWS ECR: <account_id>.dkr.ecr.ap-southeast-1.amazonaws.com
 registry: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com
+imagePullSecrets:
+  - name: regcred
 
 # =============================================================
 # Backend Configuration

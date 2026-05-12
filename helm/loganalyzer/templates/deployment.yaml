@@ -5,25 +5,115 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Release.Name }}-backend
+    version: {{ .Values.backend.image.tag | quote }}
+    component: api
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-backend
+  strategy:
+    # Rolling Update: không có downtime khi deploy version mới
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # Cho phép tạm thời +1 pod khi deploy
+      maxUnavailable: 0  # Không cho phép pod nào bị tắt trong quá trình deploy
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-backend
+        version: {{ .Values.backend.image.tag | quote }}
       annotations:
         # ArgoCD Image Updater sẽ cập nhật annotation này tự động
         argocd-image-updater.argoproj.io/image-list: backend={{ .Values.backend.image.repository }}
+        # Prometheus scrape annotations (fallback nếu không có ServiceMonitor)
+        prometheus.io/scrape: "true"
+        prometheus.io/port: {{ .Values.backend.service.port | quote }}
+        prometheus.io/path: "/metrics"
     spec:
+      # ServiceAccount riêng (RBAC least privilege)
+      serviceAccountName: loganalyzer-backend
+      automountServiceAccountToken: false
+      imagePullSecrets:
+      {{- range .Values.imagePullSecrets }}
+        - name: {{ .name }}
+      {{- end }}
+
+      # Ưu tiên đặt pods trên các nodes khác nhau (HA)
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: {{ .Release.Name }}-backend
+              topologyKey: kubernetes.io/hostname
+
+      # Graceful shutdown: chờ 30s trước khi force kill
+      terminationGracePeriodSeconds: 30
+
       containers:
       - name: backend
         image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
         imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.backend.service.port }}
+          name: http
+          protocol: TCP
+
+        # Environment Variables từ K8s Secrets (không hardcode)
+        envFrom:
+        {{- if .Values.secrets.enabled }}
+        - secretRef:
+            name: loganalyzer-secrets
+        {{- end }}
+        env:
+        - name: PORT
+          value: {{ .Values.backend.service.port | quote }}
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        # Pod info (cho logging)
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+
+        # === Health Probes ===
+        # startupProbe: Cho app thời gian khởi động (load ML models, connect DB)
+        startupProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          failureThreshold: 12  # Cho tối đa 10+12*5=70s để startup
+
+        # livenessProbe: K8s restart pod nếu endpoint này fail
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          periodSeconds: 15
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+
+        # readinessProbe: K8s không route traffic nếu endpoint này fail
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: http
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+
+        # === Resource Management ===
         resources:
           requests:
             memory: {{ .Values.backend.resources.requests.memory }}
@@ -31,6 +121,21 @@ spec:
           limits:
             memory: {{ .Values.backend.resources.limits.memory }}
             cpu: {{ .Values.backend.resources.limits.cpu }}
+
+        # Security Context cho container
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1001
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false  # app.py cần write vào config/alerts/
+          capabilities:
+            drop:
+            - ALL
+
+      # Security Context cho Pod
+      securityContext:
+        fsGroup: 1001
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,24 +144,67 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Release.Name }}-frontend
+    version: {{ .Values.frontend.image.tag | quote }}
+    component: ui
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-frontend
+        version: {{ .Values.frontend.image.tag | quote }}
       annotations:
         argocd-image-updater.argoproj.io/image-list: frontend={{ .Values.frontend.image.repository }}
     spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+      {{- range .Values.imagePullSecrets }}
+        - name: {{ .name }}
+      {{- end }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: {{ .Release.Name }}-frontend
+              topologyKey: kubernetes.io/hostname
+
       containers:
       - name: frontend
         image: {{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}
         imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.frontend.service.port }}
+          name: http
+          protocol: TCP
+
+        # Liveness: TCP check — Nginx có đang listen port 80 không?
+        livenessProbe:
+          tcpSocket:
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 15
+          failureThreshold: 3
+
+        # Readiness: HTTP check — Nginx có trả về index.html không?
+        readinessProbe:
+          httpGet:
+            path: /index.html
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+
         resources:
           requests:
             memory: {{ .Values.frontend.resources.requests.memory }}
@@ -64,3 +212,12 @@ spec:
           limits:
             memory: {{ .Values.frontend.resources.limits.memory }}
             cpu: {{ .Values.frontend.resources.limits.cpu }}
+
+        securityContext:
+          runAsNonRoot: false  # nginx cần root để bind port 80 (sau đó drop)
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+            add:
+            - NET_BIND_SERVICE  # Cho phép bind port 80

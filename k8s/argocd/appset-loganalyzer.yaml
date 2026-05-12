@@ -21,17 +21,7 @@ spec:
         app: loganalyzer
         env: "{{env}}"
       annotations:
-        # ArgoCD Image Updater: image-list trỏ vào AWS ECR
-        # Thay <ACCOUNT_ID> bằng AWS Account ID thực tế (terraform output)
-        argocd-image-updater.argoproj.io/write-back-method: git
-        argocd-image-updater.argoproj.io/git-branch: main
-        argocd-image-updater.argoproj.io/image-list: >-
-          backend=<ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-backend,
-          frontend=<ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-frontend
-        argocd-image-updater.argoproj.io/backend.update-strategy: newest-build
-        argocd-image-updater.argoproj.io/frontend.update-strategy: newest-build
-        argocd-image-updater.argoproj.io/backend.allow-tags: regexp:^[0-9a-f]{7}$
-        argocd-image-updater.argoproj.io/frontend.allow-tags: regexp:^[0-9a-f]{7}$
+        # Manual tag update mode (no argocd-image-updater)
     spec:
       project: default
       source:

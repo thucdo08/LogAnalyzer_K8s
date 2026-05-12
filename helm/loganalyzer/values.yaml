@@ -1,17 +1,25 @@
-# Default values for loganalyzer
+# =============================================================
+# LogAnalyzer Helm Chart — Default Values
+# Override khi deploy: helm upgrade -f custom-values.yaml
+# hoặc: helm upgrade --set backend.image.tag=abc1234
+# =============================================================
 
 replicaCount: 1
 
-# Registry: thay bằng domain docker registry của bạn
+# Docker Registry (private self-hosted hoặc AWS ECR)
+# AWS ECR: <account_id>.dkr.ecr.ap-southeast-1.amazonaws.com
 registry: jfrog.dofuta.site
 
+# =============================================================
+# Backend Configuration
+# =============================================================
 backend:
   image:
     repository: jfrog.dofuta.site/loganalyzer-backend
-    tag: "latest"
+    tag: "d23401c"
     pullPolicy: Always
   service:
-    port: 5000
+    port: 8000
   resources:
     requests:
       memory: "256Mi"
@@ -20,10 +28,13 @@ backend:
       memory: "512Mi"
       cpu: "500m"
 
+# =============================================================
+# Frontend Configuration
+# =============================================================
 frontend:
   image:
     repository: jfrog.dofuta.site/loganalyzer-frontend
-    tag: "latest"
+    tag: "d23401c"
     pullPolicy: Always
   service:
     port: 80
@@ -35,11 +46,62 @@ frontend:
       memory: "128Mi"
       cpu: "200m"
 
+# =============================================================
+# Ingress Configuration
+# =============================================================
 ingress:
   enabled: true
   className: nginx
   host: loganalyzer.dofuta.site
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
 
 namespace: loganalyzer
+
+# =============================================================
+# Auto-scaling (HPA) — Module 2: Reliability
+# Scale backend khi lượng log phân tích tăng đột biến
+# =============================================================
+autoscaling:
+  enabled: true
+  backend:
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+  frontend:
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 70
+
+# =============================================================
+# Secret Management — Module 3: Security
+# Giá trị thật được inject lúc deploy, KHÔNG commit vào Git
+# CI/CD: helm upgrade --set secrets.openaiKey=$OPENAI_KEY
+# =============================================================
+secrets:
+  enabled: true
+  openaiKey: "REPLACE_IN_CI_CD"     # Override via --set hoặc GitHub Secrets
+  mongodbUri: "REPLACE_IN_CI_CD"    # Override via --set hoặc GitHub Secrets
+
+# =============================================================
+# NetworkPolicy — Module 3: Security (Zero-Trust)
+# =============================================================
+networkPolicy:
+  enabled: true
+
+# =============================================================
+# Monitoring — Module 4: Observability
+# Yêu cầu Prometheus Operator (kube-prometheus-stack) đã cài
+# helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring
+# =============================================================
+monitoring:
+  enabled: true
+  serviceMonitor:
+    interval: "30s"
+    metricsPath: "/metrics"
+  grafana:
+    enabled: true

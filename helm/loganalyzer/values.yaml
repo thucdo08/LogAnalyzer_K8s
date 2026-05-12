@@ -18,7 +18,7 @@ imagePullSecrets:
 backend:
   image:
     repository: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-backend
-    tag: "v2"
+    tag: "662493e"
     pullPolicy: Always
   service:
     port: 8000
@@ -36,7 +36,7 @@ backend:
 frontend:
   image:
     repository: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-frontend
-    tag: "d23401c"
+    tag: "662493e"
     pullPolicy: Always
   service:
     port: 80

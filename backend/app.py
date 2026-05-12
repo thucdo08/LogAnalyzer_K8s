@@ -1,4 +1,4 @@
-# backend/app.py
+# backend/app.py - [v2.0.1 - GitOps Auto-Deploy Test]
 # -*- coding: utf-8 -*-
 import sys
 import io
@@ -950,9 +950,6 @@ def analyze():
         return jsonify({"ok": False, "error": f"Analyze lỗi: {e}"}), 500
 
 
-@app.get("/health")
-def health():
-    return {"ok": True}
 
 
 @app.get("/ai/status")
@@ -1951,6 +1948,121 @@ def sync_baseline_from_mongodb():
             "error": str(e),
             "message": "Lỗi khi lấy baseline từ MongoDB"
         }), 500
+
+
+# =============================================================
+# SRE Health & Observability Endpoints
+# =============================================================
+import time as _time
+from collections import defaultdict as _defaultdict
+
+# Simple in-memory counters (reset on pod restart — đủ cho demo SRE)
+_request_counter = _defaultdict(int)
+_error_counter = _defaultdict(int)
+_start_time = _time.time()
+
+def _track_request(endpoint: str, status_code: int):
+    """Ghi nhận request vào counter (gọi từ endpoint)."""
+    _request_counter[endpoint] += 1
+    if status_code >= 500:
+        _error_counter[endpoint] += 1
+
+
+@app.get("/health")
+def health():
+    """
+    Liveness Probe — K8s dùng endpoint này để biết app còn sống không.
+    Nếu endpoint này fail → K8s sẽ restart pod.
+    Logic: chỉ cần app đang chạy và import được các module lõi.
+    """
+    try:
+        # Kiểm tra các module lõi có import được không
+        import pandas  # noqa
+        import flask   # noqa
+        return jsonify({
+            "status": "ok",
+            "service": "loganalyzer-backend",
+            "uptime_seconds": round(_time.time() - _start_time, 1),
+        }), 200
+    except Exception as e:
+        return jsonify({"status": "error", "detail": str(e)}), 500
+
+
+@app.get("/ready")
+def ready():
+    """
+    Readiness Probe — K8s dùng endpoint này để biết app đã sẵn sàng
+    nhận traffic chưa. Nếu fail → K8s tạm không route traffic vào pod này.
+    Logic: kiểm tra config và rules có load được không.
+    """
+    checks = {}
+    all_ok = True
+
+    # Check 1: Rules config loaded
+    try:
+        checks["rules_config"] = "ok" if isinstance(RULES, dict) else "empty"
+    except Exception as e:
+        checks["rules_config"] = f"error: {e}"
+        all_ok = False
+
+    # Check 2: Baselines directory accessible
+    try:
+        base_dir = os.path.join(os.path.dirname(__file__), "config", "baselines")
+        checks["baselines_dir"] = "ok" if os.path.isdir(base_dir) else "missing"
+    except Exception as e:
+        checks["baselines_dir"] = f"error: {e}"
+        all_ok = False
+
+    # Check 3: OpenAI key configured (không cần validate thật)
+    openai_key = os.getenv("OPENAI_API_KEY", "")
+    checks["openai_key"] = "configured" if openai_key and openai_key != "your-key-here" else "not_set"
+    # OpenAI key missing không block readiness (app vẫn hoạt động với mock)
+
+    status_code = 200 if all_ok else 503
+    return jsonify({
+        "status": "ready" if all_ok else "not_ready",
+        "checks": checks,
+    }), status_code
+
+
+@app.get("/metrics")
+def metrics():
+    """
+    Prometheus Metrics Endpoint.
+    K8s ServiceMonitor sẽ scrape endpoint này mỗi 30s.
+    Format: Prometheus text exposition format.
+    """
+    uptime = _time.time() - _start_time
+    total_requests = sum(_request_counter.values())
+    total_errors = sum(_error_counter.values())
+
+    lines = [
+        "# HELP loganalyzer_uptime_seconds Thời gian app đã chạy (giây)",
+        "# TYPE loganalyzer_uptime_seconds gauge",
+        f"loganalyzer_uptime_seconds {uptime:.1f}",
+        "",
+        "# HELP loganalyzer_requests_total Tổng số HTTP requests đã xử lý",
+        "# TYPE loganalyzer_requests_total counter",
+        f"loganalyzer_requests_total {total_requests}",
+        "",
+        "# HELP loganalyzer_errors_total Tổng số lỗi HTTP 5xx",
+        "# TYPE loganalyzer_errors_total counter",
+        f"loganalyzer_errors_total {total_errors}",
+        "",
+        "# HELP loganalyzer_rules_loaded Số lượng rule bảo mật đã nạp",
+        "# TYPE loganalyzer_rules_loaded gauge",
+        f"loganalyzer_rules_loaded {len(RULES)}",
+    ]
+
+    # Per-endpoint breakdown
+    lines.append("")
+    lines.append("# HELP loganalyzer_endpoint_requests_total Requests theo endpoint")
+    lines.append("# TYPE loganalyzer_endpoint_requests_total counter")
+    for endpoint, count in _request_counter.items():
+        safe_ep = endpoint.replace("/", "_").replace("-", "_").lstrip("_")
+        lines.append(f'loganalyzer_endpoint_requests_total{{endpoint="{endpoint}"}} {count}')
+
+    return "\n".join(lines) + "\n", 200, {"Content-Type": "text/plain; version=0.0.4"}
 
 
 if __name__ == "__main__":

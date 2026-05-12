@@ -113,7 +113,34 @@ helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring
 
 ---
 
-## 🧹 6. Dọn dẹp (Cleanup)
+## 🔍 7. Kiểm tra & Vận hành (Verification)
+
+Sau khi triển khai, hãy sử dụng các lệnh sau để đảm bảo hệ thống chạy đúng luồng GitOps:
+
+### Kiểm tra trạng thái triển khai
+```bash
+# Xem các ứng dụng trong ArgoCD
+kubectl get applications -n argocd
+
+# Theo dõi quá trình cập nhật Pod (Rolling Update)
+kubectl get pods -n loganalyzer -w
+```
+
+### Kiểm tra kết nối Registry (ECR)
+```bash
+# Xác nhận ServiceAccount có quyền kéo image
+kubectl describe sa loganalyzer-sa -n loganalyzer
+```
+
+### Xem Log ứng dụng (SRE Debugging)
+```bash
+# Xem log trực tiếp từ Backend
+kubectl logs -l app=loganalyzer-production-backend -n loganalyzer -f --tail=100
+```
+
+---
+
+## 🧹 8. Dọn dẹp (Cleanup)
 Để tránh phát sinh chi phí AWS khi không sử dụng:
 ```bash
 cd terraform

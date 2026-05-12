@@ -213,11 +213,6 @@ spec:
             memory: {{ .Values.frontend.resources.limits.memory }}
             cpu: {{ .Values.frontend.resources.limits.cpu }}
 
-        securityContext:
-          runAsNonRoot: false  # nginx cần root để bind port 80 (sau đó drop)
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-            add:
-            - NET_BIND_SERVICE  # Cho phép bind port 80
+        # securityContext removed to fix Nginx chown error in alpine image
+        # will re-enable after hardening config
+

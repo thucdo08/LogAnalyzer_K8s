@@ -8,14 +8,14 @@ replicaCount: 1
 
 # Docker Registry (private self-hosted hoặc AWS ECR)
 # AWS ECR: <account_id>.dkr.ecr.ap-southeast-1.amazonaws.com
-registry: jfrog.dofuta.site
+registry: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com
 
 # =============================================================
 # Backend Configuration
 # =============================================================
 backend:
   image:
-    repository: jfrog.dofuta.site/loganalyzer-backend
+    repository: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-backend
     tag: "d23401c"
     pullPolicy: Always
   service:
@@ -33,7 +33,7 @@ backend:
 # =============================================================
 frontend:
   image:
-    repository: jfrog.dofuta.site/loganalyzer-frontend
+    repository: 573643652378.dkr.ecr.ap-southeast-1.amazonaws.com/loganalyzer-frontend
     tag: "d23401c"
     pullPolicy: Always
   service:

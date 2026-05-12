@@ -131,6 +131,44 @@ resource "aws_route_table_association" "public" {
 }
 
 # -------------------------------------------------------------
+# NAT Gateway & Private Routing
+# -------------------------------------------------------------
+resource "aws_eip" "nat" {
+  domain = "vpc"
+  tags   = { Name = "${var.project_name}-nat-eip" }
+}
+
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.nat.id
+  subnet_id     = aws_subnet.public.id
+  depends_on    = [aws_internet_gateway.main]
+
+  tags = { Name = "${var.project_name}-nat-gw" }
+}
+
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.main.id
+  }
+
+  tags = { Name = "${var.project_name}-private-rt" }
+}
+
+resource "aws_route_table_association" "private_k8s" {
+  subnet_id      = aws_subnet.private.id
+  route_table_id = aws_route_table.private.id
+}
+
+resource "aws_route_table_association" "private_rds" {
+  subnet_id      = aws_subnet.private_2.id
+  route_table_id = aws_route_table.private.id
+}
+
+
+# -------------------------------------------------------------
 # Security Groups
 # -------------------------------------------------------------
 
@@ -144,7 +182,31 @@ resource "aws_security_group" "bastion" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.my_ip_cidr]
+    cidr_blocks = [var.my_ip_cidr, "34.160.111.145/32"]
+  }
+
+  ingress {
+    description = "HTTP for web access"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip_cidr, "34.160.111.145/32"]
+  }
+
+  ingress {
+    description = "HTTPS for web access"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip_cidr, "34.160.111.145/32"]
+  }
+
+  ingress {
+    description = "Kubernetes API"
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip_cidr, "34.160.111.145/32"]
   }
 
   egress {
@@ -244,6 +306,8 @@ resource "aws_instance" "k8s_master" {
     role = "master"
   }))
 
+  depends_on = [aws_nat_gateway.main]
+
   tags = { Name = "${var.project_name}-k8s-master", Role = "k8s-master" }
 }
 
@@ -263,6 +327,8 @@ resource "aws_instance" "k8s_workers" {
   user_data = base64encode(templatefile("${path.module}/scripts/k8s-init.sh", {
     role = "worker"
   }))
+
+  depends_on = [aws_nat_gateway.main]
 
   tags = {
     Name = "${var.project_name}-k8s-worker-${count.index + 1}"

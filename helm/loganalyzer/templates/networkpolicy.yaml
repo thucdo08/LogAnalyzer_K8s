@@ -1,0 +1,142 @@
+{{- if .Values.networkPolicy.enabled }}
+# =============================================================
+# NetworkPolicy — Zero-Trust Security trong Kubernetes
+# Chuyên ngành An toàn thông tin: áp dụng nguyên tắc least privilege
+# Mọi traffic bị block mặc định, chỉ cho phép những gì được định nghĩa
+# =============================================================
+
+# --- 1. Default Deny All: Block toàn bộ traffic vào namespace ---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: {{ .Values.namespace }}
+  labels:
+    component: security
+    policy: zero-trust
+spec:
+  podSelector: {}    # Áp dụng cho tất cả pods trong namespace
+  policyTypes:
+  - Ingress
+  - Egress
+
+---
+# --- 2. Cho phép NGINX Ingress Controller → Frontend (port 80) ---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-frontend
+  namespace: {{ .Values.namespace }}
+  labels:
+    component: security
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Release.Name }}-frontend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    # Chỉ cho phép traffic từ nginx-ingress namespace
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: ingress-nginx
+    ports:
+    - protocol: TCP
+      port: 80
+
+---
+# --- 3. Cho phép Frontend → Backend (port 5000) ---
+# Chỉ frontend pod mới được gọi backend API
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend-to-backend
+  namespace: {{ .Values.namespace }}
+  labels:
+    component: security
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Release.Name }}-backend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    # Chỉ pods có label app=frontend mới được gọi vào backend
+    - podSelector:
+        matchLabels:
+          app: {{ .Release.Name }}-frontend
+    # Ingress Controller cũng cần truy cập backend (path /api)
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: ingress-nginx
+    ports:
+    - protocol: TCP
+      port: {{ .Values.backend.service.port }}
+
+---
+# --- 4. Backend Egress — cho phép backend kết nối ra ngoài ---
+# Backend cần gọi: OpenAI API (HTTPS:443), MongoDB Atlas (27017)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-egress
+  namespace: {{ .Values.namespace }}
+  labels:
+    component: security
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Release.Name }}-backend
+  policyTypes:
+  - Egress
+  egress:
+  # DNS resolution (CoreDNS trong K8s)
+  - ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
+  # HTTPS: OpenAI API, GeoIP updates
+  - ports:
+    - protocol: TCP
+      port: 443
+  # MongoDB Atlas
+  - ports:
+    - protocol: TCP
+      port: 27017
+  # AWS RDS Postgres (nếu dùng)
+  - ports:
+    - protocol: TCP
+      port: 5432
+
+---
+# --- 5. Frontend Egress — chỉ cần gọi vào backend ---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend-egress
+  namespace: {{ .Values.namespace }}
+  labels:
+    component: security
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Release.Name }}-frontend
+  policyTypes:
+  - Egress
+  egress:
+  # DNS
+  - ports:
+    - protocol: UDP
+      port: 53
+  # Gọi backend API
+  - to:
+    - podSelector:
+        matchLabels:
+          app: {{ .Release.Name }}-backend
+    ports:
+    - protocol: TCP
+      port: {{ .Values.backend.service.port }}
+{{- end }}

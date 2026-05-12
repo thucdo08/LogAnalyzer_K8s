@@ -1,0 +1,37 @@
+# =============================================================
+# PodDisruptionBudget — Đảm bảo High Availability khi K8s drain node
+# Ví dụ: khi upgrade K8s version, K8s sẽ drain node từng cái một
+# PDB đảm bảo luôn có ít nhất 1 pod available trong quá trình đó
+# =============================================================
+
+# --- Backend PDB ---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Release.Name }}-backend-pdb
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-backend
+    component: availability
+spec:
+  # Luôn có ít nhất 1 backend pod sẵn sàng phục vụ
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-backend
+
+---
+# --- Frontend PDB ---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Release.Name }}-frontend-pdb
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-frontend
+    component: availability
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-frontend

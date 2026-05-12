@@ -1,0 +1,436 @@
+1.Dựng 4 con server 
++ 1 con server HAProxy ( 1CPU , 1Gi RAM)
++ 3 con server chạy workload (2vCPU , 3/4GiRAM)
+
+2. Dựng cụm theo mô reverse proxy (HAProxy -> 3con server(K8s))
+https://github.com/jaiswaladi246/HA-K8-Cluster/blob/main/devops-shack-HA-K8-cluster.md
+https://www.youtube.com/watch?v=JXbTyz1QIHI&t=800s
+3. Cloudflare tunnel zero trust : Trỏ vào IP HAProxy
+4. Install ArgoCD , Jfrog Container Registry with helm chart
+5. Viết helmchart cơ bản để deploy 
+6. Push helmchart lên registry
+7. Config argocd trigger gitops: (appset)
++ Config trigger với CR
++ Config trigger với helmchart
++ Config trigger với source infra
+8. Demo luồng gitops 
+
+
+
+1. xem cách dựng cụm k8s gồm 3 máy master tại https://github.com/jaiswaladi246/HA-K8-Cluster/blob/main/devops-shack-HA-K8-cluster.md
+2. 
+Cập nhật hệ thống và Cài đặt HAProxy
+sudo apt-get update
+sudo apt-get install -y haproxy
+Cấu hình HAProxy
+sudo nano /etc/haproxy/haproxy.cfg
+global
+        log /dev/log    local0
+        log /dev/log    local1 notice
+        chroot /var/lib/haproxy
+        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+        stats timeout 30s
+        user haproxy
+        group haproxy
+        daemon
+
+        # Default SSL material locations
+        ca-base /etc/ssl/certs
+        crt-base /etc/ssl/private
+
+        # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
+        ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA38>
+        ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+        ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        timeout connect 5000
+        timeout client  50000
+
+
+sudo systemctl restart haproxy
+Sau khi cấu hình xong, restart dịch vụ:
+sudo systemctl restart haproxy
+Cài đặt Cloudflare Tunnel (cloudflared)
+Tải package
+curl -L --output cloudflared.deb \
+https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+
+Cài đặt
+sudo dpkg -i cloudflared.deb
+
+Thực hiện login:
+cloudflared tunnel login
+•	Mở URL Cloudflare trên trình duyệt 
+•	Xác thực tài khoản thành công
+
+
+
+Tạo Tunnel Cloudflare
+Tạo tunnel mới:
+cloudflared tunnel create k8s-ha-tunnel
+Kết quả:
+•	Tunnel ID: 
+ffd7d4a5-5ebc-4942-9222-f6f4b06da182
+Credential file:
+~/.cloudflared/<tunnel-id>.json
+________________________________________
+6. Cấu hình Tunnel
+Tạo file config:
+nano ~/.cloudflared/config.yml
+(tự thay domain và ip)
+  GNU nano 6.2                               /home/thuc/.cloudflared/config.yml
+tunnel: ffd7d4a5-5ebc-4942-9222-f6f4b06da182
+credentials-file: /home/thuc/.cloudflared/ffd7d4a5-5ebc-4942-9222-f6f4b06da182.json
+
+ingress:
+  - hostname: argocd.dofuta.site
+    service: http://192.168.17.111:80
+  - hostname: jfrog.dofuta.site
+    service: http://192.168.17.112:80
+  - hostname: loganalyzer.dofuta.site
+    service: http://192.168.17.113:80
+  - service: http_status:40
+
+Sau đó cấu hình routing domain.
+________________________________________
+7. Mapping DNS vào Tunnel
+Thực hiện route DNS: 
+(tự thay doamn)
+cloudflared tunnel route dns k8s-ha-tunnel argocd.dofuta.site
+cloudflared tunnel route dns k8s-ha-tunnel jfrog.dofuta.site
+cloudflared tunnel route dns k8s-ha-tunnel loganalyzer.dofuta.site
+Kết quả:
+•	Các bản ghi CNAME được tạo thành công trên Cloudflare. 
+________________________________________
+8. Cài Cloudflared chạy dạng Service
+Tạo thư mục system config
+sudo mkdir -p /etc/cloudflared
+Copy cấu hình
+sudo cp ~/.cloudflared/* /etc/cloudflared/
+Cài service
+sudo cloudflared service install
+________________________________________
+9. Xử lý lỗi Cloudflared Service
+Ban đầu service lỗi:
+cloudflared.service failed (exit-code)
+invalid HTTP status code: 40
+Kiểm tra log:
+sudo journalctl -u cloudflared.service
+Sửa file config:
+sudo nano /etc/cloudflared/config.yml
+tunnel: ffd7d4a5-5ebc-4942-9222-f6f4b06da182
+credentials-file: /etc/cloudflared/ffd7d4a5-5ebc-4942-9222-f6f4b06da182.json
+
+ingress:
+  - hostname: argocd.dofuta.site
+    service: http://192.168.17.111:30322
+  - hostname: jfrog.dofuta.site
+    service: http://192.168.17.112:30322
+  - hostname: test.dofuta.site
+    service: http://192.168.17.113:30322
+  - service: http_status:404
+
+Reload systemd:
+sudo systemctl daemon-reload
+sudo systemctl restart cloudflared
+________________________________________
+10. Service hoạt động thành công
+Kiểm tra trạng thái:
+sudo systemctl status cloudflared
+
+
+
+
+
+Hướng dẫn cài đặt ArgoCD trên Kubernetes
+Thêm Helm Repository ArgoCD
+helm repo add argo https://argoproj.github.io/argo-helm
+helm repo update
+________________________________________
+Cài đặt ArgoCD bằng Helm
+Tạo file cấu hình:
+nano argocd-values.yaml
+(thay domain)
+argocd-values.yaml
+configs:
+  params:
+    server.insecure: true
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    hosts:
+      - argocd.dofuta.site
+    paths:
+      - /
+    pathType: Prefix
+
+Cài ArgoCD:
+helm install argocd argo/argo-cd \
+  -n argocd \
+  --create-namespace \
+  -f argocd-values.yaml
+________________________________________
+Sự cố gặp phải (Quan trọng trong báo cáo)
+❌ Lỗi Pod Pending
+Pod:
+argocd-redis-secret-init
+Error:
+calico failed (add):
+error getting ClusterInformation: Unauthorized
+👉 Nguyên nhân:
+•	Calico CNI mất authentication với Kubernetes API. 
+________________________________________
+Khắc phục lỗi Calico Network
+Restart Calico pods:
+kubectl delete pods -n kube-system -l k8s-app=calico-node
+kubectl delete pods -n kube-system -l k8s-app=calico-kube-controllers
+Restart kubelet:
+sudo systemctl restart kubelet
+Sau đó cài lại ArgoCD.
+________________________________________
+Cài đặt ArgoCD thành công
+Helm deploy thành công:
+STATUS: deployed
+REVISION: 1
+Kiểm tra pods:
+kubectl get pods -n argocd
+Các thành phần chạy OK:
+•	argocd-server 
+•	argocd-repo-server 
+•	argocd-application-controller 
+•	argocd-dex-server 
+•	argocd-redis 
+•	argocd-notifications-controller 
+________________________________________
+Lấy mật khẩu đăng nhập ArgoCD
+kubectl -n argocd get secret argocd-initial-admin-secret \
+-o jsonpath="{.data.password}" | base64 -d
+User mặc định:
+username: admin
+password: <generated-password>
+________________________________________
+
+Cài đặt Ingress NGINX Controller (BỎ QUA NẾU ĐÃ CÀI RỒI)
+Triển khai ingress cho bare-metal:
+kubectl apply -f \
+https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/baremetal/deploy.yaml
+Kiểm tra:
+kubectl get pods -n ingress-nginx
+kubectl get svc -n ingress-nginx
+Service tạo dạng:
+NodePort:
+80  -> 30322
+443 -> 31472
+________________________________________
+1️⃣1️⃣ Cấu hình Ingress cho ArgoCD
+Sau khi enable ingress trong argocd-values.yaml:
+helm upgrade argocd argo/argo-cd -n argocd -f argocd-values.yaml
+Kiểm tra:
+kubectl get ingress -n argocd
+Kết quả:
+argocd-server
+HOST: argocd.example.com
+________________________________________
+1️⃣2️⃣ Kiến trúc truy cập
+User
+  ↓
+Cloudflare Tunnel
+  ↓
+HAProxy
+  ↓
+Ingress NGINX (NodePort)
+  ↓
+ArgoCD Server
+  ↓
+Kubernetes Cluster
+
+
+ẨM NANG CÀI ĐẶT DOCKER REGISTRY & UI TRÊN K8S
+1. Tạo Namespace và Cấu hình Core (Registry) Tạo file registry-core.yaml:
+YAML
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: registry
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: docker-registry-pvc
+  namespace: registry
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-registry
+  namespace: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-registry
+  template:
+    metadata:
+      labels:
+        app: docker-registry
+    spec:
+      containers:
+      - name: registry
+        image: registry:2
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: registry-data
+          mountPath: /var/lib/registry
+      volumes:
+      - name: registry-data
+        persistentVolumeClaim:
+          claimName: docker-registry-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-registry
+  namespace: registry
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: docker-registry
+2. Tạo Giao diện Web (UI) Tạo file registry-ui.yaml (đã fix lỗi bảo mật Mixed Content):
+YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-ui
+  namespace: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-ui
+  template:
+    metadata:
+      labels:
+        app: registry-ui
+    spec:
+      containers:
+      - name: registry-ui
+        image: joxit/docker-registry-ui:main
+        ports:
+        - containerPort: 80
+        env:
+        - name: NGINX_PROXY_PASS_URL
+          value: "http://docker-registry:5000"
+        - name: DELETE_IMAGES
+          value: "true"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-ui
+  namespace: registry
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: registry-ui
+3. Tạo Ingress định tuyến Tạo file registry-ingress.yaml:
+YAML
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: registry-ingress
+  namespace: registry
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: jfrog.dofuta.site
+    http:
+      paths:
+      - path: /v2/
+        pathType: Prefix
+        backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: registry-ui
+            port:
+              number: 80
+4. Khởi chạy Chỉ cần gõ 3 lệnh apply là hệ thống sẽ tự động lên hình:
+Bash
+kubectl apply -f registry-core.yaml
+kubectl apply -f registry-ui.yaml
+kubectl apply -f registry-ingress.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

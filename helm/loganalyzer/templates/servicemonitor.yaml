@@ -1,0 +1,30 @@
+{{- if .Values.monitoring.enabled }}
+# =============================================================
+# ServiceMonitor — Prometheus Operator tự động scrape /metrics
+# Yêu cầu: kube-prometheus-stack đã cài trên cluster
+# kubectl get crd servicemonitors.monitoring.coreos.com
+# =============================================================
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Release.Name }}-backend-monitor
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-backend
+    # Label này phải khớp với Prometheus CRD serviceMonitorSelector
+    release: prometheus
+    component: observability
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-backend
+  endpoints:
+  - port: http
+    path: {{ .Values.monitoring.serviceMonitor.metricsPath }}
+    interval: {{ .Values.monitoring.serviceMonitor.interval }}
+    scrapeTimeout: 10s
+    # Basic auth hoặc TLS nếu cần (không cần cho demo)
+  namespaceSelector:
+    matchNames:
+    - {{ .Values.namespace }}
+{{- end }}

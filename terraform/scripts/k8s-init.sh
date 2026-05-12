@@ -30,14 +30,21 @@ net.ipv4.ip_forward                 = 1
 EOF
 sysctl --system
 
-# Install Docker
+# Install Docker & Containerd
 apt-get update -qq
 apt-get install -y -qq docker.io curl apt-transport-https ca-certificates gnupg
+
+# Configure Containerd for SystemdCgroup (Required for K8s 1.22+)
+mkdir -p /etc/containerd
+containerd config default > /etc/containerd/config.toml
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+systemctl restart containerd
 systemctl enable --now docker
 
 # Install kubeadm, kubelet, kubectl v1.29
+mkdir -p /etc/apt/keyrings
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | \
-  gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  gpg --dearmor --yes -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' \
   > /etc/apt/sources.list.d/kubernetes.list
 apt-get update -qq
@@ -51,10 +58,15 @@ echo "[$(date)] Base packages installed."
 if [ "$ROLE" = "master" ]; then
   PRIVATE_IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 
+  # Ensure kernel modules and sysctl are active before kubeadm (may have run before reboot)
+  modprobe overlay
+  modprobe br_netfilter
+  sysctl --system
+
   kubeadm init \
     --pod-network-cidr=192.168.0.0/16 \
     --apiserver-advertise-address="$PRIVATE_IP" \
-    --ignore-preflight-errors=NumCPU >> "$LOG" 2>&1
+    --ignore-preflight-errors=NumCPU,Mem >> "$LOG" 2>&1
 
   # Configure kubectl for root and ubuntu users
   mkdir -p /root/.kube

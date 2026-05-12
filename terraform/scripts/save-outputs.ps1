@@ -47,8 +47,10 @@ try {
 `$env:SSH_KEY        = "$SSH_KEY"
 
 # Shortcuts (functions)
-function ssh-master { ssh -J "ubuntu@`$env:BASTION_IP" "ubuntu@`$env:MASTER_IP" -i `$env:SSH_KEY }
-function ssh-bastion { ssh ubuntu@`$env:BASTION_IP -i `$env:SSH_KEY }
+function ssh-master { ssh loganalyzer-master }
+function ssh-bastion { ssh loganalyzer-bastion }
+function ssh-worker1 { ssh loganalyzer-worker1 }
+function ssh-worker2 { ssh loganalyzer-worker2 }
 
 Write-Host "✅ LogAnalyzer env loaded:" -ForegroundColor Green
 Write-Host "   Bastion : `$env:BASTION_IP"
@@ -57,6 +59,47 @@ Write-Host "   ECR     : `$env:ECR_REGISTRY"
 "@
 
     $content | Out-File -FilePath $EnvFile -Encoding UTF8
+
+    # --- Update SSH Config dynamically ---
+    $sshConfigFile = Join-Path $env:USERPROFILE ".ssh\config"
+    $sshConfigContent = @"
+
+Host loganalyzer-bastion
+  HostName $BASTION_IP
+  User ubuntu
+  IdentityFile "$SSH_KEY"
+  StrictHostKeyChecking no
+
+Host loganalyzer-master
+  HostName $MASTER_IP
+  User ubuntu
+  IdentityFile "$SSH_KEY"
+  ProxyJump loganalyzer-bastion
+  StrictHostKeyChecking no
+"@
+    # Add workers to SSH config
+    $workerArray = $WORKER_IPS -split " "
+    for ($i = 0; $i -lt $workerArray.Length; $i++) {
+        $sshConfigContent += @"
+
+Host loganalyzer-worker$($i + 1)
+  HostName $($workerArray[$i])
+  User ubuntu
+  IdentityFile "$SSH_KEY"
+  ProxyJump loganalyzer-bastion
+  StrictHostKeyChecking no
+"@
+    }
+
+    # Backup existing config if it exists
+    if (Test-Path $sshConfigFile) {
+        # Only backup once a day to avoid spamming
+        $backupFile = "$sshConfigFile.bak"
+        Copy-Item -Path $sshConfigFile -Destination $backupFile -Force
+    }
+
+    $sshConfigContent | Out-File -FilePath $sshConfigFile -Encoding UTF8
+    Write-Host "✅ Updated SSH config: $sshConfigFile" -ForegroundColor Green
 
     Write-Host ""
     Write-Host "✅ Saved to: $EnvFile" -ForegroundColor Green

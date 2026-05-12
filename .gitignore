@@ -18,3 +18,14 @@ backend/config/baselines/*.joblib
 backend/config/baselines/*.json
 #backend/config/alerts/
 
+
+# Terraform state (KHÔNG commit lên Git)
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+terraform/terraform.tfvars
+
+# K8s secrets (n?u export ra file)
+*.kubeconfig
+kubeconfig*

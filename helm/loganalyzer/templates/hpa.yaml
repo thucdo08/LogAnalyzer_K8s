@@ -1,0 +1,81 @@
+{{- if .Values.autoscaling.enabled }}
+# =============================================================
+# HorizontalPodAutoscaler — Tự động scale pods khi tải tăng
+# SRE use-case: Khi lượng log đổ về lớn, backend sẽ tự mở rộng
+# =============================================================
+
+# --- Backend HPA ---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-backend-hpa
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-backend
+    component: autoscaling
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-backend
+  minReplicas: {{ .Values.autoscaling.backend.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.backend.maxReplicas }}
+  metrics:
+  # Scale theo CPU: LogAnalyzer analysis rất CPU-intensive
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.backend.targetCPUUtilizationPercentage }}
+  # Scale theo Memory: Xử lý DataFrame lớn tốn RAM
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.backend.targetMemoryUtilizationPercentage }}
+  behavior:
+    scaleUp:
+      # Scale up nhanh khi có spike log đột ngột
+      stabilizationWindowSeconds: 30
+      policies:
+      - type: Pods
+        value: 2
+        periodSeconds: 60
+    scaleDown:
+      # Scale down chậm để tránh flapping
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 120
+
+---
+# --- Frontend HPA ---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-frontend-hpa
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-frontend
+    component: autoscaling
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-frontend
+  minReplicas: {{ .Values.autoscaling.frontend.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.frontend.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.frontend.targetCPUUtilizationPercentage }}
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+{{- end }}

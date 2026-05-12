@@ -1,0 +1,136 @@
+{{- if .Values.monitoring.enabled }}
+# =============================================================
+# PrometheusRule — Alerting Rules cho LogAnalyzer
+# Khi rule trigger → Alertmanager gửi cảnh báo (Slack/PagerDuty/Email)
+# =============================================================
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ .Release.Name }}-alerts
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}
+    release: prometheus
+    component: alerting
+spec:
+  groups:
+  # -------------------------------------------------------
+  # Group 1: Availability Alerts (Độ sẵn sàng)
+  # -------------------------------------------------------
+  - name: loganalyzer.availability
+    interval: 30s
+    rules:
+    - alert: LogAnalyzerBackendDown
+      # Pod backend không có instance nào đang chạy
+      expr: |
+        absent(up{job="loganalyzer-backend"}) == 1
+        OR kube_deployment_status_replicas_available{
+          deployment="{{ .Release.Name }}-backend",
+          namespace="{{ .Values.namespace }}"
+        } == 0
+      for: 1m
+      labels:
+        severity: critical
+        service: loganalyzer
+        team: sre
+      annotations:
+        summary: "🚨 LogAnalyzer Backend DOWN"
+        description: |
+          Pod backend của LogAnalyzer không có instance nào available trong 1 phút.
+          Cluster: {{ "{{" }} $labels.cluster {{ "}}" }}
+          Namespace: {{ .Values.namespace }}
+          Hành động: Kiểm tra pod events: kubectl -n {{ .Values.namespace }} describe pod -l app={{ .Release.Name }}-backend
+        runbook_url: "https://github.com/thucdo08/LogAnalyzer_K8s/blob/main/docs/runbooks/backend-down.md"
+
+    - alert: LogAnalyzerFrontendDown
+      expr: |
+        kube_deployment_status_replicas_available{
+          deployment="{{ .Release.Name }}-frontend",
+          namespace="{{ .Values.namespace }}"
+        } == 0
+      for: 2m
+      labels:
+        severity: critical
+        service: loganalyzer
+      annotations:
+        summary: "🚨 LogAnalyzer Frontend DOWN"
+        description: "Frontend không available trong 2 phút. Dashboard không truy cập được."
+
+  # -------------------------------------------------------
+  # Group 2: Performance Alerts (Hiệu suất)
+  # -------------------------------------------------------
+  - name: loganalyzer.performance
+    interval: 60s
+    rules:
+    - alert: HighErrorRate
+      # Tỉ lệ lỗi 5xx vượt quá 5% trong 5 phút
+      expr: |
+        rate(loganalyzer_errors_total[5m]) /
+        rate(loganalyzer_requests_total[5m]) > 0.05
+      for: 5m
+      labels:
+        severity: warning
+        service: loganalyzer
+      annotations:
+        summary: "⚠️ Tỉ lệ lỗi LogAnalyzer cao (>5%)"
+        description: |
+          Tỉ lệ lỗi hiện tại: {{ "{{" }} $value | humanizePercentage {{ "}}" }}
+          Có thể do: OpenAI API timeout, MongoDB connection issues, hoặc file log format lạ.
+
+    - alert: HighAnalysisLatency
+      # P99 latency của endpoint /analyze vượt 3 giây
+      expr: |
+        histogram_quantile(0.99,
+          rate(flask_http_request_duration_seconds_bucket{
+            endpoint="/analyze"
+          }[5m])
+        ) > 3
+      for: 5m
+      labels:
+        severity: warning
+        service: loganalyzer
+      annotations:
+        summary: "⚠️ LogAnalyzer phân tích chậm (P99 >3s)"
+        description: |
+          P99 latency của /analyze: {{ "{{" }} $value | humanizeDuration {{ "}}" }}
+          LogAnalyzer xử lý file log quá chậm — kiểm tra OpenAI API rate limits.
+
+    - alert: LogAnalyzerHighCPU
+      # CPU usage vượt 90% trong 10 phút liên tục
+      expr: |
+        rate(container_cpu_usage_seconds_total{
+          namespace="{{ .Values.namespace }}",
+          pod=~"{{ .Release.Name }}-backend.*"
+        }[5m]) * 100 > 90
+      for: 10m
+      labels:
+        severity: warning
+        service: loganalyzer
+      annotations:
+        summary: "⚠️ LogAnalyzer CPU cao (>90%)"
+        description: |
+          Pod {{ "{{" }} $labels.pod {{ "}}" }} đang dùng >90% CPU.
+          HPA sẽ tự scale thêm pods nếu CPU limit chưa đạt.
+          Kiểm tra: kubectl -n {{ .Values.namespace }} top pods
+
+  # -------------------------------------------------------
+  # Group 3: Resource Alerts (Tài nguyên)
+  # -------------------------------------------------------
+  - name: loganalyzer.resources
+    interval: 60s
+    rules:
+    - alert: PodCrashLooping
+      expr: |
+        rate(kube_pod_container_status_restarts_total{
+          namespace="{{ .Values.namespace }}"
+        }[15m]) * 60 * 15 > 3
+      for: 0m
+      labels:
+        severity: critical
+        service: loganalyzer
+      annotations:
+        summary: "🚨 Pod CrashLooping trong namespace {{ .Values.namespace }}"
+        description: |
+          Pod {{ "{{" }} $labels.pod {{ "}}" }} đã restart >3 lần trong 15 phút.
+          Xem log: kubectl -n {{ .Values.namespace }} logs {{ "{{" }} $labels.pod {{ "}}" }} --previous
+{{- end }}
